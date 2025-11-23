@@ -17,6 +17,7 @@ export const navLinks = [
   {
     name: "Academics",
     dropdown: [
+        { name: "Academics", path: "/academic" },
       { name: "Department & Courses", path: "/department-courses" },
       { name: "Policies", path: "/policies" },
       { name: "Downloadable Brochure", path: "/downloadable-brochure" },
@@ -26,6 +27,7 @@ export const navLinks = [
   {
     name: "Admissions",
     dropdown: [
+      { name: "Admission", path: "/admission" },
       { name: "Admission Process", path: "/admission-process" },
       { name: "Online Application Form", path: "/online-application" },
       { name: "Requirements", path: "/requirements" },

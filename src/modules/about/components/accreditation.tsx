@@ -1,11 +1,12 @@
-import { GraduationCap, BookOpen, User, Earth } from "lucide-react";
+import { GraduationCap } from "lucide-react";
+import { BookIcon, UserIcon, WorldIcon } from "../../../assets/icons/svg_icons";
 
 const items = [
   {
     icon: (
       <GraduationCap
-        size={38}
-        className="text-[#D4A34A] bg-[#F4E0E1] rounded-md p-3"
+        size={40}
+        className="text-[#D4A34A] bg-[#F4E0E1] rounded-md p-2"
       />
     ),
     title: "University Affiliation",
@@ -13,9 +14,11 @@ const items = [
   },
   {
     icon: (
-      <BookOpen
-        size={38}
-        className="text-[#0B2545] bg-[#E6E9EE] rounded-md p-3"
+      <BookIcon
+        width={45}
+        height={35}
+        fill="#0B2545"
+        className="bg-[#E6E9EE] rounded-md p-2"
       />
     ),
     title: "Academics Oversight",
@@ -23,14 +26,22 @@ const items = [
   },
   {
     icon: (
-      <User size={38} className="text-[#D4A34A] bg-[#F4E0E1] rounded-md p-3" />
+      <UserIcon
+        width={45}
+        height={35}
+        className="bg-[#F4E0E1] rounded-md p-2"
+      />
     ),
     title: "Institutional Partnership",
     desc: "WATHS partners with ministries, churches, and educational institutions to support training, conferences, and community development.",
   },
   {
     icon: (
-      <Earth size={38} className="text-[#0B2545] bg-[#E6E9EE] rounded-md p-3" />
+      <WorldIcon
+        width={45}
+        height={35}
+        className="bg-[#E6E9EE] rounded-md p-2"
+      />
     ),
     title: "Mission & Ministerial Network",
     desc: "Through Dr. Glory Udo-Obioma’s ministry platforms, the seminary maintains strong mission and leadership networks that enrich student training and outreach.",

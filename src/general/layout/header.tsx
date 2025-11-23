@@ -80,7 +80,7 @@ const Header = () => {
           </button>
         </div>
       </div>
-            
+
       {/* ================================
               MOBILE MENU
       ================================== */}
@@ -154,8 +154,6 @@ const Header = () => {
               </NavLink>
             );
           })}
-
-          <hr className="my-4" />
 
           {/* MOBILE ACTION BUTTONS */}
           <button className="w-full px-4 py-2 border border-[#D4A95E] rounded-lg text-[#D4A95E]">

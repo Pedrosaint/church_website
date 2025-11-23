@@ -21,18 +21,24 @@ export const ProgramCard = ({
     <div className="bg-white rounded-2xl shadow-md overflow-hidden border border-gray-100">
       <div className="relative h-64">
         <img src={image} alt={title} className="w-full h-full object-cover" />
-        <div className="absolute bottom-4 left-4 right-4 flex gap-2">
-          <span className="px-3 py-1 bg-[#FFFFFF]/10 backdrop-blur-md rounded-md text-lg font-medium text-white">
-            {duration}
-          </span>
+        <div className="absolute bottom-4 left-4 right-4 flex flex-col gap-2">
+          {/* durationTwo on TOP (if available) */}
           {durationTwo && (
-            <span className="px-3 py-1 bg-[#FFFFFF]/10 text-white backdrop-blur-md rounded-md text-lg font-medium">
+            <span className="px-3 py-1 bg-[#FFFFFF]/10 backdrop-blur-md rounded-md text-lg font-medium text-white w-fit">
               {durationTwo}
             </span>
           )}
-          <span className="px-3 py-1 bg-[#FFFFFF]/10 text-white backdrop-blur-md rounded-md text-lg font-medium">
-            {mode}
-          </span>
+
+          {/* duration + mode BELOW */}
+          <div className="flex gap-2">
+            <span className="px-3 py-1 bg-[#FFFFFF]/10 backdrop-blur-md rounded-md text-lg font-medium text-white">
+              {duration}
+            </span>
+
+            <span className="px-3 py-1 bg-[#FFFFFF]/10 backdrop-blur-md rounded-md text-lg font-medium text-white">
+              {mode}
+            </span>
+          </div>
         </div>
       </div>
 

@@ -28,15 +28,19 @@ export const EventCard = ({
         <p className="text-6xl font-bold mt-1">{date}</p>
       </div>
 
-      <div className="flex-1 p-6">
-        <div className="flex items-start justify-between mb-4">
-          <h3 className="text-xl font-bold text-gray-900">{title}</h3>
+      <div className="flex-1 p-4 md:p-6">
+        <div className="flex items-start justify-end md:justify-between mb-2 md:mb-4">
+          <h3 className="text-xl font-bold text-gray-900 hidden md:block">
+            {title}
+          </h3>
           <span
             className={`px-4 py-1 rounded-full text-sm font-medium ${categoryColor}`}
           >
             {category}
           </span>
         </div>
+
+        <h3 className="text-xl font-bold text-gray-900 md:hidden">{title}</h3>
 
         <div className="space-y-2 mb-4">
           {time && (

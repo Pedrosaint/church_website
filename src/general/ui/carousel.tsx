@@ -25,7 +25,7 @@ export default function NewsTickerCarousel({ items, interval = 5000 }: Props) {
 
   return (
     <div className="w-full">
-      <div className="flex items-center gap-3">
+      <div className="flex flex-col md:flex-row md:items-center md:gap-3 pt-2">
         {/* News Title */}
         <p className="text-lg font-medium">{items[current].title}</p>
 
@@ -34,7 +34,7 @@ export default function NewsTickerCarousel({ items, interval = 5000 }: Props) {
       </div>
 
       {/* Pagination dots */}
-      <div className="flex justify-center ml-70 gap-2">
+      <div className="flex justify-center md:ml-70 gap-2">
         {items.map((_, i) => (
           <div
             key={i}
