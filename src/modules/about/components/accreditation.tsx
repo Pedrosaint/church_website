@@ -53,7 +53,7 @@ export default function AccreditationCards() {
     <div className="py-16 bg-[#f7f7fb]">
       <div className="text-center mb-12">
         <h2 className="text-4xl font-bold mb-2">Accreditation & Partnership</h2>
-        <p className="text-gray-600 text-sm max-w-xl mx-auto">
+        <p className="text-gray-600 text-lg font-inter max-w-3xl mx-auto">
           Strengthened by reputable academic recognition and strong
           institutional partnership
         </p>

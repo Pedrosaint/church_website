@@ -1,6 +1,8 @@
-import { ArrowRight, Star } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import ChurchBuilding from "../../../assets/images/church.png";
 import { CircleIcon } from "../../../assets/icons/svg_icons";
+import { GoArrowDownRight } from "react-icons/go";
+import { IoStarSharp } from "react-icons/io5";
 
 const AboutHero = () => {
   return (
@@ -28,44 +30,38 @@ const AboutHero = () => {
         {/* RIGHT — EXACT COPY POSITIONING */}
         <div className="flex-1 relative h-[520px]">
           {/* TOP LEFT - LARGE */}
-          <div className="absolute top-0 left-0 w-[240px] h-[260px] rounded-3xl overflow-hidden border-[6px] border-white shadow-xl">
+          <div className="absolute top-10 left-0 w-70 h-[290px] rounded-3xl overflow-hidden">
             <img src={ChurchBuilding} className="w-full h-full object-cover" />
           </div>
 
-          {/* TOP RIGHT - MEDIUM */}
-          <div className="absolute top-[20px] right-0 w-[240px] h-[260px] rounded-3xl overflow-hidden border-[6px] border-white shadow-xl">
+          {/* STAR - TOP LEFT */}
+          <IoStarSharp className="absolute -left-12 top-72 text-[#D4A34A] w-7 h-7 fill-[#D4A34A]" />
+
+          {/* CIRCLE */}
+          <div className="absolute top-2.5 right-73 w-[70px] h-[70px] bg-[#0B2545] rounded-full border-6 border-white flex items-center justify-center z-10">
+            <GoArrowDownRight color="white" size={30} />
+          </div>
+
+          {/* TOP RIGHT - LARGE */}
+          <div className="absolute top-30 right-6 w-70 h-[290px] rounded-3xl overflow-hidden">
             <img src={ChurchBuilding} className="w-full h-full object-cover" />
           </div>
 
           {/* BOTTOM LEFT - MEDIUM */}
-          <div className="absolute bottom-0 left-[20px] w-[240px] h-[230px] rounded-3xl overflow-hidden border-[6px] border-white shadow-xl">
+          <div className="absolute -bottom-12 -left-10 w-100 h-[220px] rounded-3xl overflow-hidden">
             <img src={ChurchBuilding} className="w-full h-full object-cover" />
           </div>
 
-          {/* GOLD capsule - CENTER */}
-          <div className="absolute top-[160px] left-1/2 -translate-x-1/2 bg-[#D4A34A] rounded-full w-[140px] h-[50px] flex items-center justify-center gap-1 px-2">
+          {/* CIRCLE - CENTER */}
+          <div className="absolute top-83 right-25 -translate-x-1/2 bg-[#D4A34A] rounded-l-full rounded-tr-full w-[210px] h-25 flex items-center justify-center gap-1 px-2 border-16 border-white">
             <CircleIcon />
           </div>
 
-          {/* STAR - TOP LEFT */}
-          <Star className="absolute left-[-20px] top-[220px] text-[#D4A34A] w-10 h-10 fill-[#D4A34A]" />
-
           {/* STAR - BOTTOM RIGHT */}
-          <Star className="absolute bottom-[100px] right-[30px] text-[#D4A34A] w-8 h-8 fill-[#D4A34A]" />
+          <IoStarSharp className="absolute bottom-[50px] right-42 text-[#D4A34A] w-8 h-8 fill-[#D4A34A]" />
 
           {/* SMALL NAVY CIRCLE - BOTTOM RIGHT */}
-          <div className="absolute bottom-[50px] right-[60px] w-[14px] h-[14px] bg-[#0B2545] rounded-full" />
-
-          {/* NAVY CIRCLE - TOP RIGHT (curved arrow origin) */}
-          <div className="absolute top-[-10px] right-[-10px] w-[50px] h-[50px] bg-[#0B2545] rounded-full flex items-center justify-center">
-            <div
-              className="w-6 h-6 border-2 border-white rounded-full"
-              style={{
-                borderTopColor: "transparent",
-                transform: "rotate(-45deg)",
-              }}
-            />
-          </div>
+          <div className="absolute bottom-2 right-[60px] w-5 h-5 bg-[#0B2545] rounded-full" />
         </div>
       </div>
     </section>

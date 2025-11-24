@@ -35,7 +35,7 @@ const AboutUs = () => {
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             Our Journey
           </h2>
-          <p className="text-gray-600 text-lg">
+          <p className="text-gray-600 text-lg font-inter">
             A legacy of spiritual formation, academic growth, and dedicated
             ministry since 1991
           </p>

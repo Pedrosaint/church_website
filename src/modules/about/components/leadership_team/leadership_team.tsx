@@ -32,13 +32,13 @@ export const LeadershipTeam = () => {
   ];
 
   return (
-    <section className="py-20 px-4 bg-gray-50">
+    <section className="py-1 px-4 bg-gray-50">
       <div className="container mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-4xl font-bold text-gray-900 pt-5 mb-4">
             Leadership Team
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
+          <p className="text-gray-600 max-w-3xl mx-auto text-lg font-inter">
             Dedicated leaders committed to academic excellence, spiritual
             formation, and the advancement of WAGGOM’s mission.
           </p>

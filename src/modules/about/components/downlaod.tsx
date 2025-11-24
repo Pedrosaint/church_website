@@ -2,9 +2,9 @@ import { FileText, Download as DownloadIcon } from "lucide-react";
 
 const Download = () => {
   return (
-    <div className="bg-[#F6F7F9] py-16 px-4">
+    <div className="bg-[#F6F7F9] py-16 px-4 font-inter">
       <div className="container mx-auto">
-        <div className="bg-[#F6F7F9] rounded-2xl border-2 border-[#0B2545] p-12">
+        <div className="bg-[#F6F7F9] rounded-2xl border border-[#0B2545] p-12">
           {/* Icon */}
           <div className="flex justify-center mb-6">
             <div className="w-16 h-16 rounded-full bg-[#0B2545] flex items-center justify-center">
@@ -13,7 +13,7 @@ const Download = () => {
           </div>
 
           {/* Heading */}
-          <h2 className="text-2xl font-bold text-gray-900 mb-3 text-center">
+          <h2 className="text-2xl font-medium text-gray-900 mb-3 text-center">
             Download Our Institutional Profile
           </h2>
 
