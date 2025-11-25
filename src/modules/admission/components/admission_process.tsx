@@ -37,7 +37,7 @@ export const AdmissionProcess = () => {
         </p>
       </div>
 
-      <div className="grid md:grid-cols-4 gap-6 container mx-auto">
+      <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-6 container mx-auto">
         {steps.map((step, index) => (
           <div
             key={index}

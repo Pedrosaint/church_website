@@ -17,12 +17,12 @@ const Header = () => {
         <div className="text-xl font-semibold">LOGO</div>
 
         {/* HAMBURGER FOR MOBILE */}
-        <button className="md:hidden text-[#0A2240]" onClick={toggleMobile}>
+        <button className="lg:hidden text-[#0A2240]" onClick={toggleMobile}>
           {mobileOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
 
         {/* DESKTOP NAV */}
-        <nav className="hidden md:flex items-center space-x-8 text-[15px] text-[#0A2240]">
+        <nav className="hidden lg:flex items-center space-x-8 text-[15px] text-[#0A2240]">
           {navLinks.map((link) => {
             const isParentActive =
               "dropdown" in link &&
@@ -71,7 +71,7 @@ const Header = () => {
         </nav>
 
         {/* DESKTOP BUTTONS */}
-        <div className="hidden md:flex items-center space-x-3">
+        <div className="hidden lg:flex items-center space-x-3">
           <button className="px-4 py-2 border border-[#D4A95E] rounded-lg text-[#D4A95E]">
             Donate
           </button>
@@ -85,7 +85,7 @@ const Header = () => {
               MOBILE MENU
       ================================== */}
       <div
-        className={`md:hidden fixed top-0 left-0 h-full w-[75%] bg-white shadow-lg z-40 transform transition-transform duration-300 ${
+        className={`lg:hidden fixed top-0 left-0 h-full w-[75%] md:w-[50%] bg-white shadow-lg z-40 transform transition-transform duration-300 ${
           mobileOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >

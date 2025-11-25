@@ -28,10 +28,10 @@ const [value, setValue] = useState("");
    };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 px-3">
       {/* Program Level */}
       <div>
-        <label className="block font-medium text-[#0C1B47] mb-2 text-2xl">
+        <label className="block font-medium text-gray-800 mb-2 text-2xl">
           Program Level
         </label>
 
@@ -48,7 +48,6 @@ const [value, setValue] = useState("");
           ))}
         </select>
       </div>
-
       {/* Mode of Study */}
       <div className="font-inter">
         <label className="block font-medium text-[#0C1B47] mb-2">
@@ -82,6 +81,12 @@ const [value, setValue] = useState("");
         </div>
       </div>
 
+
+      {/* ================= PROGRAM DETAILS ================= */}
+      {/* NOTE: This [study duration and preferred start date] will automatically come
+      from the program level endpoinnt */}
+
+
       {/* Study Duration */}
       <div className="font-inter">
         <label className="block font-medium text-[#0C1B47] mb-2">
@@ -99,7 +104,6 @@ const [value, setValue] = useState("");
           />
         </div>
       </div>
-
       {/* Preferred Start Date */}
       <div className="font-inter">
         <label className="block font-medium text-[#0C1B47] mb-2">
@@ -115,7 +119,6 @@ const [value, setValue] = useState("");
           />
         </div>
       </div>
-
       {/* Short Essay */}
       <div className="font-inter">
         <label className="block font-medium text-[#0C1B47] mb-1">
@@ -131,7 +134,6 @@ const [value, setValue] = useState("");
           className="w-full border border-gray-300 rounded-lg px-4 py-3 text-gray-700 focus:outline-none outline-none"
         ></textarea>
       </div>
-
       {/* ======================= BUTTONS ======================= */}
       <div className="flex justify-between mt-8">
         <button

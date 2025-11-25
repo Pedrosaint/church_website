@@ -50,7 +50,7 @@ const ReferencesForm = ({ goToNext, goToPrev }: AcademicHistoryProps) => {
   };
 
   return (
-    <div className="py-8 px-4 font-inter">
+    <div className="py-8 md:px-4 font-inter">
       <div className="space-y-6">
         {/* ======================= REFERENCE 1 - Pastor or Church Leader ======================= */}
         <div className="bg-white border-2 border-gray-200 rounded-lg overflow-hidden">

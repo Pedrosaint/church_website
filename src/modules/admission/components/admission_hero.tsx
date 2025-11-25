@@ -9,7 +9,7 @@ const AdmissionHero = () => {
   ];
 
   return (
-    <section className="bg-[#0B2545] mt-19 py-15 px-6 relative overflow-hidden">
+    <section className="bg-[#0B2545] mt-10 md:mt-9 lg:mt-19 py-15 px-6 relative overflow-hidden">
       <div className="container mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
@@ -55,9 +55,17 @@ const AdmissionHero = () => {
           </div>
 
           {/* Right Image/Form Placeholder */}
-          <div className="relative">
-            <div className="absolute bottom-100 left-2.5 w-3 h-3 bg-[#D4A34A] rounded-full" />
-            <svg width="750" height="500" viewBox="0 0 550 330">
+          {/* Right Image/Form Placeholder */}
+          <div className="relative flex justify-center lg:justify-end w-full">
+            {/* Top Dot */}
+            <div className="absolute -top-3 left-3 w-2 h-2 sm:w-3 sm:h-3 bg-[#D4A34A] rounded-full" />
+
+            <svg
+              className="w-[250px] sm:w-[350px] md:w-[450px] lg:w-[550px] xl:w-[650px] 
+               h-auto"
+              viewBox="0 0 550 330"
+              preserveAspectRatio="xMidYMid meet"
+            >
               <defs>
                 <clipPath id="clip">
                   {/* 1 */}
@@ -103,20 +111,22 @@ const AdmissionHero = () => {
               </defs>
 
               <image
+                href={admissionImage}
                 x="0"
                 y="0"
                 width="550"
                 height="400"
-                href={admissionImage}
                 clipPath="url(#clip)"
                 preserveAspectRatio="xMidYMid slice"
               />
             </svg>
-            <div className="absolute bottom-50 right-[60px] w-3 h-3 bg-[#D4A34A] rounded-full" />
+
+            {/* Bottom Dot */}
+            <div className="absolute bottom-2 right-5 w-2 h-2 sm:w-3 sm:h-3 bg-[#D4A34A] rounded-full" />
           </div>
         </div>
       </div>
-{/* 
+      {/* 
       <div className="h-[400px] w-[500px] relative">
         <img src={admissionImage} className="h-[400px] w-[500px] absolute" />
         <div className="h-20 w-[300px] rounded-full absolute top-24 rotate-150 border border-b-gray-950 bg-transparent" />

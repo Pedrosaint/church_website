@@ -63,74 +63,105 @@ export default function AcademicHistory({
 
   return (
     <div className="">
-      <div className="flex gap-3 justify-between">
+      <div className="flex flex-col md:flex-row gap-3 justify-between">
         {/* ======================= PREVIOUS EDUCATION ======================= */}
         <div className="border border-gray-200 p-5 rounded-xl mb-6 w-full ">
           <h2 className="text-2xl font-semibold mb-4">Previous Education</h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 font-inter">
-            <input
-              name="institutionName"
-              placeholder="E.g. University of Calabar, University of Lagos, etc"
-              value={form.institutionName}
-              onChange={handleChange}
-              className="border border-gray-200 p-2 rounded-xl w-full outline-none"
-            />
+            <div>
+              <label className="block mb-1 font-semibold text-sm">
+                Full Name of Institution
+              </label>
+              <input
+                name="institutionName"
+                placeholder="E.g. University of Calabar, University of Lagos, etc"
+                value={form.institutionName}
+                onChange={handleChange}
+                className="border border-gray-200 p-2 rounded-xl w-full outline-none"
+              />
+            </div>
 
-            <select
-              name="institutionType"
-              value={form.institutionType}
-              onChange={handleChange}
-              className="border border-gray-200 p-2 rounded-xl w-full outline-none"
-            >
-              <option value="">Select Type</option>
-              <option value="Secondary School">Secondary School</option>
-              <option value="Seminary">Seminary</option>
-              <option value="University">University</option>
-              <option value="Bible College">Bible College</option>
-            </select>
+            <div>
+              <label className="block mb-1 font-semibold text-sm">
+                Type of Institution
+              </label>
+              <select
+                name="institutionType"
+                value={form.institutionType}
+                onChange={handleChange}
+                className="border border-gray-200 p-2 rounded-xl w-full outline-none"
+              >
+                <option value="">Select Type</option>
+                <option value="Secondary School">Secondary School</option>
+                <option value="Seminary">Seminary</option>
+                <option value="University">University</option>
+                <option value="Bible College">Bible College</option>
+              </select>
+            </div>
 
-            <input
-              name="qualification"
-              placeholder="E.g. SSCE, Diploma, B,TH,B.A, etc"
-              value={form.qualification}
-              onChange={handleChange}
-              className="border border-gray-200 p-2 rounded-xl w-full outline-none"
-            />
+            <div>
+              <label className="block mb-1 font-semibold text-sm">
+                Qualification Obtained
+              </label>
+              <input
+                name="qualification"
+                placeholder="E.g. SSCE, Diploma, B,TH,B.A, etc"
+                value={form.qualification}
+                onChange={handleChange}
+                className="border border-gray-200 p-2 rounded-xl w-full outline-none"
+              />
+            </div>
 
-            <input
-              name="course"
-              placeholder="E.g. B.A. in Religious & Cultural Studies, B.Th. Pastoral Ministry, etc"
-              value={form.course}
-              onChange={handleChange}
-              className="border border-gray-200 p-2 rounded-xl w-full outline-none"
-            />
+            <div>
+              <label className="block mb-1 font-semibold text-sm">Course</label>
+              <input
+                name="course"
+                placeholder="E.g. B.A. in Religious & Cultural Studies, B.Th. Pastoral Ministry, etc"
+                value={form.course}
+                onChange={handleChange}
+                className="border border-gray-200 p-2 rounded-xl w-full outline-none"
+              />
+            </div>
 
-            <input
-              type="date"
-              name="admissionYear"
-              placeholder="Admission Year"
-              value={form.admissionYear}
-              onChange={handleChange}
-              className="border border-gray-200 p-2 rounded-xl w-full outline-none"
-            />
-
-            <input
-              type="date"
-              name="graduationYear"
-              placeholder="Graduation Year"
-              value={form.graduationYear}
-              onChange={handleChange}
-              className="border border-gray-200 p-2 rounded-xl w-full outline-none"
-            />
-
-            <input
-              name="grade"
-              placeholder="E.g First Class, GPA 4.0"
-              value={form.grade}
-              onChange={handleChange}
-              className="border border-gray-200 p-2 rounded-xl w-full outline-none"
-            />
+            <div>
+              <label className="block mb-1 font-semibold text-sm">
+                Year of Admission
+              </label>
+              <input
+                type="date"
+                name="admissionYear"
+                placeholder="Admission Year"
+                value={form.admissionYear}
+                onChange={handleChange}
+                className="border border-gray-200 p-2 rounded-xl w-full outline-none"
+              />
+            </div>
+            <div>
+              <label className="block mb-1 font-semibold text-sm">
+                Year of Graduation
+              </label>
+              <input
+                type="date"
+                name="graduationYear"
+                placeholder="Graduation Year"
+                value={form.graduationYear}
+                onChange={handleChange}
+                className="border border-gray-200 p-2 rounded-xl w-full outline-none"
+              />
+            </div>
+            <div>
+              <label className="block mb-1 font-semibold text-sm">
+                Grade / Result
+              </label>
+              <input
+                name="grade"
+                placeholder="E.g First Class, GPA 4.0"
+                value={form.grade}
+                onChange={handleChange}
+                className="border border-gray-200 p-2 rounded-xl w-full outline-none"
+              />
+            </div>
           </div>
         </div>
 
@@ -203,6 +234,7 @@ export default function AcademicHistory({
                     Years of Service
                   </label>
                   <input
+                  type="date"
                     name="yearsOfService"
                     value={form.yearsOfService}
                     onChange={handleChange}
@@ -216,97 +248,95 @@ export default function AcademicHistory({
       </div>
 
       {/* ======================= UPLOADS SECTION ======================= */}
-       <div className="w-full border border-gray-200 rounded-lg p-6 mx-auto font-inter">
-      <h2 className="text-xl font-semibold text-[#0C1B47] mb-6">
-        Uploads Section
-      </h2>
+      <div className="w-full border border-gray-200 rounded-lg p-6 mx-auto font-inter">
+        <h2 className="text-xl font-semibold text-[#0C1B47] mb-6">
+          Uploads Section
+        </h2>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* ================= Academic Transcript (Single) ================= */}
+          <div
+            className="border border-[#D5D6DA] bg-[#FAFAFB] rounded-lg px-6 py-4 flex flex-col items-center justify-center cursor-pointer"
+            onClick={() => transcriptInputRef.current?.click()}
+          >
+            <input
+              type="file"
+              accept=".pdf,.jpg,.jpeg,.png"
+              ref={transcriptInputRef}
+              onChange={handleTranscriptUpload}
+              className="hidden"
+            />
 
-        {/* ================= Academic Transcript (Single) ================= */}
-        <div
-          className="border border-[#D5D6DA] bg-[#FAFAFB] rounded-lg px-6 py-4 flex flex-col items-center justify-center cursor-pointer"
-          onClick={() => transcriptInputRef.current?.click()}
-        >
-          <input
-            type="file"
-            accept=".pdf,.jpg,.jpeg,.png"
-            ref={transcriptInputRef}
-            onChange={handleTranscriptUpload}
-            className="hidden"
-          />
+            <p className="font-semibold text-[#0C1B47] text-center">
+              Upload Academic Transcript
+            </p>
+            <p className="text-sm text-gray-500 mb-4">
+              PDF or JPG, Max size 5MB
+            </p>
 
-          <p className="font-semibold text-[#0C1B47] text-center">
-            Upload Academic Transcript
-          </p>
-          <p className="text-sm text-gray-500 mb-4">
-            PDF or JPG, Max size 5MB
-          </p>
+            {!transcript && (
+              <div className="w-12 h-12 flex items-center justify-center text-gray-500">
+                <UploadCloud size={32} />
+              </div>
+            )}
 
-          {!transcript && (
-            <div className="w-12 h-12 flex items-center justify-center text-gray-500">
-              <UploadCloud size={32} />
-            </div>
-          )}
+            {/* Preview */}
+            {transcript && (
+              <div className="mt-3 bg-white shadow p-3 rounded-lg w-full flex justify-between items-center">
+                <span className="text-sm truncate">{transcript.name}</span>
+                <button onClick={removeTranscript}>
+                  <X size={18} className="text-red-500" />
+                </button>
+              </div>
+            )}
+          </div>
 
-          {/* Preview */}
-          {transcript && (
-            <div className="mt-3 bg-white shadow p-3 rounded-lg w-full flex justify-between items-center">
-              <span className="text-sm truncate">{transcript.name}</span>
-              <button onClick={removeTranscript}>
-                <X size={18} className="text-red-500" />
-              </button>
-            </div>
-          )}
-        </div>
+          {/* ================= Certificates / Result Slip (Multiple) ================= */}
+          <div
+            className="border border-[#D5D6DA] bg-[#FAFAFB] rounded-lg px-6 py-4 flex flex-col items-center justify-center cursor-pointer"
+            onClick={() => certificateInputRef.current?.click()}
+          >
+            <input
+              type="file"
+              accept=".pdf,.jpg,.jpeg,.png"
+              multiple
+              ref={certificateInputRef}
+              onChange={handleCertificateUpload}
+              className="hidden"
+            />
 
-        {/* ================= Certificates / Result Slip (Multiple) ================= */}
-        <div
-          className="border border-[#D5D6DA] bg-[#FAFAFB] rounded-lg px-6 py-4 flex flex-col items-center justify-center cursor-pointer"
-          onClick={() => certificateInputRef.current?.click()}
-        >
-          <input
-            type="file"
-            accept=".pdf,.jpg,.jpeg,.png"
-            multiple
-            ref={certificateInputRef}
-            onChange={handleCertificateUpload}
-            className="hidden"
-          />
+            <p className="font-semibold text-[#0C1B47] text-center">
+              Upload Certificate(s) / Result Slip
+            </p>
+            <p className="text-sm text-gray-500 mb-4">
+              PDF or JPG, Multiple files allowed
+            </p>
 
-          <p className="font-semibold text-[#0C1B47] text-center">
-            Upload Certificate(s) / Result Slip
-          </p>
-          <p className="text-sm text-gray-500 mb-4">
-            PDF or JPG, Multiple files allowed
-          </p>
+            {certificates.length === 0 && (
+              <div className="w-12 h-12 flex items-center justify-center text-gray-500">
+                <UploadCloud size={32} />
+              </div>
+            )}
 
-          {certificates.length === 0 && (
-            <div className="w-12 h-12 flex items-center justify-center text-gray-500">
-              <UploadCloud size={32} />
-            </div>
-          )}
-
-          {/* File list */}
-          {certificates.length > 0 && (
-            <div className="mt-3 w-full flex flex-col gap-2">
-              {certificates.map((file, index) => (
-                <div
-                  key={index}
-                  className="bg-white shadow p-3 rounded-lg flex justify-between items-center"
-                >
-                  <span className="text-sm truncate">{file.name}</span>
-                  <button onClick={() => removeCertificate(index)}>
-                    <X size={18} className="text-red-500" />
-                  </button>
-                </div>
-              ))}
-            </div>
-          )}
+            {/* File list */}
+            {certificates.length > 0 && (
+              <div className="mt-3 w-full flex flex-col gap-2">
+                {certificates.map((file, index) => (
+                  <div
+                    key={index}
+                    className="bg-white shadow p-3 rounded-lg flex justify-between items-center"
+                  >
+                    <span className="text-sm truncate">{file.name}</span>
+                    <button onClick={() => removeCertificate(index)}>
+                      <X size={18} className="text-red-500" />
+                    </button>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
         </div>
       </div>
-    </div>
-
 
       {/* ======================= BUTTONS ======================= */}
       <div className="flex justify-between mt-8">

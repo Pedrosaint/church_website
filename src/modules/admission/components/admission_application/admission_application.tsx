@@ -125,6 +125,7 @@ import ProgramChoice from "./program_choice";
 import DocumentUploadForm from "./document_upload";
 import ReferencesForm from "./admission_reference";
 import ApplicationFeePayment from "./payment";
+import ReviewSubmitApplication from "./review";
 
 
 
@@ -158,6 +159,8 @@ export default function AdmissionApplication() {
         return <ReferencesForm goToNext={next} goToPrev={prev} />;
         case 6:
         return <ApplicationFeePayment goToNext={next} goToPrev={prev} />;
+        case 7:
+        return <ReviewSubmitApplication />;
     }
   };
 

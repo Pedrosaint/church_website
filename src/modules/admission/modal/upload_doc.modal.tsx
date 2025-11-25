@@ -1,11 +1,14 @@
 /* eslint-disable react-hooks/static-components */
+import { AlertCircle, Info, UploadIcon, X } from "lucide-react";
 import { useState } from "react";
-import { AlertCircle, Info } from "lucide-react";
+import { FaEnvelope } from "react-icons/fa";
+import { FiFileText } from "react-icons/fi";
 import { IoCameraOutline } from "react-icons/io5";
 import { PiIdentificationCardThin } from "react-icons/pi";
-import { FiFileText } from "react-icons/fi";
-import { Upload as UploadIcon } from "lucide-react";
-import { FaEnvelope } from "react-icons/fa";
+
+interface UploadedDocumentsModalProps {
+  onClose: () => void;
+}
 
 interface FileState {
   [key: string]: File | null;
@@ -13,11 +16,6 @@ interface FileState {
 
 interface ErrorState {
   [key: string]: string | null;
-}
-
-interface AcademicHistoryProps {
-  goToNext: () => void;
-  goToPrev: () => void;
 }
 
 const MAX_FILE_SIZE = 5 * 1024 * 1024;
@@ -29,7 +27,9 @@ const formatAcceptString = (formats: string) =>
     .map((f) => `.${f.trim().toLowerCase()}`)
     .join(",");
 
-const DocumentUploadForm = ({ goToNext, goToPrev }: AcademicHistoryProps) => {
+export default function UploadedDocumentsModal({
+  onClose,
+}: UploadedDocumentsModalProps) {
   const [files, setFiles] = useState<FileState>({
     passport: null,
     birth: null,
@@ -136,107 +136,68 @@ const DocumentUploadForm = ({ goToNext, goToPrev }: AcademicHistoryProps) => {
     </div>
   );
 
-  const handleNext = () => {
-    goToNext();
-  };
-
   return (
-    <div className="py-8">
-      <div className="border border-gray-200 rounded-xl p-5 md:p-8">
-        <h2 className="text-2xl font-bold mb-6">Required Documents</h2>
-
-        <UploadBox
-          field="passport"
-          label="Passport Photograph"
-          formats="JPG, PNG"
-          notes="Recent color photograph with a white background."
-          Icon={IoCameraOutline}
-        />
-
-        <UploadBox
-          field="birth"
-          label="Birth Certificate / Age Declaration"
-          formats="PDF, JPG"
-          Icon={FiFileText}
-        />
-
-        <UploadBox
-          field="academic"
-          label="Academic Certificates"
-          formats="PDF, JPG"
-          Icon={FiFileText}
-        />
-
-        <UploadBox
-          field="transcript"
-          label="Transcript"
-          formats="PDF, JPG"
-          notes="Optional for Certificate/Diploma; Required for B.Th and M.Th"
-          Icon={FiFileText}
-        />
-
-        <UploadBox
-          field="recommendation"
-          label="Recommendation Letter"
-          formats="PDF, JPG"
-          notes="Optional"
-          Icon={FaEnvelope}
-        />
-
-        <UploadBox
-          field="identity"
-          label="Identity Document"
-          formats="PDF, JPG, PNG"
-          notes="National ID or Voter's Card"
-          Icon={PiIdentificationCardThin}
-        />
-
-        {/* Upload Notes */}
-        <div className="bg-[#0B2545] rounded-lg p-6 mt-8 font-inter">
-          <h3 className="text-white font-semibold mb-3">Upload Notes</h3>
-          <div className="grid md:grid-cols-2 gap-4">
-            <div>
-              <div className="flex items-start gap-2 text-white text-sm mb-2">
-                <Info className="w-4 h-4 mt-0.5 text-[#D4A34A]" />
-                <span>Max file size: 5MB per document.</span>
-              </div>
-              <div className="flex items-start gap-2 text-white text-sm">
-                <Info className="w-4 h-4 mt-0.5 text-[#D4A34A]" />
-                <span>Allowed formats: PDF, JPG, PNG.</span>
-              </div>
-            </div>
-            <div>
-              <div className="flex items-start gap-2 text-white text-sm mb-2">
-                <Info className="w-4 h-4 mt-0.5 text-[#D4A34A]" />
-                <span>Ensure documents are clear and legible.</span>
-              </div>
-              <div className="flex items-start gap-2 text-white text-sm">
-                <Info className="w-4 h-4 mt-0.5 text-[#D4A34A]" />
-                <span>Use the help icons for specific guidance.</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* ======================= BUTTONS ======================= */}
-        <div className="flex justify-between mt-8">
-          <button
-            onClick={goToPrev}
-            className="border border-[#D4A34A] text-[#D4A34A] px-6 py-2 rounded-xl cursor-pointer"
-          >
-            Back
-          </button>
-
-          <button
-            onClick={handleNext}
-            className="bg-[#D4A34A] px-6 py-2 rounded-xl text-[#0B2545] cursor-pointer font-inter"
-          >
-            Save & Continue
+    <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50 p-2">
+      <div className="bg-white w-full max-w-4xl p-6 rounded-xl shadow-lg max-h-[90vh] overflow-y-auto">
+        <div className="flex justify-between items-center mb-4">
+          <h2 className="text-lg font-semibold">Edit Uploaded Documents</h2>
+          <button onClick={onClose}>
+            <X className="w-5 h-5" />
           </button>
         </div>
+
+        <div className="space-y-4">
+          <UploadBox
+            field="passport"
+            label="Passport Photograph"
+            formats="JPG, PNG"
+            notes="Recent color photograph with a white background."
+            Icon={IoCameraOutline}
+          />
+
+          <UploadBox
+            field="birth"
+            label="Birth Certificate / Age Declaration"
+            formats="PDF, JPG"
+            Icon={FiFileText}
+          />
+
+          <UploadBox
+            field="academic"
+            label="Academic Certificates"
+            formats="PDF, JPG"
+            Icon={FiFileText}
+          />
+
+          <UploadBox
+            field="transcript"
+            label="Transcript"
+            formats="PDF, JPG"
+            notes="Optional for Certificate/Diploma; Required for B.Th and M.Th"
+            Icon={FiFileText}
+          />
+
+          <UploadBox
+            field="recommendation"
+            label="Recommendation Letter"
+            formats="PDF, JPG"
+            notes="Optional"
+            Icon={FaEnvelope}
+          />
+
+          <UploadBox
+            field="identity"
+            label="Identity Document"
+            formats="PDF, JPG, PNG"
+            notes="National ID or Voter's Card"
+            Icon={PiIdentificationCardThin}
+          />
+        </div>
+
+        <button className="mt-6 w-full bg-[#D4A34A] text-white p-2 rounded-lg">
+          Save Documents
+        </button>
       </div>
     </div>
   );
-};
-
-export default DocumentUploadForm;
+}

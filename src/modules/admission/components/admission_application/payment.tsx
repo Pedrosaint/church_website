@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { FileText } from "lucide-react";
+import { toast } from "sonner";
 
 
 interface AcademicHistoryProps {
@@ -12,7 +13,7 @@ const ApplicationFeePayment = ({ goToNext, goToPrev }: AcademicHistoryProps) => 
 
   const handleNext = () => {
     if (!selectedPayment) {
-      alert("Please select a payment method");
+      toast.error("Please select a payment method");
       return;
     }
     console.log("Payment method selected:", selectedPayment);
@@ -21,15 +22,15 @@ const ApplicationFeePayment = ({ goToNext, goToPrev }: AcademicHistoryProps) => 
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8 px-4">
-      <div className="max-w-2xl mx-auto">
+    <div className="py-8 md:px-4">
+      <div className="max-w-2xl">
         {/* Header */}
         <h1 className="text-2xl font-bold text-gray-900 mb-6">
           Application Fee Payment
         </h1>
 
         {/* Application Fee Display */}
-        <div className="bg-white border border-gray-200 rounded-lg p-6 mb-6 shadow-sm">
+        <div className="bg-white border border-gray-200 rounded-lg p-6 mb-6 shadow-sm font-inter">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 bg-amber-50 rounded-lg flex items-center justify-center">
@@ -42,7 +43,7 @@ const ApplicationFeePayment = ({ goToNext, goToPrev }: AcademicHistoryProps) => 
         </div>
 
         {/* Payment Method Selection */}
-        <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm mb-6">
+        <div className="bg-white border border-gray-200 rounded-lg p-6 mb-6">
           <h2 className="text-lg font-semibold text-gray-900 mb-4">
             Select Payment Method
           </h2>
@@ -56,7 +57,7 @@ const ApplicationFeePayment = ({ goToNext, goToPrev }: AcademicHistoryProps) => 
                 value="debit-card"
                 checked={selectedPayment === "debit-card"}
                 onChange={(e) => setSelectedPayment(e.target.value)}
-                className="w-5 h-5 text-[#D4A34A] focus:ring-[#D4A34A] focus:ring-2"
+                className="w-5 h-5 text-[#D4A34A]"
               />
               <span className="ml-3 text-gray-800">Debit/Credit Card</span>
             </label>
@@ -69,7 +70,7 @@ const ApplicationFeePayment = ({ goToNext, goToPrev }: AcademicHistoryProps) => 
                 value="bank-transfer"
                 checked={selectedPayment === "bank-transfer"}
                 onChange={(e) => setSelectedPayment(e.target.value)}
-                className="w-5 h-5 text-[#D4A34A] focus:ring-[#D4A34A] focus:ring-2"
+                className="w-5 h-5 text-[#D4A34A]"
               />
               <span className="ml-3 text-gray-800">Bank Transfer</span>
             </label>
@@ -82,7 +83,7 @@ const ApplicationFeePayment = ({ goToNext, goToPrev }: AcademicHistoryProps) => 
                 value="ussd"
                 checked={selectedPayment === "ussd"}
                 onChange={(e) => setSelectedPayment(e.target.value)}
-                className="w-5 h-5 text-[#D4A34A] focus:ring-[#D4A34A] focus:ring-2"
+                className="w-5 h-5 text-[#D4A34A]"
               />
               <span className="ml-3 text-gray-800">USSD</span>
             </label>
@@ -95,29 +96,28 @@ const ApplicationFeePayment = ({ goToNext, goToPrev }: AcademicHistoryProps) => 
                 value="direct-deposit"
                 checked={selectedPayment === "direct-deposit"}
                 onChange={(e) => setSelectedPayment(e.target.value)}
-                className="w-5 h-5 text-[#D4A34A] focus:ring-[#D4A34A] focus:ring-2"
+                className="w-5 h-5 text-[#D4A34A]"
               />
               <span className="ml-3 text-gray-800">Direct Bank Deposit</span>
             </label>
           </div>
         </div>
+      </div>
+      {/* ======================= BUTTONS ======================= */}
+      <div className="flex justify-between mt-8">
+        <button
+          onClick={goToPrev}
+          className="border border-[#D4A34A] text-[#D4A34A] px-6 py-2 rounded-xl cursor-pointer"
+        >
+          Back
+        </button>
 
-        {/* ======================= BUTTONS ======================= */}
-        <div className="flex justify-between mt-8">
-          <button
-            onClick={goToPrev}
-            className="border border-[#D4A34A] text-[#D4A34A] px-6 py-2 rounded-xl cursor-pointer"
-          >
-            Back
-          </button>
-
-          <button
-            onClick={handleNext}
-            className="bg-[#D4A34A] px-6 py-2 rounded-xl text-[#0B2545] cursor-pointer font-inter"
-          >
-            Save & Continue
-          </button>
-        </div>
+        <button
+          onClick={handleNext}
+          className="bg-[#D4A34A] px-6 py-2 rounded-xl text-[#0B2545] cursor-pointer font-inter"
+        >
+          Save & Continue
+        </button>
       </div>
     </div>
   );
