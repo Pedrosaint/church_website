@@ -6,7 +6,7 @@ import { IoStarSharp } from "react-icons/io5";
 
 const AboutHero = () => {
   return (
-    <section className="py-24 px-6 bg-white overflow-hidden">
+    <section className="py-24 px-6 bg-white overflow-hidden mt-35">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-20">
         {/* LEFT */}
         <div className="flex-1 space-y-6">

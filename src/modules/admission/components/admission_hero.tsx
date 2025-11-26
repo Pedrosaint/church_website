@@ -9,7 +9,7 @@ const AdmissionHero = () => {
   ];
 
   return (
-    <section className="bg-[#0B2545] mt-10 md:mt-9 lg:mt-19 py-15 px-6 relative overflow-hidden">
+    <section className="bg-[#0B2545] mt-10 md:mt-9 lg:mt-35 py-15 px-6 relative overflow-hidden">
       <div className="container mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}

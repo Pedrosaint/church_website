@@ -6,6 +6,9 @@ import AcademicView from "../modules/academic/view/academic.view";
 import AdmissionView from "../modules/admission/view/admission.view";
 import NewsView from "../modules/news/view/news.view";
 import StudentAuthView from "../auth/student_auth/view/student_auth.view";
+import MoreView from "../modules/more/view/more.view";
+import AcademicCalendar from "../modules/academic/components/academic_calender";
+import AcademicPolicies from "../modules/academic/components/academic_policies";
 
 
 
@@ -39,7 +42,23 @@ export default function appRouter(): RouteObject[] {
                 path: "/news",
                 element: <NewsView />,
             },
+            {
+                path: "/more",
+                element: <MoreView />,
+            },
         ],
-    }
+    },
+    {
+        path: "/academic-calendar",
+        element: <AcademicCalendar />,
+    },
+    {
+        path: "/academic-policies",
+        element: <AcademicPolicies />,
+    },
+    // {
+    //     path: "/student-handbook",
+    //     element: <StudentHandbook />,
+    // },
   ];
 }

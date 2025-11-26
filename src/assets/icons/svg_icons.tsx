@@ -296,3 +296,109 @@ export const GraduationCapIcon = ({
     />
   </svg>
 );
+
+export const ChurchBuildingIcon = ({ width = 22, height = 22, ...props }) => (
+  <svg
+    width={width}
+    height={height}
+    viewBox="0 0 22 22"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    xmlnsXlink="http://www.w3.org/1999/xlink"
+    {...props}
+  >
+    <rect width="22" height="22" fill="url(#pattern0_329_321)" />
+
+    <defs>
+      <pattern
+        id="pattern0_329_321"
+        patternContentUnits="objectBoundingBox"
+        width="1"
+        height="1"
+      >
+        <use xlinkHref="#image0_329_321" transform="scale(0.0111111)" />
+      </pattern>
+
+      <image
+        id="image0_329_321"
+        width="90"
+        height="90"
+        preserveAspectRatio="none"
+        xlinkHref="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAYAAAA4qEECAAAACXBIWXMAAAsTAAALEwEAmpwYAAADaUlEQVR4nO2cv2sUQRTHB8FoNJ2F6F+gIloI0UJJo3gzG2OaQ/wrBBFjFzu1UBJ/YFLpvTEprrQQK8tUKeTmeyeYwkKMnQriL1AjcyEQYi6Xy97MvNu8D7xmE3be98PydjOXPaUEQRCKC6rlPlhzx5FZdKQ/OKtv+2Op+yoczou1Zml1+WOp+yocjsziOqI/pu6rcGCN5JVK3VfhgIiOA0R0d5mfHt4D0o9A5ksrua1Lf3bWPJyrlvtT52CPIz3VueA1N0nSU6lzsGZpfHwHSH/PKxpWf/PnSp2HLUsiurdGB6x5nDoHe+aq5X5nzQN/Y+tYMOlPjvR9uRnmQB7vIgERHQeI6DhARMcBIjoOENFxgIgOz9vJ0q5Wov3PUvdXpM8Kn2/w5/bLd0+Gdqfus+CSjciOJ9mI7HiSjciOJ9mI7HiSRXZEySI7omSRHVGyyI4oWWSreJK3uWxH5kU8ycvl11TbDUSWvFJquwERHQeI6DhARMcBHd/I9C9H+vqb2ZGDvkDZmD8motuATq9GysbWOccNEd0GdCioYc8fWHsOf0xEtwFdEiSi2wARHQeI6DhARIffTHJkrqUS3Vy76K821yvZWUem3qmcbopuyrZmoU5ZWRUNVzGH8+7WtTp3nnOC9CtH2XHV6zQqo/tg9SRI/84lJJTo5ffJ/8Bqqs1e2K96jfnpEzud1Ve29lKmiSp61ez+6qy+2TP/y5dnDoNBsZ/f3ZjD4FTc5nc35zCYFYv5HWIOg2klm9/1irnoZ1lqAYh+hZsFnz2KZP8FUqkDI7Vw0reCSm5QdtSR+Zs6KJKL9g5KR4KJhjWXU4cEk3LP9KVgomszw4dSBwST8o+zKiTO6nv/P+Dr0dTBEah8trU3fkfmropB3WZnYPVV2GxkZcsxtRAEqma2arnPP200M1dKp1VKiiyaFamFQET3dilupBYCEZ2/nDU/QGYCM9ngazq311edzEm/meWs+Smiu1Fk3teelo61WtdvZfrfEdE5r+TaBpJXyw51ZStuBLqaJza7vv8aNhFtt1gz2eBm12/Y0ikRbbdY1aGBTa9fHRoQ0TZOSA49BIdDSDDoITgcQoJBD8HhEBIMeggOh5Bg0ENwOIQEgx6CwyEkGPQQHA4hwaCH4HAICQY9CIIgCIIgCIIgqF7jH2M9OvUira4eAAAAAElFTkSuQmCC"
+      />
+    </defs>
+  </svg>
+);
+
+
+export const BibleCross = ({ width = 22, height = 34, ...props }) => (
+  <svg
+    width={width}
+    height={height}
+    viewBox="0 0 22 34"
+    fill="none"
+    {...props}
+    xmlns="http://www.w3.org/2000/svg"
+    xmlnsXlink="http://www.w3.org/1999/xlink"
+  >
+    <rect width="22" height="34" fill="url(#pattern0_329_320)" />
+    <defs>
+      <pattern
+        id="pattern0_329_320"
+        patternContentUnits="objectBoundingBox"
+        width="1"
+        height="1"
+      >
+        <use
+          xlinkHref="#image0_329_320"
+          transform="matrix(0.0111111 0 0 0.00718954 0 0.176471)"
+        />
+      </pattern>
+      <image
+        id="image0_329_320"
+        width="90"
+        height="90"
+        preserveAspectRatio="none"
+        xlinkHref="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAYAAAA4qEECAAAACXBIWXMAAAsTAAALEwEAmpwYAAAC8klEQVR4nO2dv2oUURTGLwqKPoH/SsXHsDLZe1bs8hYqJEXWRlJYWFkogorin3MwxT6GRbQQYnKPrvgAlgY1ImqxMglauFGJ3DPny+z5wWnSzPf9uMzs3cnMphQEQRAEQRAEQTAtFOnNKNM9ZXqjQpsqNN6Ds1kkP19nuvT2Ru9gQmJNZk8Xzk8BJI3rTn65Jr0TCYH1x70zKnnDXwqZyXZf2c1K7rZk+jkXXUV383RBE1OYnrlJXud81luAtiVa8kc30Sr5vrcAbXH8RG9/hHMXoF0XXZg+eZfXaRDtXVxDdDcnhWgK0bWmcP5aOC+Ols8fa0a5P2j+FqJrD/cHE8fn/iBEV57XMnt04vgP6UiIbqmkAmQwB6GkAmQwB6GkAmQwB6GkAmQwB6GkAmQwB6GkAmQwx2IzkiphsalJXlhuRmpRc1NTLdSuSxhuRmpRc1NTLdSuS1QqMKp4yvid1Uf94yFaWjh1CF0O0bI9Wxcs7g/iYmi9ouX/SyJkMAehpAJkMAehpAJkMAehpAJkMAehpAJkMAehpAJkMAehpAJkMAehpAJkMAehpAJkMAehpAJkMAehpAJkMAehpAJkMAehpAJkMAehpAJkMAehpAJkMAehpAJkMAehpAJkMAehpAJkMKfNkqMdbnPVvPEaouUv/4he8cZriJbJG7jxaEXHJ4VoCtFdmhSiKUR3aVKIphDdlSlMH0K0dPxVP97ltc3hfCFEi/Vqzqs6nDsQosVWcvPllZvkLosuW68wyivN6cJ1Jf9LdBH6okzzzYM63hk7wR9XBdO8d7bpEB0ruS6F6V2IboHC+drOqzovtHH8qeHF3XOHm3d27ngxlLxg+UTs1FGEHnh/HFPTyRtF6NbKcO6Qq+hXT/qnVOibvxAyncL5TvJGJV/xFqH2K/vzeGlpn6voJkDhvOwvg7otumE4nNuvkq8q03d/KWQxtxMSyjMnC9P1Irns4Z8HGf8azu8L55vuF8MgCIIgCIIgCIJkxA+QCXHWIAKxcgAAAABJRU5ErkJggg=="
+      />
+    </defs>
+  </svg>
+);
+
+export const Cross = ({
+  width = 22,
+  height = 34,
+  ...props
+}) => (
+  <svg
+    width={width}
+    height={height}
+    viewBox="0 0 22 34"
+    fill="none"
+    {...props}
+    xmlns="http://www.w3.org/2000/svg"
+    xmlnsXlink="http://www.w3.org/1999/xlink"
+  >
+    <rect width="22" height="34" fill="url(#pattern0_329_323)" />
+    <defs>
+      <pattern
+        id="pattern0_329_323"
+        patternContentUnits="objectBoundingBox"
+        width="1"
+        height="1"
+      >
+        <use
+          xlinkHref="#image0_329_323"
+          transform="matrix(0.0111111 0 0 0.00718954 0 0.176471)"
+        />
+      </pattern>
+      <image
+        id="image0_329_323"
+        width="90"
+        height="90"
+        preserveAspectRatio="none"
+        xlinkHref="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAYAAAA4qEECAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB+UlEQVR4nO3dP07jQBiG8akW7rDchRYPNbcgcJY9wa7sjoPwpwowb0XDGRDps3KQoAKhxLzzjfP8pK9E2I+sATwakhIAAMBee/57fFiG7rL03Z2GvNKQ15/Mqgzd7WOfL57+nBzUvu6mPAwnRxrywxdxP5nufvza2tffzJOsrSJ/xObJ/oZxudg+8vssvvO99lp5W5N3Cl36fFP7PsIrfX6dIPRr7fsIT7svG5upfR/hidAeIrSHCO0hQnuI0B4itIcI7SFCe4jQHiK0hwg9+c7IOti0s1Oz/c5IDjaBd2p23xnJwSboTs1EOyPrYLOY5c6Igk3InZopdkYUbELu1NSOoh+aFE3tICJ025OiqR1EhG57UjS1g2hfQs/017uXFA1/sJiMb71qh9HU03fnKZrxBcz4ImY+T3O31NXZrxT3NWn7sUvfLZf/Tn+nyN6e7LwY17eWfkCWzbV21+NyEfZJnpImClf7PsIToT1EaA8R2kOE9hChPURoDxHaQ4T2EKE9RGgPEdpDhPYQoT1EaA8R2kOE9hChPURoDxHaQ4T2EKE9RGgPEdpDhPYQoT1EaA8R2kOE9hChPURoDxHaQ4T2EKE9RGgPEbqpfz3/Uvs+wit8mEJDJ3D7gCde53YCt0Q+8TqXE7ilhROvrZ7ALft24hUAACB95T8d/6KWgU8b8gAAAABJRU5ErkJggg=="
+      />
+    </defs>
+  </svg>
+);

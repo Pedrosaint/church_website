@@ -1,14 +1,30 @@
-import { NavLink, useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { navLinks } from "../../lib/nav_links";
-import { ChevronDown, Menu, X } from "lucide-react";
+import { ChevronDown, Menu, SearchIcon, X } from "lucide-react";
 import { useState } from "react";
 
 const Header = () => {
+  const navigate = useNavigate();
   const { pathname } = useLocation();
+
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
   const toggleMobile = () => setMobileOpen(!mobileOpen);
+
+  // Handle routes with hash scrolling logic
+  const handleScrollNavigation = (path: string) => {
+    const [route, hash] = path.split("#");
+
+    navigate(route);
+
+    setTimeout(() => {
+      if (hash) {
+        const section = document.getElementById(hash);
+        section?.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 300);
+  };
 
   return (
     <header className="fixed top-0 left-0 w-full bg-white shadow-sm z-50">
@@ -16,7 +32,7 @@ const Header = () => {
         {/* LOGO */}
         <div className="text-xl font-semibold">LOGO</div>
 
-        {/* HAMBURGER FOR MOBILE */}
+        {/* MOBILE TOGGLE */}
         <button className="lg:hidden text-[#0A2240]" onClick={toggleMobile}>
           {mobileOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
@@ -26,51 +42,51 @@ const Header = () => {
           {navLinks.map((link) => {
             const isParentActive =
               "dropdown" in link &&
-              link.dropdown.some((item) => item.path === pathname);
+              link.dropdown.some((item) =>
+                pathname.startsWith(item.path.split("#")[0])
+              );
 
-            return "dropdown" in link ? (
-              <div key={link.name} className="relative group">
-                {/* DESKTOP DROPDOWN TRIGGER */}
-                <span
-                  className={`flex items-center gap-1 cursor-pointer ${
-                    isParentActive ? "text-[#D4A95E] font-semibold" : ""
-                  }`}
-                >
-                  {link.name} <ChevronDown size={18} />
-                </span>
+            // DROPDOWN LINKS
+            if ("dropdown" in link) {
+              return (
+                <div key={link.name} className="relative group">
+                  <span
+                    className={`flex items-center gap-1 cursor-pointer ${
+                      isParentActive ? "text-[#D4A95E] font-semibold" : ""
+                    }`}
+                  >
+                    {link.name} <ChevronDown size={18} />
+                  </span>
 
-                {/* DROPDOWN MENU */}
-                <div className="absolute hidden group-hover:block bg-white shadow-lg p-4 rounded-md w-48 z-20">
-                  {link.dropdown.map((item) => (
-                    <NavLink
-                      key={item.name}
-                      to={item.path}
-                      className={({ isActive }) =>
-                        `block py-1 hover:underline ${
-                          isActive ? "text-[#D4A95E] font-semibold" : ""
-                        }`
-                      }
-                    >
-                      {item.name}
-                    </NavLink>
-                  ))}
+                  <div className="absolute hidden group-hover:block bg-white shadow-lg p-4 rounded-md w-48 z-20">
+                    {link.dropdown.map((item) => (
+                      <span
+                        key={item.name}
+                        className="block py-1 cursor-pointer hover:underline"
+                        onClick={() => handleScrollNavigation(item.path)}
+                      >
+                        {item.name}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            ) : (
-              <NavLink
+              );
+            }
+
+            // NON-DROPDOWN LINKS → they must use scroll navigation too
+            return (
+              <span
                 key={link.name}
-                to={link.path}
-                className={({ isActive }) =>
-                  isActive ? "text-[#D4A95E] font-semibold" : ""
-                }
+                className="cursor-pointer hover:underline"
+                onClick={() => handleScrollNavigation(link.path)}
               >
                 {link.name}
-              </NavLink>
+              </span>
             );
           })}
         </nav>
 
-        {/* DESKTOP BUTTONS */}
+        {/* DESKTOP ACTION BUTTONS */}
         <div className="hidden lg:flex items-center space-x-3">
           <button className="px-4 py-2 border border-[#D4A95E] rounded-lg text-[#D4A95E]">
             Donate
@@ -81,9 +97,9 @@ const Header = () => {
         </div>
       </div>
 
-      {/* ================================
-              MOBILE MENU
-      ================================== */}
+      {/* ======================================
+                MOBILE MENU
+      ======================================= */}
       <div
         className={`lg:hidden fixed top-0 left-0 h-full w-[75%] md:w-[50%] bg-white shadow-lg z-40 transform transition-transform duration-300 ${
           mobileOpen ? "translate-x-0" : "-translate-x-full"
@@ -93,12 +109,14 @@ const Header = () => {
           {navLinks.map((link) => {
             const isParentActive =
               "dropdown" in link &&
-              link.dropdown.some((item) => item.path === pathname);
+              link.dropdown.some((item) =>
+                pathname.startsWith(item.path.split("#")[0])
+              );
 
+            // MOBILE DROPDOWN LINKS
             if ("dropdown" in link) {
               return (
                 <div key={link.name}>
-                  {/* MOBILE DROPDOWN TRIGGER */}
                   <button
                     onClick={() =>
                       setOpenDropdown(
@@ -118,22 +136,19 @@ const Header = () => {
                     />
                   </button>
 
-                  {/* MOBILE DROPDOWN LIST */}
                   {openDropdown === link.name && (
                     <div className="ml-4 mt-2 space-y-2">
                       {link.dropdown.map((item) => (
-                        <NavLink
+                        <span
                           key={item.name}
-                          to={item.path}
-                          className={({ isActive }) =>
-                            `block py-1 ${
-                              isActive ? "text-[#D4A95E] font-semibold" : ""
-                            }`
-                          }
-                          onClick={() => setMobileOpen(false)}
+                          className="block py-1 cursor-pointer"
+                          onClick={() => {
+                            handleScrollNavigation(item.path);
+                            setMobileOpen(false);
+                          }}
                         >
                           {item.name}
-                        </NavLink>
+                        </span>
                       ))}
                     </div>
                   )}
@@ -141,27 +156,42 @@ const Header = () => {
               );
             }
 
+            // MOBILE NON-DROPDOWN LINKS
             return (
-              <NavLink
+              <span
                 key={link.name}
-                to={link.path}
-                className={({ isActive }) =>
-                  `block py-2 ${isActive ? "text-[#D4A95E] font-semibold" : ""}`
-                }
-                onClick={() => setMobileOpen(false)}
+                className="block py-2 cursor-pointer"
+                onClick={() => {
+                  handleScrollNavigation(link.path);
+                  setMobileOpen(false);
+                }}
               >
                 {link.name}
-              </NavLink>
+              </span>
             );
           })}
 
-          {/* MOBILE ACTION BUTTONS */}
+          {/* MOBILE BUTTONS */}
           <button className="w-full px-4 py-2 border border-[#D4A95E] rounded-lg text-[#D4A95E]">
             Donate
           </button>
           <button className="w-full px-4 py-2 bg-[#D4A95E] rounded-lg text-white">
             Apply
           </button>
+        </div>
+      </div>
+
+      {/* SEARCH BAR UNDER HEADER */}
+      <div className="w-full bg-white shadow-sm border-t border-gray-200 font-inter">
+        <div className="container mx-auto px-6 py-3">
+          <div className="flex items-center w-full max-w-2xl self-end rounded-lg border border-gray-300 py-2 px-4 ">
+            <SearchIcon className="w-7 h-7 text-[#D4A95E]" />
+            <input
+              type="text"
+              placeholder="Search courses, programs, departments..."
+              className="w-full outline-none indent-2"
+            />
+          </div>
         </div>
       </div>
     </header>

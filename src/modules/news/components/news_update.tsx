@@ -96,7 +96,7 @@ const NewsUpdates = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12 px-4 mt-19">
+    <div className="min-h-screen bg-gray-50 py-12 px-4 mt-23 md:mt-29">
       <div className="container mx-auto">
         {/* Header */}
         <div className="mb-8">

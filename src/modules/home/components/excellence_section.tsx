@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { BookIcon, CertIcon, UserIcon } from "../../../assets/icons/svg_icons";
+import { BibleCross, BookIcon, CertIcon, ChurchBuildingIcon, Cross, UserIcon } from "../../../assets/icons/svg_icons";
+import { IoStar } from "react-icons/io5";
 
 const stats = [
   {
@@ -57,15 +58,31 @@ export default function ExcellenceSection() {
   }, []);
 
   return (
-    <section className="py-20 text-center bg-white">
+    <section className="py-20 text-center bg-white relative">
       <h2 className="text-3xl md:text-4xl font-bold px-2">
         Excellence in Biblical Education
       </h2>
+
+      <div className="absolute left-150 top-15">
+        <IoStar color="#D4A34A" size={20} />
+      </div>
+
+      <div className="absolute left-100 top-40">
+        <BibleCross />
+      </div>
 
       <p className="text-gray-600 mt-3 max-w-xl mx-auto">
         For over three decades, we have been equipping men and women for
         ministry and service in God’s kingdom.
       </p>
+
+      <div className="absolute right-150 top-15">
+        <ChurchBuildingIcon />
+      </div>
+
+      <div className="absolute right-100 top-40">
+        <Cross />
+      </div>
 
       {/* Statistics */}
       <div className="container mx-auto mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 px-6">

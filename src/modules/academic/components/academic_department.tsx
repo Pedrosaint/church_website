@@ -79,18 +79,21 @@ const quickLinks = [
     title: "Academic Calendar",
     subtitle: "View important dates and deadlines",
     isBook: false,
+    path: "/academic-calendar"
   },
   {
     icon: FileIcon,
     title: "Academic Policies",
     subtitle: "Rules and regulations for students",
     isBook: false,
+    path: "/academic-policies"
   },
   {
     icon: BookIcon,
     title: "Student Handbook",
     subtitle: "Comprehensive guide for students",
     isBook: true,
+    path: "/student-handbook"
   },
 ];
 
@@ -213,7 +216,12 @@ const quickLinks = [
                       </h4>
                       <p className="text-xs text-gray-600">{link.subtitle}</p>
                     </div>
-                    <ExternalLink className="w-6 h-6 text-gray-400  shrink-0" />
+                    <button
+                      onClick={() => window.open(link.path, "_blank")}
+                      className="cursor-pointer"
+                    >
+                      <ExternalLink className="w-6 h-6 text-gray-400 shrink-0" />
+                    </button>
                   </div>
                 ))}
               </div>

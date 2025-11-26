@@ -49,18 +49,19 @@ export const navLinks = [
     name: "Student Portal",
     dropdown: [
       { name: "Student Portal Login", path: "/student/portal/login" },
-      { name: "Pay School Fees", path: "/student/portal/pay-school-fees" },
-      { name: "Student Life", path: "/student/portal/student-life" },
+     
     ],
   },
+
+  // This is the only part thats different from the other dropdowns
   {
     name: "More",
     dropdown: [
-      { name: "Online Giving (Tithe & Offering)", path: "/online-giving" },
-      { name: "Testimonies", path: "/testimonies" },
-      { name: "Gallery", path: "/gallery" },
-      { name: "Download Center", path: "/download-center" },
-      { name: "Contact Us", path: "/contact-us" },
+      { name: "Support the Ministry", path: "/more#support-the-ministry" },
+      { name: "Testimonies", path: "/more#testimonies" },
+      { name: "Gallery", path: "/more#gallery" },
+      { name: "Download Center", path: "/more#download-center" },
+      { name: "Contact Us", path: "/more#contact-us" },
     ],
   },
 ] as const;
