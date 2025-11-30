@@ -1,14 +1,16 @@
 import type { RouteObject } from "react-router-dom";
 import MainLayout from "../general/layout/main_layout";
-import HomeView from "../modules/home/view/home.view";
-import AboutView from "../modules/about/view/about.view";
-import AcademicView from "../modules/academic/view/academic.view";
-import AdmissionView from "../modules/admission/view/admission.view";
-import NewsView from "../modules/news/view/news.view";
+import HomeView from "../landing_page/modules/home/view/home.view";
+import AboutView from "../landing_page/modules/about/view/about.view";
+import AcademicView from "../landing_page/modules/academic/view/academic.view";
+import AdmissionView from "../landing_page/modules/admission/view/admission.view";
+import NewsView from "../landing_page/modules/news/view/news.view";
 import StudentAuthView from "../auth/student_auth/view/student_auth.view";
-import MoreView from "../modules/more/view/more.view";
-import AcademicCalendar from "../modules/academic/components/academic_calender";
-import AcademicPolicies from "../modules/academic/components/academic_policies";
+import MoreView from "../landing_page/modules/more/view/more.view";
+import AcademicCalendar from "../landing_page/modules/academic/components/academic_calender";
+import AcademicPolicies from "../landing_page/modules/academic/components/academic_policies";
+import DashboardLayout from "../general/dashboard_layout/layout";
+import DashboardView from "../portals/student_portal/modules/dashboard/view/dashboard.view";
 
 
 
@@ -39,7 +41,7 @@ export default function appRouter(): RouteObject[] {
                 element: <AdmissionView />,
             },
             {
-                path: "/news",
+                path: "/news-updates",
                 element: <NewsView />,
             },
             {
@@ -60,5 +62,16 @@ export default function appRouter(): RouteObject[] {
     //     path: "/student-handbook",
     //     element: <StudentHandbook />,
     // },
+
+    {
+        path: "/dashboard",
+        element: <DashboardLayout />,
+        children: [
+            {
+                index: true,
+                element: <DashboardView />,
+            },
+        ],
+    },
   ];
 }

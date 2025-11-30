@@ -38,11 +38,10 @@ export const navLinks = [
   {
     name: "News",
     dropdown: [
-      { name: "News", path: "/news" },
       { name: "News & Updates", path: "/news-updates" },
-      { name: "Announcements", path: "/announcements" },
-      { name: "Blog", path: "/blog" },
-      { name: "Press Releases", path: "/press-releases" },
+      // { name: "Announcements", path: "/announcements" },
+      // { name: "Blog", path: "/blog" },
+      // { name: "Press Releases", path: "/press-releases" },
     ],
   },
   {

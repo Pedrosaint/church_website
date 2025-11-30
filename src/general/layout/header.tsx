@@ -13,18 +13,25 @@ const Header = () => {
   const toggleMobile = () => setMobileOpen(!mobileOpen);
 
   // Handle routes with hash scrolling logic
-  const handleScrollNavigation = (path: string) => {
-    const [route, hash] = path.split("#");
+const handleScrollNavigation = (path: string) => {
+  const [route, hash] = path.split("#");
 
-    navigate(route);
+  navigate(route);
 
-    setTimeout(() => {
-      if (hash) {
-        const section = document.getElementById(hash);
-        section?.scrollIntoView({ behavior: "smooth" });
-      }
-    }, 300);
-  };
+  setTimeout(() => {
+    if (hash) {
+      const section = document.getElementById(hash);
+      if (!section) return;
+
+      const yOffset = -160; // height of header + search bar
+      const y =
+        section.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+      window.scrollTo({ top: y, behavior: "smooth" });
+    }
+  }, 300);
+};
+;
 
   return (
     <header className="fixed top-0 left-0 w-full bg-white shadow-sm z-50">
