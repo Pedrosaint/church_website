@@ -1,11 +1,21 @@
+import { Calendar, Newspaper,type LucideIcon } from "lucide-react";
+import { CiChat1 } from "react-icons/ci";
+import { MdOutlineDashboard } from "react-icons/md";
+
 export const adminMenu = [
-  { label: "Dashboard", path: "/dashboard" },
-  { label: "Manage Users", path: "/admin/users" },
-  { label: "Posted Jobs", path: "/admin/jobs" },
+  { label: "Dashboard", path: "/dashboard/overview", icon: MdOutlineDashboard },
+  { label: "News", path: "/dashboard/admin-news", icon: Newspaper },
+  { label: "Events", path: "/dashboard/events",icon: Calendar },
+  { label: "Testimonies", path: "/dashboard/testimonies", icon: CiChat1 },
 ];
 
-export const userMenu = [
-  { label: "Dashboard", path: "/dashboard" },
-  { label: "Find Jobs", path: "/jobs" },
-  { label: "My Applications", path: "/applications" },
+export interface MenuItem {
+  label: string;
+  path: string;
+  icon: LucideIcon;
+}
+
+export const userMenu: MenuItem[] = [
+  { label: "News", path: "/dashboard/news", icon: Newspaper },
+  { label: "Academic Calendar", path: "/dashboard/calendar", icon: Calendar },
 ];

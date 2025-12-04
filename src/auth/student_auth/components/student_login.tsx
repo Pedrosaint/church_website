@@ -1,19 +1,39 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "sonner";
+import { loginSuccess } from "../../slice/auth.slice";
 
 const StudentLogin = () => {
+  const navigate = useNavigate();
   const [matricNumber, setMatricNumber] = useState("");
   const [password, setPassword] = useState("");
+  const dispatch = useDispatch();
 
-  const handleLogin = (e: any) => {
-    e.preventDefault();
-    // Handle login logic here
-    console.log("Login attempted with:", { matricNumber, password });
-    alert("Login functionality would be implemented here");
+
+   const handleMockLogin = () => {
+    dispatch(
+      loginSuccess({
+        role: "student",  // or "admin"
+      })
+    );
+      navigate("/dashboard/news");
+      toast.success("Login successful!");
   };
+
+  // const handleLogin = (e: any) => {
+  //   e.preventDefault();
+  //   // Handle login logic here
+  //   console.log("Login attempted with:", { matricNumber, password });
+  //   navigate("/dashboard/news");
+  //   toast.success("Login successful!");
+  // };
 
   return (
     <div className="min-h-screen bg-linear-to-br from-gray-50 to-gray-100 flex items-center justify-center p-4">
+      <h1 className="absolute top-15 left-1/2 transform -translate-x-1/2 text-[#0A2240] text-2xl font-semibold font-inter">
+        <Link to="/">Return to Home</Link>
+      </h1>
       <div className="bg-white rounded-2xl shadow-xl p-8 w-full max-w-md">
         {/* Header */}
         <div className="text-center mb-8">
@@ -26,7 +46,7 @@ const StudentLogin = () => {
         </div>
 
         {/* Login Form */}
-        <form onSubmit={handleLogin} className="font-inter">
+        <form onSubmit={handleMockLogin} className="font-inter">
           {/* Matric Number Field */}
           <div className="mb-6">
             <label
@@ -65,17 +85,19 @@ const StudentLogin = () => {
 
           {/* Forget Password Link */}
           <div className="text-right mb-6">
-            <a
-              href="#"
-              className="text-gray-700 hover:text-amber-600 text-sm font-medium transition-colors"
+            <button
+              type="button"
+              onClick={() => navigate("/student/portal/forgot-password")}
+              className="text-gray-700 hover:text-amber-600 text-sm font-medium transition-colors cursor-pointer"
             >
               Forget Password?
-            </a>
+            </button>
           </div>
 
           {/* Login Button */}
           <button
             type="submit"
+            onClick={handleMockLogin}
             className="w-full bg-[#D4A34A] hover:bg-[#C09340] text-white px-8 py-3 rounded-lg font-medium transition-colors cursor-pointer"
           >
             Login

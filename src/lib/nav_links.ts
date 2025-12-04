@@ -6,7 +6,7 @@ export const navLinks = [
   {
     name: "About",
     dropdown: [
-        { name: "About Us", path: "/about-us" },
+      { name: "About Us", path: "/about-us" },
       { name: "Our Story", path: "/our-story" },
       { name: "Partnerships", path: "/partnerships" },
       { name: "Leadership", path: "/leadership" },
@@ -17,7 +17,7 @@ export const navLinks = [
   {
     name: "Academics",
     dropdown: [
-        { name: "Academics", path: "/academic" },
+      { name: "Academics", path: "/academic" },
       { name: "Department & Courses", path: "/department-courses" },
       { name: "Policies", path: "/policies" },
       { name: "Downloadable Brochure", path: "/downloadable-brochure" },
@@ -45,10 +45,10 @@ export const navLinks = [
     ],
   },
   {
-    name: "Student Portal",
+    name: "Portal",
     dropdown: [
       { name: "Student Portal Login", path: "/student/portal/login" },
-     
+      { name: "Admin Portal Login", path: "/admin/portal" },
     ],
   },
 

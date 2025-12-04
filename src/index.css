@@ -58,3 +58,446 @@ body {
     break-inside: avoid;
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{/*===========================================================================================*/}
+
+.main {
+  position: relative;
+  width: 100%;
+}
+
+.main input {
+  width: 100%;
+  height: 50px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-indent: 20px; /* Space for text */
+  font-size: 16px;
+  outline: none;
+}
+
+.main input::placeholder {
+  color: transparent; /* Hides placeholder text */
+}
+
+.main label {
+  position: absolute;
+  left: 15px;
+  top: 49%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: #aaa;
+  background: white;
+  border-radius: 5px;
+  padding: 0 5px;
+  pointer-events: none;
+  transition: all 0.3s ease-out;
+}
+
+.main input:focus + label,
+.main input:not(:placeholder-shown) + label {
+  top: -2px;
+  font-size: 15px;
+  color: #545454;
+  /* border: 1px solid #aaaaaa; */
+}
+
+.main input:focus{
+    border-color: #333333;
+}
+
+/*------------------Password css (Login)--------------------*/
+.password-field label {
+  position: absolute;
+  left: 15px;
+  top: 49%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: #aaa;
+  background: white;
+  border-radius: 5px;
+  padding: 0 5px;
+  pointer-events: none;
+  transition: all 0.3s ease-out;
+}
+
+.password-field input:focus + label,
+.password-field input:not(:placeholder-shown) + label {
+    top: -2px !important;
+    font-size: 15px !important;
+    color: #545454 !important;
+}
+
+.relative input:focus{
+    border-color: #333333;
+}
+
+
+/*++++++++++++++++++++++++++++++++++++++++ {SIGNUP} +++++++++++++++++++++++++++++++++++++++++*/
+
+/*++++++++++++ Last Name +++++++++++++++*/
+.lname{
+    position: relative;
+    width: 100%;
+}
+.lname input{
+  width: 100%;
+  height: 40px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-indent: 15px; /* Space for text */
+  font-size: 16px;
+  outline: none;
+}
+
+.lname input::placeholder{
+    color: transparent;
+}
+
+.lname span{
+  position: absolute;
+  left: 10px;
+  top: 49%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: #aaa;
+  background: white;
+  border-radius: 5px;
+  padding: 0 5px;
+  pointer-events: none;
+  transition: all 0.3s ease-out;
+}
+.lname  input:focus + span,
+.lname input:not(:placeholder-shown) + span {
+    top: -2px !important;
+    font-size: 15px !important;
+    color: #545454 !important;
+}
+.lname input:focus{
+    border-color: #333333;
+}
+
+
+/*++++++++++++ First Name +++++++++++++++*/
+.fname{
+    position: relative;
+    width: 100%;
+}
+.fname input{
+  width: 100%;
+  height: 40px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-indent: 15px; /* Space for text */
+  font-size: 16px;
+  outline: none;
+}
+
+.fname input::placeholder{
+    color: transparent;
+}
+
+.fname span{
+  position: absolute;
+  left: 10px;
+  top: 49%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: #aaa;
+  background: white;
+  border-radius: 5px;
+  padding: 0 5px;
+  pointer-events: none;
+  transition: all 0.3s ease-out;
+}
+.fname  input:focus + span,
+.fname input:not(:placeholder-shown) + span {
+    top: -2px !important;
+    font-size: 15px !important;
+    color: #545454 !important;
+}
+.fname input:focus{
+    border-color: #333333;
+}
+
+
+/*++++++++++++ Email +++++++++++++++*/
+.email{
+    position: relative;
+    width: 100%;
+}
+.email input{
+  width: 100%;
+  height: 40px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-indent: 15px; /* Space for text */
+  font-size: 16px;
+  outline: none;
+}
+
+.email input::placeholder{
+    color: transparent;
+}
+
+.email span{
+  position: absolute;
+  left: 10px;
+  top: 40%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: #aaa;
+  background: white;
+  border-radius: 5px;
+  padding: 0 5px;
+  pointer-events: none;
+  transition: all 0.3s ease-out;
+}
+.email  input:focus + span,
+.email input:not(:placeholder-shown) + span {
+    top: -2px !important;
+    font-size: 15px !important;
+    color: #545454 !important;
+}
+.email input:focus{
+    border-color: #333333;
+}
+
+/*++++++++++++ Phone Number +++++++++++++++*/
+.phone{
+    position: relative;
+    width: 100%;
+}
+.phone input{
+  width: 100%;
+  height: 40px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-indent: 15px; /* Space for text */
+  font-size: 16px;
+  outline: none;
+}
+
+.phone input::placeholder{
+    color: transparent;
+}
+
+.phone span{
+  position: absolute;
+  left: 10px;
+  top: 49%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: #aaa;
+  background: white;
+  border-radius: 5px;
+  padding: 0 5px;
+  pointer-events: none;
+  transition: all 0.3s ease-out;
+}
+.phone  input:focus + span,
+.phone input:not(:placeholder-shown) + span {
+    top: -2px !important;
+    font-size: 15px !important;
+    color: #545454 !important;
+}
+.phone input:focus{
+    border-color: #333333;
+}
+
+
+/*------------------Password css (Signup)--------------------*/
+.main-signup input {
+  width: 100%;
+  height: 40px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-indent: 20px; /* Space for text */
+  font-size: 16px;
+  outline: none;
+}
+.password-signup label {
+  position: absolute;
+  left: 15px;
+  top: 49%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: #aaa;
+  background: white;
+  border-radius: 5px;
+  padding: 0 5px;
+  pointer-events: none;
+  transition: all 0.3s ease-out;
+}
+
+.password-signup input:focus + label,
+.password-signup input:not(:placeholder-shown) + label {
+    top: -2px !important;
+    font-size: 15px !important;
+    color: #545454 !important;
+}
+
+.relative input:focus{
+    border-color: #333333;
+}
+
+/* Keep red border when error exists */
+.relative input.password-error {
+    border-color: #ef4444 !important; /* Red */
+}
+
+/*============ Forgot Password ==============*/
+.form{
+    position: relative;
+    width: 100%;
+}
+.form input{
+    width: 100%;
+  height: 50px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-indent: 30px; /* Space for text */
+  font-size: 16px;
+  outline: none;
+}
+
+.form input::placeholder{
+    color: transparent;
+}
+
+.form label{
+    position: absolute;
+  left: 10px;
+  top: 18%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: #aaa;
+  background: white;
+  border-radius: 5px;
+  padding: 0 5px;
+  pointer-events: none;
+  transition: all 0.3s ease-out;
+}
+.form  input:focus + label,
+.form input:not(:placeholder-shown) + label {
+    top: -2px !important;
+    font-size: 15px !important;
+    color: #545454 !important;
+}
+.form input:focus{
+    border-color: #333333;
+}
+/* Keep red border when error exists */
+.relative input.password-error {
+    border-color: #ef4444 !important; /* Red */
+}
+
+
+
+
+.custom-gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200px;  /* Adjust width */
+  height: 100px; /* Adjust height */
+  background: linear-gradient(to right, rgba(3, 84, 235, 0.7), transparent),
+              radial-gradient(farthest-side, rgba(96, 139, 219, 0.6) 40%, rgba(255, 255, 255, 0) 70%);
+  z-index: -1; /* Send it behind the form */
+  filter: blur(50px); /* Softens the edges */
+}
+
+
+.sm-custom-gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100px;  /* Adjust width */
+  height: 60px; /* Adjust height */
+  background: linear-gradient(to right, rgba(60, 121, 233, 0.7), transparent),
+              radial-gradient(ellipse at top left, rgba(96, 139, 219, 0.6) 40%, rgba(255, 255, 255, 0) 70%);
+  z-index: -1; /* Send it behind the form */
+  filter: blur(40px); /* Softens the edges */
+}
+
+
+/*==================================== text-Custom css =======================================*/
+.text-gradient {
+  background: linear-gradient(to right, black, #ff5733, rgb(23, 23, 105));
+  -webkit-background-clip: text;
+  background-clip: text; /* For better compatibility */
+  -webkit-text-fill-color: transparent;
+  display: inline-block; /* Ensures the gradient applies properly */
+}
+
+.text-gradient-second {
+  background: linear-gradient(to right, #003366, #0C81EE, #FE0000);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.text-gradient-third {
+  background: linear-gradient(to right, #003366, #0C81EE);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.text-gradient-fourth {
+  background: linear-gradient(to right, #FF5733, #0C81EE);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+/*==================================== background-Custom css =======================================*/
+
+ .bg-custom-gradient-1 {
+    background: linear-gradient(to bottom, #243563, #43527A);
+  }
+ .bg-custom-gradient-2 {
+    background: linear-gradient(to bottom, #593D9D, #826DB5);
+  }
+   .bg-custom-gradient-3 {
+    background: linear-gradient(to bottom, #FF7F50, #994C30);
+  }
+   .bg-custom-gradient-4 {
+    background: linear-gradient(to bottom, #FF69B4, #993F6C);
+  }
+   .font-poppins {
+    font-family: 'Poppins', sans-serif;
+  }
+  .font-merriweather {
+    font-family: 'Merriweather', serif;
+  }
+
+
+  @keyframes slideIn {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.animate-slideIn {
+  animation: slideIn 0.3s ease-out forwards;
+}
