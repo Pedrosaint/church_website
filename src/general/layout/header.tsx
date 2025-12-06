@@ -23,7 +23,7 @@ const handleScrollNavigation = (path: string) => {
       const section = document.getElementById(hash);
       if (!section) return;
 
-      const yOffset = -160; // height of header + search bar
+      const yOffset = -160;
       const y =
         section.getBoundingClientRect().top + window.pageYOffset + yOffset;
 
@@ -47,11 +47,37 @@ const handleScrollNavigation = (path: string) => {
         {/* DESKTOP NAV */}
         <nav className="hidden lg:flex items-center space-x-8 text-[15px] text-[#0A2240]">
           {navLinks.map((link) => {
-            const isParentActive =
-              "dropdown" in link &&
-              link.dropdown.some((item) =>
-                pathname.startsWith(item.path.split("#")[0])
-              );
+            interface NavLink {
+            name: string;
+            path?: string;
+            dropdown?: readonly DropdownItem[];
+            }
+
+            interface DropdownItem {
+            name: string;
+            path: string;
+            }
+const getActiveClass = (link: NavLink): string => {
+  if (link.path) {
+    // Special case for HOME
+    if (link.path === "/") {
+      return pathname === "/" ? "active" : "";
+    }
+
+    // Normal pages
+    if (pathname.startsWith(link.path)) return "active";
+  }
+
+  if (link.dropdown) {
+    const isActive = link.dropdown.some((item) =>
+      pathname.startsWith(item.path.split("#")[0])
+    );
+    return isActive ? "active" : "";
+  }
+
+  return "";
+};
+
 
             // DROPDOWN LINKS
             if ("dropdown" in link) {
@@ -59,7 +85,7 @@ const handleScrollNavigation = (path: string) => {
                 <div key={link.name} className="relative group">
                   <span
                     className={`flex items-center gap-1 cursor-pointer ${
-                      isParentActive ? "text-[#D4A95E] font-semibold" : ""
+                      getActiveClass(link) ? "text-[#D4A95E] font-semibold" : ""
                     }`}
                   >
                     {link.name} <ChevronDown size={18} />
@@ -69,7 +95,7 @@ const handleScrollNavigation = (path: string) => {
                     {link.dropdown.map((item) => (
                       <span
                         key={item.name}
-                        className="block py-1 cursor-pointer hover:underline"
+                        className="block py-1 cursor-pointer"
                         onClick={() => handleScrollNavigation(item.path)}
                       >
                         {item.name}
@@ -84,7 +110,9 @@ const handleScrollNavigation = (path: string) => {
             return (
               <span
                 key={link.name}
-                className="cursor-pointer hover:underline"
+                className={`cursor-pointer ${
+                  getActiveClass(link) ? "text-[#D4A95E] font-semibold" : ""
+                }`}
                 onClick={() => handleScrollNavigation(link.path)}
               >
                 {link.name}
@@ -95,10 +123,18 @@ const handleScrollNavigation = (path: string) => {
 
         {/* DESKTOP ACTION BUTTONS */}
         <div className="hidden lg:flex items-center space-x-3">
-          <button className="px-4 py-2 border border-[#D4A95E] rounded-lg text-[#D4A95E]">
+          <button
+            onClick={() => handleScrollNavigation("/more#support-the-ministry")}
+            className="px-4 py-2 border border-[#D4A95E] rounded-lg text-[#D4A95E] cursor-pointer"
+          >
             Donate
           </button>
-          <button className="px-4 py-2 bg-[#D4A95E] rounded-lg text-white">
+          <button
+            onClick={() =>
+              handleScrollNavigation("/admission#online-application")
+            }
+            className="px-4 py-2 bg-[#D4A95E] rounded-lg text-white cursor-pointer"
+          >
             Apply
           </button>
         </div>
@@ -179,10 +215,18 @@ const handleScrollNavigation = (path: string) => {
           })}
 
           {/* MOBILE BUTTONS */}
-          <button className="w-full px-4 py-2 border border-[#D4A95E] rounded-lg text-[#D4A95E]">
+          <button
+            onClick={() => handleScrollNavigation("/more#support-the-ministry")}
+            className="w-full px-4 py-2 border border-[#D4A95E] rounded-lg text-[#D4A95E] cursor-pointer"
+          >
             Donate
           </button>
-          <button className="w-full px-4 py-2 bg-[#D4A95E] rounded-lg text-white">
+          <button
+            onClick={() =>
+              handleScrollNavigation("/admission#online-application")
+            }
+            className="w-full px-4 py-2 bg-[#D4A95E] rounded-lg text-white cursor-pointer"
+          >
             Apply
           </button>
         </div>

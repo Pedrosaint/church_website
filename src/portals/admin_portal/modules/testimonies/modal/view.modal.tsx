@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { User } from "lucide-react";
 import { IoCheckmarkSharp } from "react-icons/io5";
-import { RiDeleteBin6Line } from "react-icons/ri";
 
 
 interface TestimonyProps {
@@ -45,26 +44,44 @@ const ViewModal = ({
           <p className="text-sm text-gray-500 mb-6">
             Submitted {selectedTestimony.submittedDate}
           </p>
+          <div className="">
+            {selectedTestimony.status === "pending" ? (
+              <>
+                {/*============ APPROVE BUTTON ===========*/}
+                <div className="flex gap-3 w-1/2 ml-auto">
+                  <button
+                    onClick={() => {
+                      handleApprove(selectedTestimony.id);
+                      setShowViewModal(false);
+                    }}
+                    className="flex items-center justify-center cursor-pointer bg-green-600 text-white py-3 px-3 rounded-lg font-semibold hover:bg-green-700 w-full"
+                  >
+                    <IoCheckmarkSharp size={25} />
+                    <h1> Approve</h1>
+                  </button>
 
-          <div className="flex gap-3 w-1/2 ml-auto">
-            <button
-              onClick={() => {
-                handleApprove(selectedTestimony.id);
-                setShowViewModal(false);
-              }}
-              className="flex items-center justify-center cursor-pointer bg-green-600 text-white py-3 px-3 rounded-lg font-semibold hover:bg-green-700 w-full"
-            >
-              <IoCheckmarkSharp size={25} />
-              <h1> Approve</h1>
-            </button>
-
-            <button
-              onClick={() => setShowViewModal(false)}
-              className="flex items-center justify-center border-2 border-red-600 text-red-700 py-3 px-3 rounded-lg font-semibold cursor-pointer w-full"
-            >
-              <RiDeleteBin6Line size={25} />
-              <h1> Delete</h1>
-            </button>
+                  {/* DELETE BUTTON */}
+                  <button
+                    onClick={() => setShowViewModal(false)}
+                    className="flex items-center justify-center border-2 border-gray-600 text-gray-700 py-3 px-3 rounded-lg font-semibold cursor-pointer w-full"
+                  >
+                    <h1> Cancle</h1>
+                  </button>
+                </div>
+              </>
+            ) : (
+              <>
+                {/*============  ===========*/}
+                <div className="flex justify-end">
+                  <button
+                    onClick={() => setShowViewModal(false)}
+                    className="border-2 border-gray-600 text-gray-700 py-3 px-3 rounded-lg font-semibold cursor-pointer"
+                  >
+                    <h1> Cancel</h1>
+                  </button>
+                </div>
+              </>
+            )}
           </div>
         </div>
       </div>

@@ -1,12 +1,33 @@
 import { GraduationCap, ChevronRight } from "lucide-react";
 import admissionImage from "../../../../assets/images/admissionImage.png";
+import { useNavigate } from "react-router-dom";
 
 const AdmissionHero = () => {
+  const navigate = useNavigate();
   const stats = [
     { number: "500+", label: "Students Enrolled" },
     { number: "25+", label: "Programs Offered" },
     { number: "34+", label: "Years of Excellence" },
   ];
+
+  const handleScrollNavigation = (path: string) => {
+    const [route, hash] = path.split("#");
+
+    navigate(route);
+
+    setTimeout(() => {
+      if (hash) {
+        const section = document.getElementById(hash);
+        if (!section) return;
+
+        const yOffset = -160;
+        const y =
+          section.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+        window.scrollTo({ top: y, behavior: "smooth" });
+      }
+    }, 300);
+  };
 
   return (
     <section className="bg-[#0B2545] mt-10 md:mt-9 lg:mt-35 py-15 px-6 relative overflow-hidden">
@@ -34,7 +55,9 @@ const AdmissionHero = () => {
             </p>
 
             {/* CTA Button */}
-            <button className="group flex items-center gap-2 bg-[#D4A34A] border border-[#D4A34A] text-gray-900 p-2 rounded-xl font-bold text-lg transition-all transform hover:scale-105">
+            <button 
+            onClick={() => handleScrollNavigation("/admission#online-application")}
+            className="group flex items-center gap-2 bg-[#D4A34A] border border-[#D4A34A] text-gray-900 p-2 rounded-xl font-bold text-lg transition-all transform hover:scale-105 cursor-pointer">
               <span>Start Application</span>
               <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>

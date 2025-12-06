@@ -8,14 +8,31 @@ import WhatDrivesUs from "../components/what_drives_us"
 const AboutView = () => {
   return (
     <section>
+      <div id="our-story">
         <AboutHero />
+      </div>
+
+      <div id="our-journey">
         <AboutUs />
+      </div>
+
+      <div id="what-drives-us">
         <WhatDrivesUs />
+      </div>
+
+      <div id="accreditation">
         <AccreditationCards />
+      </div>
+
+      <div id="leadership">
         <LeadershipTeam />
+      </div>
+
+      <div id="download-institutional-profile">
         <Download />
+      </div>
     </section>
-  )
+  );
 }
 
 export default AboutView

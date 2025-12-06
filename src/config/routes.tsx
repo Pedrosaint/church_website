@@ -88,7 +88,7 @@ export default function appRouter(): RouteObject[] {
           element: <HomeView />,
         },
         {
-          path: "/about-us",
+          path: "/about",
           element: <AboutView />,
         },
         {

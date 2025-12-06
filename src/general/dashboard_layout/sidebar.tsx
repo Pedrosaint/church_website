@@ -32,10 +32,10 @@ export default function Sidebar({
 
   // Sidebar body content (we reuse for desktop + mobile)
   const SidebarContent = (
-    <div className="w-56 bg-[#0B2545] min-h-screen flex flex-col font-inter p-3">
+    <div className="w-66 bg-[#0B2545] min-h-screen flex flex-col font-inter p-3">
       {/* Logo */}
       <div className="mb-8 relative">
-        <div className="w-30 h-30 bg-white rounded-full absolute -top-10 right-29 flex items-center justify-center shadow-md">
+        <div className="w-30 h-30 bg-white rounded-full absolute -top-10 right-39 flex items-center justify-center shadow-md">
           <span className="text-slate-900 text-lg font-medium">logo</span>
         </div>
       </div>

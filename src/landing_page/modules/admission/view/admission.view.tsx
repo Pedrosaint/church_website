@@ -7,13 +7,24 @@ import ProgramsSection from "../components/program"
 const AdmissionView = () => {
   return (
     <section>
+      <div id="admission-process">
         <AdmissionHero />
         <AdmissionProcess />
+      </div>
+
+      <div id="adnmission-requirements">
         <AdmissionRequirement />
+      </div>
+
+      <div id="program-to-choose-from">
         <ProgramsSection />
+      </div>
+
+      <div id="online-application">
         <AdmissionApplication />
+      </div>
     </section>
-  )
+  );
 }
 
 export default AdmissionView
