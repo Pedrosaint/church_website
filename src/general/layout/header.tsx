@@ -31,7 +31,6 @@ const handleScrollNavigation = (path: string) => {
     }
   }, 300);
 };
-;
 
   return (
     <header className="fixed top-0 left-0 w-full bg-white shadow-sm z-50">

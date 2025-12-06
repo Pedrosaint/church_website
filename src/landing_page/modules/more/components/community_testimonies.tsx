@@ -77,7 +77,7 @@ const CommunityTestimonies = () => {
     <section id="testimonies" className="py-16 scroll-mt-24">
       <div className="container mx-auto px-4">
         {/* Header */}
-        <div className="flex justify-between items-center mb-10">
+        <div className="flex flex-col md:flex-row md:justify-between gap-2 md:items-center mb-10">
           <div>
             <h2 className="text-3xl md:text-4xl font-semibold text-gray-800">
               Community Testimonies
@@ -97,7 +97,7 @@ const CommunityTestimonies = () => {
         </div>
 
         {/* Pinterest Masonry Grid */}
-        <div className="masonry masonry-4 sm:masonry-2 masonry-1">
+        <div className="md:masonry md:masonry-4 sm:masonry-2 masonry-1">
           {testimonies.map((item, idx) => (
             <div
               key={idx}
