@@ -1,9 +1,7 @@
 import { ProgramCard } from "./program_cards";
-import Bible from "../../../../../assets/images/bible.png"
-import Student from "../../../../../assets/images/student.png"
-import Students from "../../../../../assets/images/students.png"
-
-
+import FeaturedImg1 from "../../../../../assets/images/featured-img-1.jpg";
+import FeaturedImg2 from "../../../../../assets/images/featured-img-2.jpg";
+import FeaturedImg3 from "../../../../../assets/images/featured-img-3.jpg";
 
 export const FeaturedPrograms = () => {
   const data = [
@@ -12,14 +10,14 @@ export const FeaturedPrograms = () => {
       desc: "Focus: Socio-Cultural Studies, Social-Psychological Studies, Christian Studies, Islamic Studies.....",
       duration: "4 Years",
       mode: "On-Campus",
-      image: Bible,
+      image: FeaturedImg3,
     },
     {
       title: "Short & Specialised Ministry Program",
       desc: "Pastoral leadership, counseling, marriage enrichment, women’s empowerment, and Christian education.....",
       duration: "1-2 Years",
       mode: "On-Campus",
-      image: Student,
+      image: FeaturedImg2,
     },
     {
       title: "Master’s Degree Program",
@@ -27,8 +25,7 @@ export const FeaturedPrograms = () => {
       duration: "2 Years(Full-time)",
       durationTwo: "3-4 Years(Part-time)",
       mode: "On-Campus",
-      image:
-        Students,
+      image: FeaturedImg1,
     },
   ];
 

@@ -13,30 +13,32 @@ const Header = () => {
   const toggleMobile = () => setMobileOpen(!mobileOpen);
 
   // Handle routes with hash scrolling logic
-const handleScrollNavigation = (path: string) => {
-  const [route, hash] = path.split("#");
+  const handleScrollNavigation = (path: string) => {
+    const [route, hash] = path.split("#");
 
-  navigate(route);
+    navigate(route);
 
-  setTimeout(() => {
-    if (hash) {
-      const section = document.getElementById(hash);
-      if (!section) return;
+    setTimeout(() => {
+      if (hash) {
+        const section = document.getElementById(hash);
+        if (!section) return;
 
-      const yOffset = -160;
-      const y =
-        section.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        const yOffset = -160;
+        const y =
+          section.getBoundingClientRect().top + window.pageYOffset + yOffset;
 
-      window.scrollTo({ top: y, behavior: "smooth" });
-    }
-  }, 300);
-};
+        window.scrollTo({ top: y, behavior: "smooth" });
+      }
+    }, 300);
+  };
 
   return (
     <header className="fixed top-0 left-0 w-full bg-white shadow-sm z-50">
       <div className="container mx-auto px-6 py-4 flex items-center justify-between">
         {/* LOGO */}
-        <div className="text-xl font-semibold">LOGO</div>
+        <figure className="text-xl font-semibold">
+          <img src="/src/assets/icons/WATHS LOGO 2.svg" alt="Church Logo" />
+        </figure>
 
         {/* MOBILE TOGGLE */}
         <button className="lg:hidden text-[#0A2240]" onClick={toggleMobile}>
@@ -47,36 +49,35 @@ const handleScrollNavigation = (path: string) => {
         <nav className="hidden lg:flex items-center space-x-8 text-[15px] text-[#0A2240]">
           {navLinks.map((link) => {
             interface NavLink {
-            name: string;
-            path?: string;
-            dropdown?: readonly DropdownItem[];
+              name: string;
+              path?: string;
+              dropdown?: readonly DropdownItem[];
             }
 
             interface DropdownItem {
-            name: string;
-            path: string;
+              name: string;
+              path: string;
             }
-const getActiveClass = (link: NavLink): string => {
-  if (link.path) {
-    // Special case for HOME
-    if (link.path === "/") {
-      return pathname === "/" ? "active" : "";
-    }
+            const getActiveClass = (link: NavLink): string => {
+              if (link.path) {
+                // Special case for HOME
+                if (link.path === "/") {
+                  return pathname === "/" ? "active" : "";
+                }
 
-    // Normal pages
-    if (pathname.startsWith(link.path)) return "active";
-  }
+                // Normal pages
+                if (pathname.startsWith(link.path)) return "active";
+              }
 
-  if (link.dropdown) {
-    const isActive = link.dropdown.some((item) =>
-      pathname.startsWith(item.path.split("#")[0])
-    );
-    return isActive ? "active" : "";
-  }
+              if (link.dropdown) {
+                const isActive = link.dropdown.some((item) =>
+                  pathname.startsWith(item.path.split("#")[0])
+                );
+                return isActive ? "active" : "";
+              }
 
-  return "";
-};
-
+              return "";
+            };
 
             // DROPDOWN LINKS
             if ("dropdown" in link) {

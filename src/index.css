@@ -1,15 +1,12 @@
 @import "tailwindcss";
 
-
 body {
-  font-family: "Playfair", serif;
+  font-family: "Montserrat", serif;
 }
-
 
 .font-inter {
   font-family: "Inter", sans-serif;
 }
-
 
 .custom-radio {
   appearance: none;
@@ -43,7 +40,6 @@ body {
   transform: scale(1);
 }
 
-
 @layer utilities {
   .masonry {
     column-gap: 1rem;
@@ -59,20 +55,7 @@ body {
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-{/*===========================================================================================*/}
+/*===========================================================================================*/
 
 .main {
   position: relative;
@@ -115,8 +98,8 @@ body {
   /* border: 1px solid #aaaaaa; */
 }
 
-.main input:focus{
-    border-color: #333333;
+.main input:focus {
+  border-color: #333333;
 }
 
 /*------------------Password css (Login)--------------------*/
@@ -136,24 +119,23 @@ body {
 
 .password-field input:focus + label,
 .password-field input:not(:placeholder-shown) + label {
-    top: -2px !important;
-    font-size: 15px !important;
-    color: #545454 !important;
+  top: -2px !important;
+  font-size: 15px !important;
+  color: #545454 !important;
 }
 
-.relative input:focus{
-    border-color: #333333;
+.relative input:focus {
+  border-color: #333333;
 }
-
 
 /*++++++++++++++++++++++++++++++++++++++++ {SIGNUP} +++++++++++++++++++++++++++++++++++++++++*/
 
 /*++++++++++++ Last Name +++++++++++++++*/
-.lname{
-    position: relative;
-    width: 100%;
+.lname {
+  position: relative;
+  width: 100%;
 }
-.lname input{
+.lname input {
   width: 100%;
   height: 40px;
   border: 1px solid #ccc;
@@ -163,11 +145,11 @@ body {
   outline: none;
 }
 
-.lname input::placeholder{
-    color: transparent;
+.lname input::placeholder {
+  color: transparent;
 }
 
-.lname span{
+.lname span {
   position: absolute;
   left: 10px;
   top: 49%;
@@ -180,23 +162,22 @@ body {
   pointer-events: none;
   transition: all 0.3s ease-out;
 }
-.lname  input:focus + span,
+.lname input:focus + span,
 .lname input:not(:placeholder-shown) + span {
-    top: -2px !important;
-    font-size: 15px !important;
-    color: #545454 !important;
+  top: -2px !important;
+  font-size: 15px !important;
+  color: #545454 !important;
 }
-.lname input:focus{
-    border-color: #333333;
+.lname input:focus {
+  border-color: #333333;
 }
-
 
 /*++++++++++++ First Name +++++++++++++++*/
-.fname{
-    position: relative;
-    width: 100%;
+.fname {
+  position: relative;
+  width: 100%;
 }
-.fname input{
+.fname input {
   width: 100%;
   height: 40px;
   border: 1px solid #ccc;
@@ -206,11 +187,11 @@ body {
   outline: none;
 }
 
-.fname input::placeholder{
-    color: transparent;
+.fname input::placeholder {
+  color: transparent;
 }
 
-.fname span{
+.fname span {
   position: absolute;
   left: 10px;
   top: 49%;
@@ -223,23 +204,22 @@ body {
   pointer-events: none;
   transition: all 0.3s ease-out;
 }
-.fname  input:focus + span,
+.fname input:focus + span,
 .fname input:not(:placeholder-shown) + span {
-    top: -2px !important;
-    font-size: 15px !important;
-    color: #545454 !important;
+  top: -2px !important;
+  font-size: 15px !important;
+  color: #545454 !important;
 }
-.fname input:focus{
-    border-color: #333333;
+.fname input:focus {
+  border-color: #333333;
 }
-
 
 /*++++++++++++ Email +++++++++++++++*/
-.email{
-    position: relative;
-    width: 100%;
+.email {
+  position: relative;
+  width: 100%;
 }
-.email input{
+.email input {
   width: 100%;
   height: 40px;
   border: 1px solid #ccc;
@@ -249,11 +229,11 @@ body {
   outline: none;
 }
 
-.email input::placeholder{
-    color: transparent;
+.email input::placeholder {
+  color: transparent;
 }
 
-.email span{
+.email span {
   position: absolute;
   left: 10px;
   top: 40%;
@@ -266,22 +246,22 @@ body {
   pointer-events: none;
   transition: all 0.3s ease-out;
 }
-.email  input:focus + span,
+.email input:focus + span,
 .email input:not(:placeholder-shown) + span {
-    top: -2px !important;
-    font-size: 15px !important;
-    color: #545454 !important;
+  top: -2px !important;
+  font-size: 15px !important;
+  color: #545454 !important;
 }
-.email input:focus{
-    border-color: #333333;
+.email input:focus {
+  border-color: #333333;
 }
 
 /*++++++++++++ Phone Number +++++++++++++++*/
-.phone{
-    position: relative;
-    width: 100%;
+.phone {
+  position: relative;
+  width: 100%;
 }
-.phone input{
+.phone input {
   width: 100%;
   height: 40px;
   border: 1px solid #ccc;
@@ -291,11 +271,11 @@ body {
   outline: none;
 }
 
-.phone input::placeholder{
-    color: transparent;
+.phone input::placeholder {
+  color: transparent;
 }
 
-.phone span{
+.phone span {
   position: absolute;
   left: 10px;
   top: 49%;
@@ -308,16 +288,15 @@ body {
   pointer-events: none;
   transition: all 0.3s ease-out;
 }
-.phone  input:focus + span,
+.phone input:focus + span,
 .phone input:not(:placeholder-shown) + span {
-    top: -2px !important;
-    font-size: 15px !important;
-    color: #545454 !important;
+  top: -2px !important;
+  font-size: 15px !important;
+  color: #545454 !important;
 }
-.phone input:focus{
-    border-color: #333333;
+.phone input:focus {
+  border-color: #333333;
 }
-
 
 /*------------------Password css (Signup)--------------------*/
 .main-signup input {
@@ -345,27 +324,27 @@ body {
 
 .password-signup input:focus + label,
 .password-signup input:not(:placeholder-shown) + label {
-    top: -2px !important;
-    font-size: 15px !important;
-    color: #545454 !important;
+  top: -2px !important;
+  font-size: 15px !important;
+  color: #545454 !important;
 }
 
-.relative input:focus{
-    border-color: #333333;
+.relative input:focus {
+  border-color: #333333;
 }
 
 /* Keep red border when error exists */
 .relative input.password-error {
-    border-color: #ef4444 !important; /* Red */
+  border-color: #ef4444 !important; /* Red */
 }
 
 /*============ Forgot Password ==============*/
-.form{
-    position: relative;
-    width: 100%;
+.form {
+  position: relative;
+  width: 100%;
 }
-.form input{
-    width: 100%;
+.form input {
+  width: 100%;
   height: 50px;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -374,12 +353,12 @@ body {
   outline: none;
 }
 
-.form input::placeholder{
-    color: transparent;
+.form input::placeholder {
+  color: transparent;
 }
 
-.form label{
-    position: absolute;
+.form label {
+  position: absolute;
   left: 10px;
   top: 18%;
   transform: translateY(-50%);
@@ -391,48 +370,51 @@ body {
   pointer-events: none;
   transition: all 0.3s ease-out;
 }
-.form  input:focus + label,
+.form input:focus + label,
 .form input:not(:placeholder-shown) + label {
-    top: -2px !important;
-    font-size: 15px !important;
-    color: #545454 !important;
+  top: -2px !important;
+  font-size: 15px !important;
+  color: #545454 !important;
 }
-.form input:focus{
-    border-color: #333333;
+.form input:focus {
+  border-color: #333333;
 }
 /* Keep red border when error exists */
 .relative input.password-error {
-    border-color: #ef4444 !important; /* Red */
+  border-color: #ef4444 !important; /* Red */
 }
-
-
-
 
 .custom-gradient {
   position: absolute;
   top: 0;
   left: 0;
-  width: 200px;  /* Adjust width */
+  width: 200px; /* Adjust width */
   height: 100px; /* Adjust height */
   background: linear-gradient(to right, rgba(3, 84, 235, 0.7), transparent),
-              radial-gradient(farthest-side, rgba(96, 139, 219, 0.6) 40%, rgba(255, 255, 255, 0) 70%);
+    radial-gradient(
+      farthest-side,
+      rgba(96, 139, 219, 0.6) 40%,
+      rgba(255, 255, 255, 0) 70%
+    );
   z-index: -1; /* Send it behind the form */
   filter: blur(50px); /* Softens the edges */
 }
-
 
 .sm-custom-gradient {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100px;  /* Adjust width */
+  width: 100px; /* Adjust width */
   height: 60px; /* Adjust height */
   background: linear-gradient(to right, rgba(60, 121, 233, 0.7), transparent),
-              radial-gradient(ellipse at top left, rgba(96, 139, 219, 0.6) 40%, rgba(255, 255, 255, 0) 70%);
+    radial-gradient(
+      ellipse at top left,
+      rgba(96, 139, 219, 0.6) 40%,
+      rgba(255, 255, 255, 0) 70%
+    );
   z-index: -1; /* Send it behind the form */
   filter: blur(40px); /* Softens the edges */
 }
-
 
 /*==================================== text-Custom css =======================================*/
 .text-gradient {
@@ -444,7 +426,7 @@ body {
 }
 
 .text-gradient-second {
-  background: linear-gradient(to right, #003366, #0C81EE, #FE0000);
+  background: linear-gradient(to right, #003366, #0c81ee, #fe0000);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -452,7 +434,7 @@ body {
 }
 
 .text-gradient-third {
-  background: linear-gradient(to right, #003366, #0C81EE);
+  background: linear-gradient(to right, #003366, #0c81ee);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -460,7 +442,7 @@ body {
 }
 
 .text-gradient-fourth {
-  background: linear-gradient(to right, #FF5733, #0C81EE);
+  background: linear-gradient(to right, #ff5733, #0c81ee);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -469,27 +451,26 @@ body {
 
 /*==================================== background-Custom css =======================================*/
 
- .bg-custom-gradient-1 {
-    background: linear-gradient(to bottom, #243563, #43527A);
-  }
- .bg-custom-gradient-2 {
-    background: linear-gradient(to bottom, #593D9D, #826DB5);
-  }
-   .bg-custom-gradient-3 {
-    background: linear-gradient(to bottom, #FF7F50, #994C30);
-  }
-   .bg-custom-gradient-4 {
-    background: linear-gradient(to bottom, #FF69B4, #993F6C);
-  }
-   .font-poppins {
-    font-family: 'Poppins', sans-serif;
-  }
-  .font-merriweather {
-    font-family: 'Merriweather', serif;
-  }
+.bg-custom-gradient-1 {
+  background: linear-gradient(to bottom, #243563, #43527a);
+}
+.bg-custom-gradient-2 {
+  background: linear-gradient(to bottom, #593d9d, #826db5);
+}
+.bg-custom-gradient-3 {
+  background: linear-gradient(to bottom, #ff7f50, #994c30);
+}
+.bg-custom-gradient-4 {
+  background: linear-gradient(to bottom, #ff69b4, #993f6c);
+}
+.font-poppins {
+  font-family: "Poppins", sans-serif;
+}
+.font-merriweather {
+  font-family: "Merriweather", serif;
+}
 
-
-  @keyframes slideIn {
+@keyframes slideIn {
   from {
     transform: translateX(100%);
   }

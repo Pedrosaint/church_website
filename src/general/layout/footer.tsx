@@ -14,7 +14,9 @@ const Footer = () => {
       <div className="container mx-auto px-6 grid md:grid-cols-5 gap-10">
         {/* LOGO + CONTACT */}
         <div>
-          <h2 className="font-bold text-xl">LOGO</h2>
+          <figure className="font-bold text-xl">
+            <img src="/src/assets/icons/WATHS LOGO 2.svg" alt="Church logo" />
+          </figure>
           <p className="text-sm mt-3 leading-relaxed text-gray-400 font-inter">
             Equipping God’s people for faithful service in His kingdom since
             1991.

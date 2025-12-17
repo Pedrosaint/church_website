@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight, Pause, Play } from "lucide-react";
-import HeroImage1 from "../../../../assets/images/hero.png";
-import HeroImage2 from "../../../../assets/images/hero-2.jpg";
-import HeroImage3 from "../../../../assets/images/hero-3.jpg";
+import HeroImage1 from "../../../../assets/images/featured-img-1.jpg";
+import HeroImage2 from "../../../../assets/images/featured-img-3.jpg";
+import HeroImage3 from "../../../../assets/images/featured-img-2.jpg";
 import { useNavigate } from "react-router-dom";
 
 const slides = [
@@ -40,16 +40,15 @@ export default function HeroCarousel() {
   const [isPlaying, setIsPlaying] = useState(true);
   const [currentSlide, setCurrentSlide] = useState(0);
 
-useEffect(() => {
-  if (!isPlaying) return;
+  useEffect(() => {
+    if (!isPlaying) return;
 
-  const interval = setInterval(() => {
-    setCurrentSlide((prev) => (prev + 1) % slides.length);
-  }, 4000);
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 4000);
 
-  return () => clearInterval(interval);
-}, [isPlaying]);
-
+    return () => clearInterval(interval);
+  }, [isPlaying]);
 
   const prevSlide = () => {
     setCurrentSlide((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
