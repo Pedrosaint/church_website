@@ -1,5 +1,8 @@
 import { ArrowRight } from "lucide-react";
-import ChurchBuilding from "../../../../assets/images/church.png";
+// import ChurchBuilding from "../../../../assets/images/church.png";
+import AboutHeroImg1 from "../../../../assets/images/featured-img-1.jpg";
+import AboutHeroImg2 from "../../../../assets/images/featured-img-2.jpg";
+import AboutHeroImg3 from "../../../../assets/images/featured-img-3.jpg";
 import { CircleIcon } from "../../../../assets/icons/svg_icons";
 import { GoArrowDownRight } from "react-icons/go";
 import { IoStarSharp } from "react-icons/io5";
@@ -31,7 +34,7 @@ const AboutHero = () => {
         <div className="flex-1 relative h-[520px]">
           {/* TOP LEFT - LARGE */}
           <div className="absolute top-10 left-0 w-70 h-[290px] rounded-3xl overflow-hidden">
-            <img src={ChurchBuilding} className="w-full h-full object-cover" />
+            <img src={AboutHeroImg3} className="w-full h-full object-cover" />
           </div>
 
           {/* STAR - TOP LEFT */}
@@ -44,12 +47,12 @@ const AboutHero = () => {
 
           {/* TOP RIGHT - LARGE */}
           <div className="absolute top-30 right-6 w-70 h-[290px] rounded-3xl overflow-hidden">
-            <img src={ChurchBuilding} className="w-full h-full object-cover" />
+            <img src={AboutHeroImg2} className="w-full h-full object-cover" />
           </div>
 
           {/* BOTTOM LEFT - MEDIUM */}
           <div className="absolute -bottom-12 -left-10 w-100 h-[220px] rounded-3xl overflow-hidden">
-            <img src={ChurchBuilding} className="w-full h-full object-cover" />
+            <img src={AboutHeroImg1} className="w-full h-full object-cover" />
           </div>
 
           {/* CIRCLE - CENTER */}

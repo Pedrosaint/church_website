@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { Calendar, ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
-import Bible from "../../../../assets/images/bible.png";
-import Student from "../../../../assets/images/student.png";
-import Students from "../../../../assets/images/students.png";
+import news1 from "../../../../assets/images/featured-img-1.jpg";
+import news2 from "../../../../assets/images/featured-img-2.jpg";
+import news3 from "../../../../assets/images/featured-img-3.jpg";
+// import Student from "../../../../assets/images/student.png";
+// import Students from "../../../../assets/images/students.png";
 
 const NewsUpdates = () => {
   const [activeFilter, setActiveFilter] = useState("All");
@@ -18,7 +20,7 @@ const NewsUpdates = () => {
         "Renowned Theologian Dr. Ebuka Prince to Speak at Fall Convocation",
       description:
         "Join us for a special lecture from one of the leading voices in modern theology. His insight promises to challenge and inspire....",
-      imageType: Bible,
+      imageType: news1,
     },
     {
       id: 2,
@@ -27,7 +29,7 @@ const NewsUpdates = () => {
       title: "WAGGOM Celebrate the Graduating Class of 2023",
       description:
         "A look back at the joyful commencement ceremony where we honored our dedicated graduate and their commitment to ministry....",
-      imageType: Student,
+      imageType: news2,
     },
     {
       id: 3,
@@ -36,7 +38,7 @@ const NewsUpdates = () => {
       title: "Seminary Receive Accreditation Renewal with Commendation",
       description:
         "The Board of Accreditation has officially renewed WAGGOM's status praising the institution rigorous academic standards....",
-      imageType: Students,
+      imageType: news3,
     },
     {
       id: 4,
@@ -46,7 +48,7 @@ const NewsUpdates = () => {
         "Renowned Theologian Dr. Ebuka Prince to Speak at Fall Convocation",
       description:
         "Join us for a special lecture from one of the leading voices in modern theology. His insight promises to challenge and inspire....",
-      imageType: Students,
+      imageType: news3,
     },
     {
       id: 5,
@@ -55,7 +57,7 @@ const NewsUpdates = () => {
       title: "WAGGOM Celebrate the Graduating Class of 2023",
       description:
         "A look back at the joyful commencement ceremony where we honored our dedicated graduate and their commitment to ministry....",
-      imageType: Student,
+      imageType: news2,
     },
     {
       id: 6,
@@ -64,7 +66,7 @@ const NewsUpdates = () => {
       title: "Seminary Receive Accreditation Renewal with Commendation",
       description:
         "The Board of Accreditation has officially renewed WAGGOM's status praising the institution rigorous academic standards....",
-      imageType: Bible,
+      imageType: news1,
     },
   ];
 

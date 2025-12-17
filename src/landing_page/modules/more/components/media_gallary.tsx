@@ -1,13 +1,12 @@
-
 const mediaImages = [
-  "/gallery/g1.jpg",
-  "/gallery/g2.jpg",
-  "/gallery/g3.jpg",
-  "/gallery/g4.jpg",
-  "/gallery/g5.jpg",
-  "/gallery/g6.jpg",
-  "/gallery/g7.jpg",
-  "/gallery/g8.jpg",
+  "/src/assets/images/media-img-1.jpg",
+  "/src/assets/images/media-img-2.jpg",
+  "/src/assets/images/media-img-3.jpg",
+  "/src/assets/images/media-img-4.jpg",
+  "/src/assets/images/media-img-5.jpg",
+  "/src/assets/images/media-img-6.jpg",
+  "/src/assets/images/media-img-7.jpg",
+  "/src/assets/images/media-img-8.jpg",
 ];
 
 const MediaGallery = () => {
@@ -15,7 +14,9 @@ const MediaGallery = () => {
     <section className="py-16">
       <div className="container mx-auto px-4">
         {/* Header */}
-        <h2 className="text-3xl md:text-4xl font-semibold text-gray-800 mb-6">Media Gallery</h2>
+        <h2 className="text-3xl md:text-4xl font-semibold text-gray-800 mb-6">
+          Media Gallery
+        </h2>
 
         {/* Image Grid */}
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
