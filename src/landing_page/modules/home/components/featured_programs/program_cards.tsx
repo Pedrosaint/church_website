@@ -42,7 +42,7 @@ export const ProgramCard = ({
         </div>
       </div>
 
-      <div className="p-6 bg-[#f7f7fb]">
+      <div className="p-6 bg-[#f7f7fb] h-full">
         <h3 className="text-xl font-bold text-gray-900 mb-3">{title}</h3>
         <p className="text-[#0B2545] text-lg leading-relaxed mb-4">{desc}</p>
 

@@ -1,4 +1,4 @@
-import { Calendar, Newspaper,type LucideIcon } from "lucide-react";
+import { Calendar, File, Newspaper,type LucideIcon } from "lucide-react";
 import { CiChat1 } from "react-icons/ci";
 import { MdOutlineDashboard } from "react-icons/md";
 
@@ -7,6 +7,7 @@ export const adminMenu = [
   { label: "News", path: "/dashboard/admin-news", icon: Newspaper },
   { label: "Events", path: "/dashboard/events",icon: Calendar },
   { label: "Testimonies", path: "/dashboard/testimonies", icon: CiChat1 },
+  { label: "Application", path: "/dashboard/application", icon: File },
 ];
 
 export interface MenuItem {

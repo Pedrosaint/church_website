@@ -97,7 +97,7 @@ const CommunityTestimonies = () => {
         </div>
 
         {/* Pinterest Masonry Grid */}
-        <div className="masonry md:masonry-4  masonry-1">
+        {/* <div className="masonry md:masonry-4  masonry-1">
           {testimonies.map((item, idx) => (
             <div key={idx} className="break-inside mb-6 overflow-hidden">
               <img
@@ -115,8 +115,8 @@ const CommunityTestimonies = () => {
               </div>
             </div>
           ))}
-        </div>
-        {/* <div className="columns-1 sm:columns-2 lg:columns-4 gap-6">
+        </div> */}
+        <div className="columns-1 sm:columns-2 lg:columns-4 gap-6">
           {testimonies.map((item, idx) => (
             <div
               key={idx}
@@ -141,7 +141,7 @@ const CommunityTestimonies = () => {
               </div>
             </div>
           ))}
-        </div> */}
+        </div>
       </div>
 
       {/* Share Testimony Modal */}

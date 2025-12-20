@@ -1,25 +1,39 @@
-import { BookIcon, CertIcon, GraduationCapIcon } from "../../../../assets/icons/svg_icons";
+import {
+  BookIcon,
+  CertIcon,
+  GraduationCapIcon,
+} from "../../../../assets/icons/svg_icons";
 
 const ProgramsSection = () => {
   const programs = [
     {
       icon: GraduationCapIcon,
-      iconBg: "bg-blue-900",
       title: "Undergraduate Program",
       duration: "4 Years",
-      durationColor: "text-[#1C82FF] border-blue-[#2785F9] bg-[#2785F91F]",
+      durationColor: "text-[#1C82FF] border-[#2785F9] bg-[#2785F91F]",
+      mode: "On-Campus & Online",
+      modeColor: "text-[#1C82FF] border-[#2785F9] bg-[#2785F91F]",
+      tuition: "₦100,000",
       courses: [
         "B.A. Religious & Cultural Studies",
         "B.A. Theology",
         "B.Th. Pastoral Ministry",
       ],
+      charges: [
+        "Application Fee: ₦5,000",
+        "Examination Fee: ₦5,000",
+        "Library & ICT Fee: ₦5,000",
+        "Hostel Fee (Optional): ₦5,000 / semester",
+      ],
     },
     {
       icon: BookIcon,
-      iconBg: "bg-blue-900",
       title: "Masters Program",
-      duration: "2-4 Years",
+      duration: "2–4 Years",
       durationColor: "text-[#7D167E] border-[#730B88] bg-[#E549FD1F]",
+      mode: "On-Campus & Online",
+      modeColor: "text-[#7D167E] border-[#730B88] bg-[#E549FD1F]",
+      tuition: "₦200,000",
       courses: [
         "M.A. Theology",
         "M.A. Biblical Studies",
@@ -27,19 +41,32 @@ const ProgramsSection = () => {
         "M.A. Christian Education",
         "M.A. Pastoral Counseling",
       ],
+      charges: [
+        "Application Fee: ₦5,000",
+        "Examination Fee: ₦5,000",
+        "Library & ICT Fee: ₦5,000",
+        "Hostel Fee (Optional): ₦5,000 / semester",
+      ],
     },
     {
       icon: CertIcon,
-      iconBg: "bg-blue-900",
       title: "Certificate Program",
-      duration: "1-2 Years",
+      duration: "1–2 Years",
       durationColor: "text-[#1C9029] border-[#1C9029] bg-[#1C90290A]",
+      mode: "Flexible",
+      modeColor: "text-[#1C9029] border-[#1C9029] bg-[#1C90290A]",
+      tuition: "₦150,000",
       courses: [
         "Certificate in Ministry Leadership",
         "Certificate in Missions & Church Planting",
         "Certificate in Biblical Studies",
         "Certificate in Pastoral Training",
         "Certificate in Christian Counseling",
+      ],
+      charges: [
+        "Application Fee: ₦5,000",
+        "Examination Fee: ₦5,000",
+        "Library & ICT Fee: ₦5,000",
       ],
     },
   ];
@@ -75,21 +102,29 @@ const ProgramsSection = () => {
           {programs.map((program, index) => (
             <div
               key={index}
-              className="bg-[#F6F7F9] rounded-2xl p-8 border border-[#E6E9EE]  hover:shadow-lg transition-all duration-300 group"
+              className="bg-[#F6F7F9] rounded-2xl p-8 border border-[#E6E9EE] hover:shadow-lg transition-all duration-300"
             >
               {/* Header */}
               <div className="flex items-start justify-between mb-6">
                 {/* Icon */}
-                <div className="w-20 h-20 flex items-center justify-center rounded-full bg-[#0A2240] mb-4">
+                <div className="w-20 h-20 flex items-center justify-center rounded-full bg-[#0A2240]">
                   <program.icon />
                 </div>
 
-                {/* Duration Badge */}
-                <span
-                  className={`px-3 py-1.5 rounded-md text-sm font-semibold border font-inter ${program.durationColor}`}
-                >
-                  {program.duration}
-                </span>
+                {/* Badges */}
+                <div className="flex flex-col items-end gap-2">
+                  <span
+                    className={`px-3 py-1.5 rounded-md text-sm font-semibold border font-inter ${program.durationColor}`}
+                  >
+                    {program.duration}
+                  </span>
+
+                  <span
+                    className={`px-3 py-1.5 rounded-md text-xs font-medium font-inter border ${program.modeColor}`}
+                  >
+                    {program.mode}
+                  </span>
+                </div>
               </div>
 
               {/* Title */}
@@ -98,13 +133,33 @@ const ProgramsSection = () => {
               </h3>
 
               {/* Course List */}
-              <ul className="space-y-3 list-disc pl-5">
+              <ul className="space-y-3 list-disc pl-5 text-gray-700">
                 {program.courses.map((course, idx) => (
-                  <li key={idx} className="text-gray-700">
-                    {course}
-                  </li>
+                  <li key={idx}>{course}</li>
                 ))}
               </ul>
+
+              {/* Tuition */}
+              <div className="mt-8">
+                <h4 className="text-lg font-bold text-gray-900 mb-2">
+                  Tuition Fee
+                </h4>
+                <p className="text-[#F59E0B] font-semibold text-lg">
+                  {program.tuition}
+                </p>
+              </div>
+
+              {/* Additional Charges */}
+              <div className="mt-6">
+                <h4 className="text-lg font-bold text-gray-900 mb-2">
+                  Additional Charges
+                </h4>
+                <ul className="space-y-2 list-disc pl-5 text-gray-600">
+                  {program.charges.map((charge, idx) => (
+                    <li key={idx}>{charge}</li>
+                  ))}
+                </ul>
+              </div>
             </div>
           ))}
         </div>

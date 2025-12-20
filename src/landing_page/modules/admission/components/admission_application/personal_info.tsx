@@ -1,163 +1,181 @@
+import { Save } from "lucide-react";
 import { useState } from "react";
-import { Clock } from "lucide-react";
 
 interface PersonalInfoProps {
   goToNext: () => void;
+  goToPrev: () => void;
 }
 
-export default function PersonalInfo({ goToNext }: PersonalInfoProps) {
+export default function PersonalInfo({
+  goToNext,
+  goToPrev,
+}: PersonalInfoProps) {
   const [form, setForm] = useState({
+    surname: "",
     firstName: "",
-    middleName: "",
-    lastName: "",
+    otherNames: "",
+    title: "",
+    placeOfBirth: "",
     dateOfBirth: "",
-    email: "",
-    phone: "",
-    state: "",
-    city: "",
-    address: "",
+    gender: "",
   });
 
-  const [lastSaved, setLastSaved] = useState<Date | null>(null);
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
     const { name, value } = e.target;
-    setForm((p) => ({ ...p, [name]: value }));
-  };
-
-  const handleNext = () => {
-    // later you will submit API here
-    setLastSaved(new Date());
-    goToNext();
+    setForm((prev) => ({ ...prev, [name]: value }));
   };
 
   return (
-    <>
-      <div className="px-3">
-        <h1 className="text-2xl font-bold text-slate-800 mb-4">
-          Admissions Application - Personal Information
-        </h1>
+    <div className="border border-gray-200 rounded-xl p-6 container mx-auto">
+      <h2 className="text-lg font-semibold text-[#0C1B47] mb-6">
+        Applicant's Personal Information
+      </h2>
 
-        <div className="mb-6 font-inter">
-          <label className="font-semibold text-sm">Full Name</label>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-1">
-            <input
-              name="firstName"
-              placeholder="First Name"
-              value={form.firstName}
-              onChange={handleChange}
-              className="border border-gray-200 p-2 rounded-xl outline-none"
-            />
-            <input
-              name="middleName"
-              placeholder="Middle Name"
-              value={form.middleName}
-              onChange={handleChange}
-              className="border border-gray-200 p-2 rounded-xl outline-none"
-            />
-            <input
-              name="lastName"
-              placeholder="Last Name"
-              value={form.lastName}
-              onChange={handleChange}
-              className="border border-gray-200 p-2 rounded-xl outline-none"
-            />
-          </div>
-        </div>
-
-        <div className="mb-6 font-inter">
-          <label className="block text-sm font-semibold text-slate-700 mb-1">
-            Date of Birth
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {/* Surname */}
+        <div>
+          <label className="block text-sm font-medium mb-1">
+            Surname <span className="text-red-500">*</span>
           </label>
           <input
-            name="dateOfBirth"
-            placeholder="MM/DD/YYYY"
-            value={form.dateOfBirth}
+            name="surname"
+            value={form.surname}
             onChange={handleChange}
-            className="border border-gray-200 p-2 rounded-xl w-full md:w-1/3 outline-none"
+            placeholder="SURNAME"
+            className="w-full border border-gray-300 rounded-lg px-3 py-2 outline-none"
           />
         </div>
 
-        {/* Contact information */}
-        <h1 className="text-2xl font-bold text-slate-800 mb-4">
-          Contact Information
-        </h1>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 font-inter">
-          <div>
-            <label className="text-sm font-semibold">Email</label>
-            <input
-              name="email"
-              value={form.email}
-              onChange={handleChange}
-              placeholder="Enter email"
-              className="border border-gray-200 p-2 rounded-xl w-full outline-none"
-            />
-          </div>
-
-          <div>
-            <label className="text-sm font-semibold">Phone Number</label>
-            <input
-              name="phone"
-              value={form.phone}
-              placeholder="08012345678"
-              onChange={(e) => {
-                const digits = e.target.value.replace(/\D/g, "").slice(0, 11);
-                setForm((p) => ({ ...p, phone: digits }));
-              }}
-              className="border border-gray-200 p-2 rounded-xl w-full outline-none"
-            />
-          </div>
-
-          <div>
-            <label className="text-sm font-semibold">State</label>
-            <input
-              name="state"
-              value={form.state}
-              onChange={handleChange}
-              placeholder="FCT"
-              className="border border-gray-200 p-2 rounded-xl w-full outline-none"
-            />
-          </div>
-
-          <div>
-            <label className="text-sm font-semibold">Address</label>
-            <input
-              name="address"
-              value={form.address}
-              onChange={handleChange}
-              placeholder="No 5 onyenwaku street"
-              className="border border-gray-200 p-2 rounded-xl w-full outline-none"
-            />
-          </div>
-
-          <div>
-            <label className="text-sm font-semibold">City</label>
-            <input
-              name="city"
-              value={form.city}
-              onChange={handleChange}
-              placeholder="Kubwa"
-              className="border border-gray-200 p-2 rounded-xl w-full outline-none"
-            />
-          </div>
+        {/* First Name */}
+        <div>
+          <label className="block text-sm font-medium mb-1">
+            First Name <span className="text-red-500">*</span>
+          </label>
+          <input
+            name="firstName"
+            value={form.firstName}
+            onChange={handleChange}
+            placeholder="FIRST NAME"
+            className="w-full border border-gray-300 rounded-lg px-3 py-2 outline-none"
+          />
         </div>
 
-        <div className="flex justify-between mt-8 font-inter">
-          <div className="flex items-center gap-2 text-sm text-slate-600">
-            <Clock size={16} className="text-[#D4A34A]" />
-            Last saved:{" "}
-            {lastSaved ? lastSaved.toLocaleTimeString() : "Not saved"}
-          </div>
+        {/* Other Names */}
+        <div>
+          <label className="block text-sm font-medium mb-1">Other Names</label>
+          <input
+            name="otherNames"
+            value={form.otherNames}
+            onChange={handleChange}
+            placeholder="OTHER NAMES"
+            className="w-full border border-gray-300 rounded-lg px-3 py-2 outline-none"
+          />
+        </div>
 
-          <button
-            onClick={handleNext}
-            className="bg-[#D4A34A] px-6 py-2 rounded-xl text-[#0B2545] font-semibold cursor-pointer"
+        {/* Title */}
+        <div>
+          <label className="block text-sm font-medium mb-1">
+            Title <span className="text-red-500">*</span>
+          </label>
+          <select
+            name="title"
+            value={form.title}
+            onChange={handleChange}
+            className="w-full border border-gray-300 rounded-lg px-3 py-2 outline-none"
           >
-            Save & Continue
-          </button>
+            <option value="">Select Title</option>
+            <option value="Mr">Mr</option>
+            <option value="Mrs">Mrs</option>
+            <option value="Miss">Miss</option>
+            <option value="Dr">Dr</option>
+            <option value="Prof">Prof</option>
+          </select>
+        </div>
+
+        {/* Place of Birth */}
+        <div>
+          <label className="block text-sm font-medium mb-1">
+            Place of Birth <span className="text-red-500">*</span>
+          </label>
+          <input
+            name="placeOfBirth"
+            value={form.placeOfBirth}
+            onChange={handleChange}
+            placeholder="PLACE OF BIRTH"
+            className="w-full border border-gray-300 rounded-lg px-3 py-2 outline-none"
+          />
+        </div>
+
+        {/* Date of Birth */}
+        <div>
+          <label className="block text-sm font-medium mb-1">
+            Date of Birth <span className="text-red-500">*</span>
+          </label>
+          <input
+            type="date"
+            name="dateOfBirth"
+            value={form.dateOfBirth}
+            onChange={handleChange}
+            className="w-full border border-gray-300 rounded-lg px-3 py-2 outline-none"
+          />
         </div>
       </div>
-    </>
+
+      {/* Gender */}
+      <div className="mt-6">
+        <label className="block text-sm font-medium mb-2">
+          Gender <span className="text-red-500">*</span>
+        </label>
+        <div className="flex items-center gap-6">
+          <label className="flex items-center gap-2">
+            <input
+              type="radio"
+              name="gender"
+              value="Male"
+              checked={form.gender === "Male"}
+              onChange={handleChange}
+              className="custom-radio"
+            />
+            <span>Male</span>
+          </label>
+
+          <label className="flex items-center gap-2">
+            <input
+              type="radio"
+              name="gender"
+              value="Female"
+              checked={form.gender === "Female"}
+              onChange={handleChange}
+              className="custom-radio"
+            />
+            <span>Female</span>
+          </label>
+        </div>
+      </div>
+
+      {/* Buttons */}
+      <div className="flex items-center justify-between mt-8">
+        <button
+          onClick={goToPrev}
+          className="flex items-center gap-2 px-5 py-2 border border-gray-300 rounded-lg text-sm"
+        >
+          ← Previous
+        </button>
+
+        <button className="flex items-center gap-2 px-5 py-2 border border-[#0B2545] text-[#0B2545] rounded-lg text-sm">
+          <Save size={16} />
+          <span>Save & Continue Later</span>
+        </button>
+
+        <button
+          onClick={goToNext}
+          className="bg-[#D4A34A] px-6 py-2 rounded-xl text-[#0B2545] font-semibold"
+        >
+          Next →
+        </button>
+      </div>
+    </div>
   );
 }

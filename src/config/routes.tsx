@@ -32,11 +32,16 @@ import AcademicCalenderView from "../portals/student_portal/modules/academic_cal
 import StudentForgotPassword from "../auth/student_auth/components/forgot_password";
 import StudentVerifyCode from "../auth/student_auth/components/verify_code";
 import StudentResetPassword from "../auth/student_auth/components/reset_password";
+import AdminApplicationView from "../portals/admin_portal/modules/application/view/admin_application.view";
+import AdminApplication from "../portals/admin_portal/modules/application/components/admin_application";
+import ViewApplication from "../portals/admin_portal/modules/application/components/view_application";
 
 
 
 export default function appRouter(): RouteObject[] {
   return [
+
+    // Student Auth Routes
     {
       path: "/student/portal/login",
       element: <StudentAuthView />,
@@ -53,6 +58,8 @@ export default function appRouter(): RouteObject[] {
       path: "/student/portal/reset-password",
       element: <StudentResetPassword />,
     },
+
+    // Admin Auth Routes
     {
       path: "/admin/portal",
       element: <AdminAuthView />,
@@ -79,6 +86,8 @@ export default function appRouter(): RouteObject[] {
         },
       ],
     },
+
+    // Landing Page Routes
     {
       path: "/",
       element: <MainLayout />,
@@ -122,6 +131,8 @@ export default function appRouter(): RouteObject[] {
     //     element: <StudentHandbook />,
     // },
 
+
+    //  Dashboard Routes
     {
       path: "/dashboard",
       element: <DashboardLayout />,
@@ -181,6 +192,20 @@ export default function appRouter(): RouteObject[] {
                 },
               ],
             },
+            {
+              path: "application",
+              element: <AdminApplicationView />,
+              children: [
+                {
+                  index: true,
+                  element: <AdminApplication />,
+                },
+                {
+                  path: "view/:id",
+                  element: <ViewApplication />,
+                },
+              ],
+            }
           ],
         },
       ],

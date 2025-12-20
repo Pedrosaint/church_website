@@ -2,45 +2,21 @@ import { Edit, FileText } from "lucide-react";
 import { useState } from "react";
 import SuccessModal from "../../modal/success.modal";
 import PersonalInfoModal from "../../modal/personal_info.modal";
-import AcademicHistoryModal from "../../modal/academic_history.modal";
 import AdmissionReferenceModal from "../../modal/admission_ref";
-import ProgramChoiceModal from "../../modal/program_choice.modal";
-import UploadedDocumentsModal from "../../modal/upload_doc.modal";
+import ProgrammeInfoModal from "../../modal/programme_info.modal";
+import ContactDetailsModal from "../../modal/contact_details.modal";
+import GuardianInfoModal from "../../modal/guardian_info.modal";
+import EducationQualificationModal from "../../modal/education_qualification.modal";
 
 const ReviewSubmitApplication = () => {
-  const [showAcademicHistoryModal, setShowAcademicHistoryModal] = useState(false);
+   const [showProgrammeInformationModal, setShowProgrammeInformationModal] =
+     useState(false);
+  const [showContactDetailsModal, setShowContactDetailsModal] = useState(false);
   const [showPersonalInfoModal, setShowPersonalInfoModal] = useState(false);
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [showAdmissionReferenceModal, setShowAdmissionReferenceModal] = useState(false);
-  const [showProgramChoiceModal, setShowProgramChoiceModal] = useState(false);
-  const [showUploadedDocumentsModal, setShowUploadedDocumentsModal] = useState(false);
-
-
-
-  const applicationData = {
-    personal: {
-      fullName: "James Osita Ejiofor",
-      dateOfBirth: "MM/DD/YYYY",
-      email: "jude@gmail.com",
-      phone: "+234 **********",
-      address: "Street Address",
-      state: "Portharcourt",
-      city: "Onitsha",
-    },
-    academic: {
-      institution: "Logos Bible College",
-      type: "Seminary",
-      qualification: "Diploma",
-      yearAdmission: "4-03-2021",
-      yearGraduation: "4-03-2025",
-      grade: "First Class",
-      course: "4-03-2025",
-      documents: [
-        { name: "Result Slip.jpg", icon: "file" },
-        { name: "Transcript.pdf", icon: "file" },
-      ],
-    },
-  };
+  const [showGaurdianInfoModal, setShowGaurdianInfoModal] = useState(false);
+  const [showEducationQualificationModal, setShowEducationQualificationModal] = useState(false);
 
   return (
     <div className="py-8 md:px-4">
@@ -56,456 +32,432 @@ const ReviewSubmitApplication = () => {
           </p>
         </div>
 
-        {/* ================= Personal Information Section ================= */}
+        {/* ================= Programme Information ================= */}
         <div className="bg-white border border-gray-200 rounded-xl p-6 mb-6 shadow-sm font-inter">
           <div className="flex justify-between items-center mb-6 pb-4 border-b border-gray-200">
-            <h2 className="text-xl font-semibold text-gray-900">
-              Personal Information
+            <h2 className="text-lg font-semibold text-gray-900">
+              Programme Information
             </h2>
             <button
-             onClick={() => setShowPersonalInfoModal(true)}
-             className="flex items-center gap-2 text-gray-600 hover:text-[#D4A34A] transition-colors cursor-pointer">
-              <Edit className="w-4 h-4" />
-              <span className="text-sm font-medium">Edit</span>
+              onClick={() => setShowProgrammeInformationModal(true)}
+              className="flex items-center gap-2 text-gray-600 hover:text-[#D4A34A] cursor-pointer"
+            >
+              <Edit className="w-4 h-4" /> Edit
             </button>
           </div>
 
           <div className="grid md:grid-cols-2 gap-x-8 gap-y-6">
-            {/* Full Name */}
             <div>
-              <label className="block text-xs font-medium text-gray-500 mb-1">
-                Full Name
-              </label>
-              <p className="text-gray-900 font-medium">
-                {applicationData.personal.fullName}
-              </p>
+              <label className="text-xs text-gray-500">Programme Level</label>
+              <p className="font-medium text-gray-900">Certificate</p>
             </div>
 
-            {/* Date of Birth */}
             <div>
-              <label className="block text-xs font-medium text-gray-500 mb-1">
-                Date of Birth
+              <label className="text-xs text-gray-500">
+                Programme of Choice
               </label>
-              <p className="text-gray-900 font-medium">
-                {applicationData.personal.dateOfBirth}
-              </p>
+              <p className="font-medium text-gray-900">Theology</p>
             </div>
 
-            {/* Email Address */}
-            <div>
-              <label className="block text-xs font-medium text-gray-500 mb-1">
-                Email Address
-              </label>
-              <p className="text-gray-900 font-medium">
-                {applicationData.personal.email}
-              </p>
-            </div>
-
-            {/* Phone Number */}
-            <div>
-              <label className="block text-xs font-medium text-gray-500 mb-1">
-                Phone Number
-              </label>
-              <p className="text-gray-900 font-medium">
-                {applicationData.personal.phone}
-              </p>
-            </div>
-
-            {/* Address */}
-            <div>
-              <label className="block text-xs font-medium text-gray-500 mb-1">
-                Address
-              </label>
-              <p className="text-gray-900 font-medium">
-                {applicationData.personal.address}
-              </p>
-            </div>
-
-            {/* State */}
-            <div>
-              <label className="block text-xs font-medium text-gray-500 mb-1">
-                State
-              </label>
-              <p className="text-gray-900 font-medium">
-                {applicationData.personal.state}
-              </p>
-            </div>
-
-            {/* City */}
-            <div>
-              <label className="block text-xs font-medium text-gray-500 mb-1">
-                City
-              </label>
-              <p className="text-gray-900 font-medium">
-                {applicationData.personal.city}
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/*============ Academic History Section ===========*/}
-        <div className="bg-white border border-gray-200 rounded-xl p-6 mb-6 shadow-sm font-inter">
-          <div className="flex justify-between items-center mb-4 pb-4 border-b border-gray-200">
-            <div>
-              <h2 className="text-xl font-semibold text-gray-900">
-                Academic History
-              </h2>
-              <p className="text-xs text-gray-500 mt-1">Previous Education</p>
-            </div>
-            <button 
-            onClick={() => setShowAcademicHistoryModal(true)}
-            className="flex items-center gap-2 text-gray-600 hover:text-[#D4A34A] transition-colors cursor-pointer">
-              <Edit className="w-4 h-4" />
-              <span className="text-sm font-medium">Edit</span>
-            </button>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-x-8 gap-y-6">
-            {/* Full Name of Institution */}
-            <div>
-              <label className="block text-xs font-medium text-gray-500 mb-1">
-                Full Name of Institution
-              </label>
-              <p className="text-gray-900 font-medium">
-                {applicationData.academic.institution}
-              </p>
-            </div>
-
-            {/* Type of Institution */}
-            <div>
-              <label className="block text-xs font-medium text-gray-500 mb-1">
-                Type of Institution
-              </label>
-              <p className="text-gray-900 font-medium">
-                {applicationData.academic.type}
-              </p>
-            </div>
-
-            {/* Qualification Obtained */}
-            <div>
-              <label className="block text-xs font-medium text-gray-500 mb-1">
-                Qualification Obtained
-              </label>
-              <p className="text-gray-900 font-medium">
-                {applicationData.academic.qualification}
-              </p>
-            </div>
-
-            {/* Year of Admission */}
-            <div>
-              <label className="block text-xs font-medium text-gray-500 mb-1">
-                Year of Admission
-              </label>
-              <p className="text-gray-900 font-medium">
-                {applicationData.academic.yearAdmission}
-              </p>
-            </div>
-
-            {/* Year of Graduation */}
-            <div>
-              <label className="block text-xs font-medium text-gray-500 mb-1">
-                Year of Graduation
-              </label>
-              <p className="text-gray-900 font-medium">
-                {applicationData.academic.yearGraduation}
-              </p>
-            </div>
-
-            {/* Grade */}
-            <div>
-              <label className="block text-xs font-medium text-gray-500 mb-1">
-                Grade
-              </label>
-              <p className="text-gray-900 font-medium">
-                {applicationData.academic.grade}
-              </p>
-            </div>
-
-            {/* Course */}
-            <div className="">
-              <label className="block text-xs font-medium text-gray-500 mb-1">
-                Course
-              </label>
-              <p className="text-gray-900 font-medium">
-                {applicationData.academic.course}
-              </p>
-            </div>
-
-            {/* Uploaded Documents */}
-            <div className="">
-              <div className="flex gap-4 mt-2">
-                {applicationData.academic.documents.map((doc, index) => (
-                  <div
-                    key={index}
-                    className="flex items-center gap-2 text-gray-600"
-                  >
-                    <FileText className="w-4 h-4 text-gray-400" />
-                    <span className="text-sm">{doc.name}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* ================= Admission Reference Section ================= */}
-        <div className="bg-white border border-gray-200 rounded-xl p-6 mb-6 shadow-sm font-inter">
-          <div className="flex justify-between items-center mb-6 pb-4 border-b border-gray-200">
-            <h2 className="text-xl font-semibold text-gray-900">
-              Admission Reference
-            </h2>
-            <button 
-            onClick={() => setShowAdmissionReferenceModal(true)}
-            className="flex items-center gap-2 text-gray-600 hover:text-[#D4A34A] transition-colors cursor-pointer">
-              <Edit className="w-4 h-4" />
-              <span className="text-sm font-medium">Edit</span>
-            </button>
-          </div>
-
-          {/* +++++++++++++++++++++ Reference 1 +++++++++++++++++++++ */}
-          <div className="mb-8">
-            <h3 className="text-sm bg-gray-100 px-2 py-3 font-semibold text-gray-700 mb-4">
-              Reference 1
-            </h3>
-
-            <div className="grid md:grid-cols-2 gap-x-8 gap-y-6">
-              <div>
-                <label className="block text-xs font-medium text-gray-500 mb-1">
-                  Full Name
-                </label>
-                <p className="text-gray-900 font-medium">
-                  Joshua Williams Kingsley
-                </p>
-              </div>
-
-              <div>
-                <label className="block text-xs font-medium text-gray-500 mb-1">
-                  Position
-                </label>
-                <p className="text-gray-900 font-medium">Seminarian</p>
-              </div>
-
-              <div>
-                <label className="block text-xs font-medium text-gray-500 mb-1">
-                  Ministry Name
-                </label>
-                <p className="text-gray-900 font-medium">
-                  Redeem Christian Church of God
-                </p>
-              </div>
-
-              <div>
-                <label className="block text-xs font-medium text-gray-500 mb-1">
-                  Phone Number
-                </label>
-                <p className="text-gray-900 font-medium">+234 9044523113</p>
-              </div>
-
-              <div>
-                <label className="block text-xs font-medium text-gray-500 mb-1">
-                  Relationship to Applicant
-                </label>
-                <p className="text-gray-900 font-medium">Mentor</p>
-              </div>
-
-              <div>
-                <div className="flex items-center gap-2 text-gray-600 mt-4">
-                  <FileText className="w-4 h-4 text-gray-400" />
-                  <span className="text-sm">Recommendation letter.pdf</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* +++++++++++++++++++++ Reference 2 +++++++++++++++++++++ */}
-          <div className=" rounded-lg ">
-            <h3 className="text-sm bg-gray-100 px-2 py-3 font-semibold text-gray-700 mb-4">
-              Reference 2
-            </h3>
-
-            <div className="grid md:grid-cols-2 gap-x-8 gap-y-6">
-              <div>
-                <label className="block text-xs font-medium text-gray-500 mb-1">
-                  Full Name
-                </label>
-                <p className="text-gray-900 font-medium">
-                  Joshua Williams Kingsley
-                </p>
-              </div>
-
-              <div>
-                <label className="block text-xs font-medium text-gray-500 mb-1">
-                  Position
-                </label>
-                <p className="text-gray-900 font-medium">Seminarian</p>
-              </div>
-
-              <div>
-                <label className="block text-xs font-medium text-gray-500 mb-1">
-                  Ministry Name
-                </label>
-                <p className="text-gray-900 font-medium">
-                  Redeem Christian Church of God
-                </p>
-              </div>
-
-              <div>
-                <label className="block text-xs font-medium text-gray-500 mb-1">
-                  Phone Number
-                </label>
-                <p className="text-gray-900 font-medium">+234 9044523113</p>
-              </div>
-
-              <div>
-                <label className="block text-xs font-medium text-gray-500 mb-1">
-                  Relationship to Applicant
-                </label>
-                <p className="text-gray-900 font-medium">Mentor</p>
-              </div>
-
-              <div>
-                <div className="flex items-center gap-2 text-gray-600 mt-4">
-                  <FileText className="w-4 h-4 text-gray-400" />
-                  <span className="text-sm">Recommendation letter.pdf</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* ================= Program Choice Section ================= */}
-        <div className="bg-white border border-gray-200 rounded-xl p-6 mb-6 shadow-sm font-inter">
-          <div className="flex justify-between items-center mb-6 pb-4 border-b border-gray-200">
-            <h2 className="text-xl font-semibold text-gray-900">
-              Program Choice
-            </h2>
-            <button 
-            onClick={() => setShowProgramChoiceModal(true)}
-            className="flex items-center gap-2 text-gray-600 hover:text-[#D4A34A] transition-colors cursor-pointer">
-              <Edit className="w-4 h-4" />
-              <span className="text-sm font-medium">Edit</span>
-            </button>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-6">
-            {/* Left Column */}
-            <div className="space-y-6">
-              <div>
-                <label className="block text-xs font-medium text-gray-500 mb-1">
-                  Program Level
-                </label>
-                <p className="text-gray-900 font-medium">Diploma in Theology</p>
-              </div>
-
-              <div className="bg-gray-100 rounded p-4">
-                <label className="block text-xs font-medium text-gray-500 mb-1">
-                  Study Duration
-                </label>
-                <p className="text-gray-900 font-medium">3-4 years</p>
-              </div>
-            </div>
-
-            {/* Right Column */}
-            <div className="space-y-6">
-              <div>
-                <label className="block text-xs font-medium text-gray-500 mb-1">
-                  Mode of Study
-                </label>
-                <p className="text-gray-900 font-medium">On Campus</p>
-              </div>
-
-              <div className="bg-gray-100 rounded p-4">
-                <label className="block text-xs font-medium text-gray-500 mb-1">
-                  Resumption Date
-                </label>
-                <p className="text-gray-900 font-medium">4-03-2021</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* ================= Uploaded Documents Section ================= */}
-        <div className="bg-white border border-gray-200 rounded-xl p-6 mb-6 shadow-sm font-inter">
-          <div className="flex justify-between items-center mb-6 pb-4 border-b border-gray-200">
-            <h2 className="text-xl font-semibold text-gray-900">
-              Uploaded Documents
-            </h2>
-            <button 
-            onClick={() => setShowUploadedDocumentsModal(true)}
-            className="flex items-center gap-2 text-gray-600 hover:text-[#D4A34A] transition-colors cursor-pointer">
-              <Edit className="w-4 h-4" />
-              <span className="text-sm font-medium">Edit</span>
-            </button>
-          </div>
-
-          <div className="space-y-4 font-inter">
-            <div className="flex items-center gap-3 py-3 border-b border-gray-100">
-              <FileText className="w-5 h-5 text-gray-400" />
-              <span className="text-gray-700">Passport.PNG</span>
-            </div>
-
-            <div className="flex items-center gap-3 py-3 border-b border-gray-100">
-              <FileText className="w-5 h-5 text-gray-400" />
-              <span className="text-gray-700">Birth Certificate.jpg</span>
-            </div>
-
-            <div className="flex items-center gap-3 py-3">
-              <FileText className="w-5 h-5 text-gray-400" />
-              <span className="text-gray-700">National ID.jpg</span>
-            </div>
-          </div>
-        </div>
-
-        {/* ================= Payment Confirmation Section ================= */}
-        <div className="bg-white border border-gray-200 rounded-xl p-6 mb-6 shadow-sm font-inter">
-          <div className="flex justify-between items-center mb-6 pb-4 border-b border-gray-200">
-            <h2 className="text-xl font-semibold text-gray-900">
-              Payment Confirmation
-            </h2>
-            <button className="flex items-center gap-2 text-gray-600 hover:text-[#D4A34A] transition-colors font-inter">
+            <div className="flex items-center gap-2 text-sm text-gray-600">
               <FileText className="w-4 h-4" />
-              <span className="text-sm font-medium">View Receipt</span>
+              Result_Slip.jpg
+            </div>
+
+            <div className="flex items-center gap-2 text-sm text-gray-600">
+              <FileText className="w-4 h-4" />
+              Transcript.pdf
+            </div>
+          </div>
+        </div>
+
+        {/* ================= Personal Info ================= */}
+        <div className="bg-white border border-gray-200 rounded-xl p-6 mb-6 shadow-sm font-inter">
+          <div className="flex justify-between items-center mb-6 pb-4 border-b border-gray-200">
+            <h2 className="text-lg font-semibold text-gray-900">
+              Personal Info
+            </h2>
+            <button 
+            onClick={() => setShowPersonalInfoModal(true)}
+            className="flex items-center gap-2 text-gray-600 hover:text-[#D4A34A] cursor-pointer">
+              <Edit className="w-4 h-4" /> Edit
             </button>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 font-inter">
+          <div className="grid md:grid-cols-2 gap-x-8 gap-y-6">
             <div>
-              <label className="block text-xs font-medium text-gray-500 mb-2">
-                Payment Status
-              </label>
-              <span className="inline-block px-4 py-1.5 bg-green-100 text-green-700 rounded-full text-sm font-medium">
-                Paid
-              </span>
+              <label className="text-xs text-gray-500">First Name</label>
+              <p className="font-medium">Nkechi</p>
             </div>
 
             <div>
-              <label className="block text-xs font-medium text-gray-500 mb-2">
-                Amount
-              </label>
-              <p className="text-gray-900 font-semibold">₦100,000</p>
+              <label className="text-xs text-gray-500">Surname</label>
+              <p className="font-medium">Chibuzor</p>
             </div>
 
             <div>
-              <label className="block text-xs font-medium text-gray-500 mb-2">
-                Date
-              </label>
-              <p className="text-gray-900 font-medium">15 July 2025</p>
+              <label className="text-xs text-gray-500">Other Names</label>
+              <p className="font-medium">Blessing</p>
             </div>
 
             <div>
-              <label className="block text-xs font-medium text-gray-500 mb-2">
-                Receipt Number
+              <label className="text-xs text-gray-500">Title</label>
+              <p className="font-medium">Mr</p>
+            </div>
+
+            <div>
+              <label className="text-xs text-gray-500">Place of Birth</label>
+              <p className="font-medium">Anambra</p>
+            </div>
+
+            <div>
+              <label className="text-xs text-gray-500">Date of Birth</label>
+              <p className="font-medium">4-03-2025</p>
+            </div>
+
+            <div>
+              <label className="text-xs text-gray-500">Gender</label>
+              <p className="font-medium">Male</p>
+            </div>
+          </div>
+        </div>
+
+        {/* ================= Contact Details ================= */}
+        <div className="bg-white border border-gray-200 rounded-xl p-6 mb-6 shadow-sm font-inter">
+          <div className="flex justify-between items-center mb-6 pb-4 border-b border-gray-200">
+            <h2 className="text-lg font-semibold text-gray-900">
+              Contact Details
+            </h2>
+            <button
+             onClick={() => setShowContactDetailsModal(true)}
+             className="flex items-center gap-2 text-gray-600 hover:text-[#D4A34A] cursor-pointer">
+              <Edit className="w-4 h-4" /> Edit
+            </button>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-x-8 gap-y-6">
+            <div>
+              <label className="text-xs text-gray-500">
+                Present Residential Address
               </label>
-              <p className="text-gray-900 font-medium">WATHS-2025-8451</p>
+              <p className="font-medium">No 20 Joshua Williams Abia</p>
+            </div>
+
+            <div>
+              <label className="text-xs text-gray-500">Phone Number</label>
+              <p className="font-medium">+234 904 452 3113</p>
+            </div>
+
+            <div>
+              <label className="text-xs text-gray-500">Email Address</label>
+              <p className="font-medium">Blessing43@gmail.com</p>
+            </div>
+
+            <div>
+              <label className="text-xs text-gray-500">
+                Permanent Home Address
+              </label>
+              <p className="font-medium">No 20 Joshua Williams Abia</p>
+            </div>
+
+            <div>
+              <label className="text-xs text-gray-500">Postal Address</label>
+              <p className="font-medium">10011</p>
+            </div>
+
+            <div>
+              <label className="text-xs text-gray-500">Nationality</label>
+              <p className="font-medium">Nigeria</p>
+            </div>
+
+            <div>
+              <label className="text-xs text-gray-500">Native Language</label>
+              <p className="font-medium">Igbo</p>
+            </div>
+
+            <div>
+              <label className="text-xs text-gray-500">Religion</label>
+              <p className="font-medium">Christian</p>
+            </div>
+
+            <div>
+              <label className="text-xs text-gray-500">Marital Status</label>
+              <p className="font-medium">Single</p>
+            </div>
+
+            <div>
+              <label className="text-xs text-gray-500">Denomination</label>
+              <p className="font-medium">RCCG</p>
+            </div>
+          </div>
+        </div>
+
+        {/* ================= Guardian Information ================= */}
+        <div className="bg-white border border-gray-200 rounded-xl mb-6 shadow-sm font-inter">
+          {/* Header */}
+          <div className="flex justify-between items-center px-6 py-4 border-b border-gray-200">
+            <h2 className="font-semibold text-gray-900">Guardian info</h2>
+            <button 
+            onClick={() => setShowGaurdianInfoModal(true)}
+            className="flex items-center gap-2 text-sm text-gray-600 hover:text-[#D4A34A] cursor-pointer">
+              <Edit className="w-4 h-4" />
+              Edit
+            </button>
+          </div>
+
+          {/* Guardian */}
+          <div className="px-6 py-4">
+            <p className="text-xs text-gray-500 mb-1">
+              Name & Address of Parent / Guardian
+            </p>
+            <p className="text-sm text-gray-900 font-medium">
+              Mr Kingsley Obinna.
+            </p>
+            <p className="text-sm text-gray-600">No 20 francis Uti street</p>
+          </div>
+
+          {/* Emergency Contact */}
+          <div className="bg-gray-200 px-6 py-2 text-sm font-semibold text-gray-800">
+            Emergency Contact
+          </div>
+
+          <div className="px-6 py-4 grid md:grid-cols-2 gap-6">
+            <div>
+              <p className="text-xs text-gray-500 mb-1">
+                Name & Address of Parent / Guardian
+              </p>
+              <p className="text-sm font-medium text-gray-900">
+                Mr Kingsley Obinna.
+              </p>
+              <p className="text-sm text-gray-600">No 20 francis Uti street</p>
+            </div>
+
+            <div>
+              <p className="text-xs text-gray-500 mb-1">Phone Number</p>
+              <p className="text-sm font-medium text-gray-900">On Campus</p>
+            </div>
+          </div>
+
+          {/* Next of Kin */}
+          <div className="bg-gray-200 px-6 py-2 text-sm font-semibold text-gray-800">
+            Next of Kin
+          </div>
+
+          <div className="px-6 py-4 grid md:grid-cols-2 gap-6">
+            <div>
+              <p className="text-xs text-gray-500 mb-1">
+                Name & Address of Parent / Guardian
+              </p>
+              <p className="text-sm font-medium text-gray-900">
+                Mr Kingsley Obinna.
+              </p>
+              <p className="text-sm text-gray-600">No 20 francis Uti street</p>
+            </div>
+
+            <div>
+              <p className="text-xs text-gray-500 mb-1">Phone Number</p>
+              <p className="text-sm font-medium text-gray-900">
+                +234 9044523113
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* ================= Educational Qualification ================= */}
+        <div className="bg-white border border-gray-200 rounded-xl mb-6 shadow-sm font-inter">
+          {/* Header */}
+          <div className="flex justify-between items-center px-6 py-4 border-b border-gray-200">
+            <h2 className="font-semibold text-gray-900">
+              Educational Qualification
+            </h2>
+            <button 
+            onClick={() => setShowEducationQualificationModal(true)}
+            className="flex items-center gap-2 text-sm text-gray-600 hover:text-[#D4A34A] cursor-pointer">
+              <Edit className="w-4 h-4" />
+              Edit
+            </button>
+          </div>
+
+          {/* Qualification Details */}
+          <div className="px-6 py-4 grid md:grid-cols-2 gap-6">
+            <div>
+              <p className="text-xs text-gray-500 mb-1">Institution Name</p>
+              <p className="text-sm font-medium text-gray-900">OAU</p>
+            </div>
+
+            <div>
+              <p className="text-xs text-gray-500 mb-1">From</p>
+              <p className="text-sm font-medium text-gray-900">12-02-2021</p>
+            </div>
+
+            <div>
+              <p className="text-xs text-gray-500 mb-1">To</p>
+              <p className="text-sm font-medium text-gray-900">12-02-2024</p>
+            </div>
+
+            <div className="flex items-center gap-2 text-sm text-gray-700">
+              <FileText className="w-4 h-4 text-gray-400" />
+              <span>Bsc Certificate.jpg</span>
+            </div>
+          </div>
+
+          {/* Professional Certificate */}
+          <div className="bg-gray-200 px-6 py-2 text-sm font-semibold text-gray-800">
+            Professional Certificate
+          </div>
+
+          <div className="px-6 py-4 grid md:grid-cols-2 gap-6">
+            <div className="flex items-center gap-2 text-sm text-gray-700">
+              <FileText className="w-4 h-4 text-gray-400" />
+              <span>Bsc Certificate.jpg</span>
+            </div>
+
+            <div>
+              <div>
+                <p className="text-xs text-gray-500 mb-1">Description</p>
+                <div className="border border-gray-200 rounded-lg px-3 py-2 text-sm text-gray-900 bg-gray-50">
+                  Bachelor of Science certificate obtained after completing a
+                  four-year undergraduate program in the chosen field of study.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* ================= Finance & Referee ================= */}
+        <div className="bg-white border border-gray-200 rounded-xl p-6 mb-6 shadow-sm font-inter">
+          {/* Header */}
+          <div className="flex justify-between items-center mb-6 pb-4 border-b border-gray-200">
+            <h2 className="text-lg font-semibold text-gray-900">
+              Finance & Referee
+            </h2>
+            <button className="flex items-center gap-2 text-gray-600 hover:text-[#D4A34A]">
+              <Edit className="w-4 h-4" />
+              <span className="text-sm font-medium">Edit</span>
+            </button>
+          </div>
+
+          {/* Finance & Health */}
+          <div className="grid md:grid-cols-2 gap-x-8 gap-y-6 mb-6">
+            <div>
+              <label className="block text-xs text-gray-500 mb-1">
+                How do you intend to finance your studies
+              </label>
+              <p className="font-medium text-gray-900">Scholarship</p>
+            </div>
+
+            <div>
+              <label className="block text-xs text-gray-500 mb-1">
+                Do you have any special need / health conditions
+              </label>
+              <p className="font-medium text-gray-900">Yes</p>
+            </div>
+          </div>
+
+          {/* ================= Academic Referee ================= */}
+          <div className="bg-gray-100 px-4 py-2 rounded-md mb-4">
+            <h3 className="text-sm font-semibold text-gray-800">
+              Academic Referee
+            </h3>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-x-8 gap-y-6 mb-6">
+            <div>
+              <label className="text-xs text-gray-500">Name</label>
+              <p className="font-medium">Joshua Williams</p>
+            </div>
+
+            <div>
+              <label className="text-xs text-gray-500">Profession</label>
+              <p className="font-medium">Lecturer</p>
+            </div>
+
+            <div>
+              <label className="text-xs text-gray-500">Institution</label>
+              <p className="font-medium">OAU</p>
+            </div>
+
+            <div>
+              <label className="text-xs text-gray-500">Address</label>
+              <p className="font-medium">No 20 Joshua Williams Osun state</p>
+            </div>
+
+            <div>
+              <label className="text-xs text-gray-500">Phone Number</label>
+              <p className="font-medium">+234 904 452 3113</p>
+            </div>
+
+            <div>
+              <label className="text-xs text-gray-500">Email</label>
+              <p className="font-medium">epraiz85@gmail.com</p>
+            </div>
+          </div>
+
+          {/* ================= Clergy Referee ================= */}
+          <div className="bg-gray-100 px-4 py-2 rounded-md mb-4">
+            <h3 className="text-sm font-semibold text-gray-800">
+              Clergy Referee
+            </h3>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-x-8 gap-y-6 mb-6">
+            <div>
+              <label className="text-xs text-gray-500">Name</label>
+              <p className="font-medium">Joshua Williams</p>
+            </div>
+
+            <div>
+              <label className="text-xs text-gray-500">Position</label>
+              <p className="font-medium">Pastor</p>
+            </div>
+
+            <div>
+              <label className="text-xs text-gray-500">Church</label>
+              <p className="font-medium">RCCG</p>
+            </div>
+
+            <div>
+              <label className="text-xs text-gray-500">Address</label>
+              <p className="font-medium">No 20 Joshua Williams Osun state</p>
+            </div>
+
+            <div>
+              <label className="text-xs text-gray-500">Phone Number</label>
+              <p className="font-medium">+234 904 452 3113</p>
+            </div>
+
+            <div>
+              <label className="text-xs text-gray-500">Email</label>
+              <p className="font-medium">epraiz85@gmail.com</p>
+            </div>
+          </div>
+
+          {/* ================= Declaration ================= */}
+          <div className="bg-gray-100 px-4 py-2 rounded-md mb-4">
+            <h3 className="text-sm font-semibold text-gray-800">Declaration</h3>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-x-8 gap-y-6">
+            <div>
+              <label className="text-xs text-gray-500">
+                Applicant Signature
+              </label>
+              <p className="font-medium">E.D</p>
+            </div>
+
+            <div>
+              <label className="text-xs text-gray-500">Phone Number</label>
+              <p className="font-medium">12-02-2025</p>
             </div>
           </div>
         </div>
 
         {/* Submit Button */}
         <div className="flex flex-col items-center gap-4 font-inter">
-          <button 
-          onClick={() => setShowSuccessModal(true)}
-          className="w-full px-8 py-2 bg-[#D4A34A] hover:bg-[#C09340] text-[#0B2545] rounded-lg font-medium transition-colors cursor-pointer">
+          <button
+            onClick={() => setShowSuccessModal(true)}
+            className="w-full px-8 py-2 bg-[#D4A34A] hover:bg-[#C09340] text-[#0B2545] rounded-lg font-medium transition-colors cursor-pointer"
+          >
             Submit Application
           </button>
 
@@ -516,22 +468,46 @@ const ReviewSubmitApplication = () => {
       </div>
 
       {/* Success Modal */}
-      {showSuccessModal && <SuccessModal  setShowSuccessModal={setShowSuccessModal} />}
+      {showSuccessModal && (
+        <SuccessModal setShowSuccessModal={setShowSuccessModal} />
+      )}
+
+      {/* Programme Information Modal */}
+      {showProgrammeInformationModal && (
+        <ProgrammeInfoModal
+          onClose={() => setShowProgrammeInformationModal(false)}
+        />
+      )}
 
       {/* Personal Info Modal */}
-      {showPersonalInfoModal && <PersonalInfoModal onClose={() => setShowPersonalInfoModal(false)} />}
+      {showPersonalInfoModal && (
+        <PersonalInfoModal onClose={() => setShowPersonalInfoModal(false)} />
+      )}
 
-        {/* Academic History Modal */}
-      {showAcademicHistoryModal && <AcademicHistoryModal onClose={() => setShowAcademicHistoryModal(false)} />}
+      {/* Contact Details Modal */}
+      {showContactDetailsModal && (
+        <ContactDetailsModal
+          onClose={() => setShowContactDetailsModal(false)}
+        />
+      )}
 
-        {/* Admission Reference Modal */}
-      {showAdmissionReferenceModal && <AdmissionReferenceModal onClose={() => setShowAdmissionReferenceModal(false)} />}
+      {/* Admission Reference Modal */}
+      {showAdmissionReferenceModal && (
+        <AdmissionReferenceModal
+          onClose={() => setShowAdmissionReferenceModal(false)}
+        />
+      )}
 
-        {/* Program Choice Modal */}
-      {showProgramChoiceModal && <ProgramChoiceModal onClose={() => setShowProgramChoiceModal(false)} />}
+      {/* Guardian Info Modal */}
+      {showGaurdianInfoModal && (
+        <GuardianInfoModal onClose={() => setShowGaurdianInfoModal(false)} />)}
 
-        {/* Uploaded Documents Modal */}
-      {showUploadedDocumentsModal && <UploadedDocumentsModal onClose={() => setShowUploadedDocumentsModal(false)} />}
+      {/* Uploaded Documents Modal */}
+      {showEducationQualificationModal && (
+        <EducationQualificationModal
+          onClose={() => setShowEducationQualificationModal(false)}
+        />
+      )}
     </div>
   );
 };

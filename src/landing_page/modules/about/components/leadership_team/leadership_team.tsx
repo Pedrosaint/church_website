@@ -1,4 +1,5 @@
 import { LeadershipTeamCard } from "./leadership_cards";
+import ProfUdoImage from "../../../../../assets/images/Prof-udo.png";
 
 
 
@@ -8,7 +9,6 @@ export const LeadershipTeam = () => {
     {
       title: "The Most Rev. Isaac Chijioke Nwaobia, Ph.D., JP, FCBA",
       desc: "Provides overall governance, policy direction, and spiritual oversight for the Seminary",
-      duration: "3-4 Years",
       subTitle: "Chairman, Governing Board ",
       image:
         "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=800",
@@ -16,15 +16,12 @@ export const LeadershipTeam = () => {
     {
       title: "Ven. Prof. Udo E. Obioma",
       desc: "Leads institutional vision, administration, and strategic development.",
-      duration: "4 Years",
       subTitle: "President ",
-      image:
-        "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=800",
+      image: ProfUdoImage,
     },
     {
       title: "Dr. (Mrs.) Glory C. Obioma",
       desc: "Oversees academic programs, faculty coordination, and quality assurance.",
-      duration: "1-2 Years",
       subTitle: "Provost",
       image:
         "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800",
