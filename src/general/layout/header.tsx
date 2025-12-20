@@ -216,15 +216,19 @@ const Header = () => {
 
           {/* MOBILE BUTTONS */}
           <button
-            onClick={() => handleScrollNavigation("/more#support-the-ministry")}
+            onClick={() => {
+              handleScrollNavigation("/more#support-the-ministry");
+              setMobileOpen(false);
+            }}
             className="w-full px-4 py-2 border border-[#D4A95E] rounded-lg text-[#D4A95E] cursor-pointer"
           >
             Donate
           </button>
           <button
-            onClick={() =>
-              handleScrollNavigation("/admission#online-application")
-            }
+            onClick={() => {
+              handleScrollNavigation("/admission#online-application");
+              setMobileOpen(false);
+            }}
             className="w-full px-4 py-2 bg-[#D4A95E] rounded-lg text-white cursor-pointer"
           >
             Apply

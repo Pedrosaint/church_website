@@ -2,9 +2,6 @@ import React, { useState } from "react";
 import { EyeOff, Eye } from "lucide-react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import { FcGoogle } from "react-icons/fc";
-import { IoLogoFacebook } from "react-icons/io5";
-import { FaApple } from "react-icons/fa";
 import { useDispatch } from "react-redux";
 import { loginSuccess } from "../../slice/auth.slice";
 
@@ -38,9 +35,9 @@ const AdminLogin: React.FC = () => {
   };
 
   return (
-    <div className="w-full max-w-xl p-4 font-inter">
-      <div className="custom-gradient hidden sm:block"></div>
-      <div className="sm-custom-gradient sm:hidden"></div>
+    <div className="w-full max-w-4xl p-4 font-inter">
+      {/* <div className="custom-gradient hidden sm:block"></div>
+      <div className="sm-custom-gradient sm:hidden"></div> */}
       <motion.div
         initial={{ opacity: 0, x: -50 }}
         animate={{ opacity: 1, x: 0 }}
@@ -136,29 +133,6 @@ const AdminLogin: React.FC = () => {
           Sign Up
         </button>
       </p>
-
-      {/* Social Logins */}
-      <div className="mt-6">
-        <div className="flex items-center gap-3 my-4">
-          <hr className="flex-1 border-gray-300" />
-          <p className="text-center text-[#000000B0] whitespace-nowrap text-sm">
-            Or AdminLogin in with
-          </p>
-          <hr className="flex-1 border-gray-300" />
-        </div>
-
-        <div className="flex justify-center gap-4 mt-4">
-          <button className="w-36 py-3 border border-[#0B2545] rounded-sm flex justify-center items-center gap-2">
-            <IoLogoFacebook size={20} color="blue" />
-          </button>
-          <button className="w-36 py-3 border border-[#0B2545] rounded-sm flex justify-center items-center gap-2">
-            <FcGoogle size={20} />
-          </button>
-          <button className="w-36 py-3 border border-[#0B2545] rounded-sm flex justify-center items-center gap-2">
-            <FaApple size={20} />
-          </button>
-        </div>
-      </div>
     </div>
   );
 };

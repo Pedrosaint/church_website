@@ -1,4 +1,4 @@
-import { Save } from "lucide-react";
+import { ArrowLeft, ArrowRight, Save } from "lucide-react";
 import { useState } from "react";
 
 interface GuardianInfoProps {
@@ -106,25 +106,41 @@ const ParentGuardianForm = ({ goToNext, goToPrev }: GuardianInfoProps) => {
         </section>
 
         {/* ================= BUTTONS ================= */}
-        <div className="flex justify-between mt-10">
+        <div
+          className="mt-8 flex flex-col gap-4
+             sm:flex-row sm:items-center sm:justify-between"
+        >
+          {/* Previous */}
           <button
             onClick={goToPrev}
-            className="flex items-center gap-2 border border-gray-300 px-6 py-2 rounded-lg text-gray-700 hover:bg-gray-50"
+            className="flex items-center justify-center gap-2
+               w-full sm:w-auto
+               px-5 py-2 border border-gray-300
+               rounded-lg text-sm"
           >
-            ← Previous
+            <ArrowLeft /> Previous
           </button>
 
-              <button className="flex items-center gap-2 px-5 py-2 border border-[#0B2545] text-[#0B2545] rounded-lg text-sm">
-                    <Save size={16} />
-                    <span>Save & Continue Later</span>
-                  </button>
-                  
+          {/* Save */}
+          <button
+            className="flex items-center justify-center gap-2
+               w-full sm:w-auto
+               px-5 py-2 border border-[#0B2545]
+               text-[#0B2545] rounded-lg text-sm"
+          >
+            <Save size={16} />
+            <span>Save & Continue Later</span>
+          </button>
 
+          {/* Next */}
           <button
             onClick={goToNext}
-            className="bg-[#D4A34A] px-8 py-2 rounded-lg text-[#0B2545] font-medium hover:opacity-90"
+            className="w-full sm:w-auto
+               bg-[#D4A34A] px-6 py-3
+               rounded-xl text-[#0B2545]
+               font-semibold flex items-center justify-center"
           >
-            Next →
+            Next <ArrowRight />
           </button>
         </div>
       </div>

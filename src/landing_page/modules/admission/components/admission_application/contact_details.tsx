@@ -1,4 +1,4 @@
-import { Save } from "lucide-react";
+import { ArrowLeft, ArrowRight, Save } from "lucide-react";
 import { useState } from "react";
 
 interface AcademicHistoryProps {
@@ -140,11 +140,21 @@ const ContactDetails = ({ goToNext, goToPrev }: AcademicHistoryProps) => {
         </label>
         <div className="flex gap-6">
           <label className="flex items-center gap-2">
-            <input type="radio" name="placeOfBirthDiff" value="Yes" className="custom-radio" />
+            <input
+              type="radio"
+              name="placeOfBirthDiff"
+              value="Yes"
+              className="custom-radio"
+            />
             Yes
           </label>
           <label className="flex items-center gap-2">
-            <input type="radio" name="placeOfBirthDiff" value="No"  className="custom-radio" />
+            <input
+              type="radio"
+              name="placeOfBirthDiff"
+              value="No"
+              className="custom-radio"
+            />
             No
           </label>
         </div>
@@ -159,7 +169,12 @@ const ContactDetails = ({ goToNext, goToPrev }: AcademicHistoryProps) => {
           <div className="grid grid-cols-1 gap-4 text-sm">
             {["Single", "Married", "Widowed", "Divorced"].map((status) => (
               <label key={status} className="flex items-center gap-2">
-                <input type="radio" name="maritalStatus" value={status}  className="custom-radio" />
+                <input
+                  type="radio"
+                  name="maritalStatus"
+                  value={status}
+                  className="custom-radio"
+                />
                 {status}
               </label>
             ))}
@@ -197,24 +212,41 @@ const ContactDetails = ({ goToNext, goToPrev }: AcademicHistoryProps) => {
       </div>
 
       {/* Footer buttons */}
-      <div className="flex items-center justify-between pt-6">
+      <div
+        className="mt-8 flex flex-col gap-4
+             sm:flex-row sm:items-center sm:justify-between"
+      >
+        {/* Previous */}
         <button
           onClick={goToPrev}
-          className="flex items-center gap-2 px-5 py-2 border border-gray-300 rounded-lg text-sm"
+          className="flex items-center justify-center gap-2
+               w-full sm:w-auto
+               px-5 py-2 border border-gray-300
+               rounded-lg text-sm"
         >
-          ← Previous
+          <ArrowLeft /> Previous
         </button>
 
-        <button className="flex items-center gap-2 px-5 py-2 border border-[#0B2545] text-[#0B2545] rounded-lg text-sm">
+        {/* Save */}
+        <button
+          className="flex items-center justify-center gap-2
+               w-full sm:w-auto
+               px-5 py-2 border border-[#0B2545]
+               text-[#0B2545] rounded-lg text-sm"
+        >
           <Save size={16} />
           <span>Save & Continue Later</span>
         </button>
 
+        {/* Next */}
         <button
           onClick={goToNext}
-          className="bg-[#D4A34A] px-6 py-2 rounded-xl text-[#0B2545] font-semibold"
+          className="w-full sm:w-auto
+               bg-[#D4A34A] px-6 py-3
+               rounded-xl text-[#0B2545]
+               font-semibold flex items-center justify-center"
         >
-          Next →
+          Next <ArrowRight />
         </button>
       </div>
     </div>

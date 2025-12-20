@@ -1,7 +1,4 @@
 import React, { useState } from "react";
-import { IoLogoFacebook } from "react-icons/io5";
-import { FcGoogle } from "react-icons/fc";
-import { FaApple } from "react-icons/fa";
 import { EyeOff, Eye } from "lucide-react";
 import { motion } from "framer-motion";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -234,29 +231,6 @@ const SignUp: React.FC = () => {
           Login
         </button>
       </p>
-
-      {/* Social Signup */}
-      <div className="mt-6">
-        <div className="flex items-center gap-3">
-          <hr className="flex-1 border-t border-gray-300" />
-          <p className="text-center text-gray-600 whitespace-nowrap">
-            Or sign up with
-          </p>
-          <hr className="flex-1 border-t border-gray-300" />
-        </div>
-
-        <div className="flex justify-between gap-4 mt-4">
-          <button className="w-40 py-2 border border-gray-300 rounded-sm flex justify-center items-center gap-2">
-            <IoLogoFacebook size={20} color="blue" />
-          </button>
-          <button className="w-40 py-2 border border-gray-300 rounded-sm flex justify-center items-center gap-2">
-            <FcGoogle size={20} />
-          </button>
-          <button className="w-40 py-2 border border-gray-300 rounded-sm flex justify-center items-center gap-2">
-            <FaApple size={20} />
-          </button>
-        </div>
-      </div>
     </div>
   );
 };

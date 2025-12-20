@@ -2,7 +2,7 @@ import { Edit, FileText } from "lucide-react";
 import { useState } from "react";
 import SuccessModal from "../../modal/success.modal";
 import PersonalInfoModal from "../../modal/personal_info.modal";
-import AdmissionReferenceModal from "../../modal/admission_ref";
+import AdmissionReferenceModal from "../../modal/finance.modal";
 import ProgrammeInfoModal from "../../modal/programme_info.modal";
 import ContactDetailsModal from "../../modal/contact_details.modal";
 import GuardianInfoModal from "../../modal/guardian_info.modal";
@@ -14,7 +14,7 @@ const ReviewSubmitApplication = () => {
   const [showContactDetailsModal, setShowContactDetailsModal] = useState(false);
   const [showPersonalInfoModal, setShowPersonalInfoModal] = useState(false);
   const [showSuccessModal, setShowSuccessModal] = useState(false);
-  const [showAdmissionReferenceModal, setShowAdmissionReferenceModal] = useState(false);
+  const [showFinanceModal, setShowFinanceModal] = useState(false);
   const [showGaurdianInfoModal, setShowGaurdianInfoModal] = useState(false);
   const [showEducationQualificationModal, setShowEducationQualificationModal] = useState(false);
 
@@ -77,9 +77,10 @@ const ReviewSubmitApplication = () => {
             <h2 className="text-lg font-semibold text-gray-900">
               Personal Info
             </h2>
-            <button 
-            onClick={() => setShowPersonalInfoModal(true)}
-            className="flex items-center gap-2 text-gray-600 hover:text-[#D4A34A] cursor-pointer">
+            <button
+              onClick={() => setShowPersonalInfoModal(true)}
+              className="flex items-center gap-2 text-gray-600 hover:text-[#D4A34A] cursor-pointer"
+            >
               <Edit className="w-4 h-4" /> Edit
             </button>
           </div>
@@ -129,8 +130,9 @@ const ReviewSubmitApplication = () => {
               Contact Details
             </h2>
             <button
-             onClick={() => setShowContactDetailsModal(true)}
-             className="flex items-center gap-2 text-gray-600 hover:text-[#D4A34A] cursor-pointer">
+              onClick={() => setShowContactDetailsModal(true)}
+              className="flex items-center gap-2 text-gray-600 hover:text-[#D4A34A] cursor-pointer"
+            >
               <Edit className="w-4 h-4" /> Edit
             </button>
           </div>
@@ -197,9 +199,10 @@ const ReviewSubmitApplication = () => {
           {/* Header */}
           <div className="flex justify-between items-center px-6 py-4 border-b border-gray-200">
             <h2 className="font-semibold text-gray-900">Guardian info</h2>
-            <button 
-            onClick={() => setShowGaurdianInfoModal(true)}
-            className="flex items-center gap-2 text-sm text-gray-600 hover:text-[#D4A34A] cursor-pointer">
+            <button
+              onClick={() => setShowGaurdianInfoModal(true)}
+              className="flex items-center gap-2 text-sm text-gray-600 hover:text-[#D4A34A] cursor-pointer"
+            >
               <Edit className="w-4 h-4" />
               Edit
             </button>
@@ -270,9 +273,10 @@ const ReviewSubmitApplication = () => {
             <h2 className="font-semibold text-gray-900">
               Educational Qualification
             </h2>
-            <button 
-            onClick={() => setShowEducationQualificationModal(true)}
-            className="flex items-center gap-2 text-sm text-gray-600 hover:text-[#D4A34A] cursor-pointer">
+            <button
+              onClick={() => setShowEducationQualificationModal(true)}
+              className="flex items-center gap-2 text-sm text-gray-600 hover:text-[#D4A34A] cursor-pointer"
+            >
               <Edit className="w-4 h-4" />
               Edit
             </button>
@@ -331,7 +335,10 @@ const ReviewSubmitApplication = () => {
             <h2 className="text-lg font-semibold text-gray-900">
               Finance & Referee
             </h2>
-            <button className="flex items-center gap-2 text-gray-600 hover:text-[#D4A34A]">
+            <button
+              onClick={() => setShowFinanceModal(true)}
+              className="flex items-center gap-2 text-gray-600 hover:text-[#D4A34A] cursor-pointer"
+            >
               <Edit className="w-4 h-4" />
               <span className="text-sm font-medium">Edit</span>
             </button>
@@ -491,16 +498,17 @@ const ReviewSubmitApplication = () => {
         />
       )}
 
-      {/* Admission Reference Modal */}
-      {showAdmissionReferenceModal && (
+      {/* Finance Modal */}
+      {showFinanceModal && (
         <AdmissionReferenceModal
-          onClose={() => setShowAdmissionReferenceModal(false)}
+          onClose={() => setShowFinanceModal(false)}
         />
       )}
 
       {/* Guardian Info Modal */}
       {showGaurdianInfoModal && (
-        <GuardianInfoModal onClose={() => setShowGaurdianInfoModal(false)} />)}
+        <GuardianInfoModal onClose={() => setShowGaurdianInfoModal(false)} />
+      )}
 
       {/* Uploaded Documents Modal */}
       {showEducationQualificationModal && (

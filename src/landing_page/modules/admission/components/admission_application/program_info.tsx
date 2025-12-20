@@ -220,25 +220,40 @@ export default function ProgrammeInformation({
       </div>
 
       {/* Footer */}
-      <div className="flex justify-between items-center mt-10">
+      <div
+        className="mt-10 flex flex-col gap-4
+                sm:flex-row sm:items-center sm:justify-between"
+      >
+        {/* Last saved */}
         <div className="flex items-center gap-2 text-sm text-slate-600">
           <Clock size={16} className="text-[#D4A34A]" />
-          Last saved: {lastSaved ? lastSaved.toLocaleTimeString() : "Not saved"}
+          <span>
+            Last saved:{" "}
+            {lastSaved ? lastSaved.toLocaleTimeString() : "Not saved"}
+          </span>
         </div>
 
-        <button className="flex items-center gap-2 px-5 py-2 border border-[#0B2545] text-[#0B2545] rounded-lg text-sm">
+        {/* Save button */}
+        <button
+          className="flex items-center justify-center gap-2
+               w-full sm:w-auto
+               px-5 py-2 border border-[#0B2545]
+               text-[#0B2545] rounded-lg text-sm"
+        >
           <Save size={16} />
           <span>Save & Continue Later</span>
         </button>
 
-        <div className="flex gap-4">
-          <button
-            onClick={handleNext}
-            className="bg-[#D4A34A] px-6 py-2 rounded-xl text-[#0B2545] font-semibold"
-          >
-            Next →
-          </button>
-        </div>
+        {/* Next button */}
+        <button
+          onClick={handleNext}
+          className="w-full sm:w-auto
+               bg-[#D4A34A] px-6 py-3
+               rounded-xl text-[#0B2545]
+               font-semibold flex items-center justify-center"
+        >
+          Next →
+        </button>
       </div>
     </div>
   );

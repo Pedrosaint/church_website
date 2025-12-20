@@ -79,7 +79,7 @@ const NewsUpdates = () => {
       : newsData.filter((item) => item.category === activeFilter);
 
   // Pagination
-  const itemsPerPage = 3;
+  const itemsPerPage = 6;
   const totalPages = Math.ceil(filteredNews.length / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
   const paginatedNews = filteredNews.slice(

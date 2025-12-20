@@ -63,11 +63,11 @@ export default function ExcellenceSection() {
         Excellence in Biblical Education
       </h2>
 
-      <div className="absolute left-150 top-15">
+      <div className="absolute lg:left-150 left-90 top-10 lg:top-15">
         <IoStar color="#D4A34A" size={20} />
       </div>
 
-      <div className="absolute left-100 top-40">
+      <div className="absolute lg:left-100 left-90 top-30 lg:top-40">
         <BibleCross />
       </div>
 
@@ -76,11 +76,11 @@ export default function ExcellenceSection() {
         ministry and service in God’s kingdom.
       </p>
 
-      <div className="absolute right-150 top-15">
+      <div className="absolute lg:right-150 right-96 top-12 lg:top-15">
         <ChurchBuildingIcon />
       </div>
 
-      <div className="absolute right-100 top-40">
+      <div className="absolute lg:right-100 right-96 top-30 lg:top-40">
         <Cross />
       </div>
 

@@ -1,4 +1,4 @@
-import { Save } from "lucide-react";
+import { ArrowLeft, ArrowRight, Save } from "lucide-react";
 import { useState } from "react";
 
 interface Props {
@@ -18,19 +18,6 @@ const FinancialReference = ({ goToNext, goToPrev }: Props) => {
   const [signature, setSignature] = useState("");
   const [date, setDate] = useState("");
 
-  // const handleSubmit = () => {
-  //   if (!financing) {
-  //     toast.error("Please select how you intend to finance your studies");
-  //     return;
-  //   }
-
-  //   if (!signature || !date) {
-  //     toast.error("Please complete the declaration section");
-  //     return;
-  //   }
-
-  //   goToNext();
-  // };
 
   return (
     <div className="py-8 px-4 space-y-8 font-inter">
@@ -286,24 +273,41 @@ const FinancialReference = ({ goToNext, goToPrev }: Props) => {
       </div>
 
       {/* ================= ACTION BUTTONS ================= */}
-      <div className="flex justify-between mt-10">
+      <div
+        className="mt-8 flex flex-col gap-4
+             sm:flex-row sm:items-center sm:justify-between"
+      >
+        {/* Previous */}
         <button
           onClick={goToPrev}
-          className="border border-gray-200 px-6 py-2 rounded-lg text-gray-700 hover:bg-gray-50"
+          className="flex items-center justify-center gap-2
+               w-full sm:w-auto
+               px-5 py-2 border border-gray-300
+               rounded-lg text-sm"
         >
-          ← Previous
+          <ArrowLeft /> Previous
         </button>
 
-        <button className="flex items-center gap-2 px-5 py-2 border border-[#0B2545] text-[#0B2545] rounded-lg text-sm">
+        {/* Save */}
+        <button
+          className="flex items-center justify-center gap-2
+               w-full sm:w-auto
+               px-5 py-2 border border-[#0B2545]
+               text-[#0B2545] rounded-lg text-sm"
+        >
           <Save size={16} />
           <span>Save & Continue Later</span>
         </button>
 
+        {/* Next */}
         <button
           onClick={goToNext}
-          className="bg-[#D4A34A] px-8 py-2 rounded-lg text-[#0B2545] font-medium hover:opacity-90 cursor-pointer"
+          className="w-full sm:w-auto
+               bg-[#D4A34A] px-6 py-3
+               rounded-xl text-[#0B2545]
+               font-semibold flex items-center justify-center"
         >
-          Submit Application
+        Submit Application <ArrowRight />
         </button>
       </div>
     </div>
