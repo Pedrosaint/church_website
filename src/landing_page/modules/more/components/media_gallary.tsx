@@ -1,12 +1,12 @@
 const mediaImages = [
-  "/src/assets/images/media-img-1.jpg",
-  "/src/assets/images/media-img-2.jpg",
-  "/src/assets/images/media-img-3.jpg",
-  "/src/assets/images/media-img-4.jpg",
-  "/src/assets/images/media-img-5.jpg",
-  "/src/assets/images/media-img-6.jpg",
-  "/src/assets/images/media-img-7.jpg",
-  "/src/assets/images/media-img-8.jpg",
+  "/images/media-img-1.jpg",
+  "/images/media-img-2.jpg",
+  "/images/media-img-3.jpg",
+  "/images/media-img-4.jpg",
+  "/images/media-img-5.jpg",
+  "/images/media-img-6.jpg",
+  "/images/media-img-7.jpg",
+  "/images/media-img-8.jpg",
 ];
 
 const MediaGallery = () => {

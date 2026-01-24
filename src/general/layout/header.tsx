@@ -36,8 +36,10 @@ const Header = () => {
     <header className="fixed top-0 left-0 w-full bg-white shadow-sm z-50">
       <div className="container mx-auto px-6 py-4 flex items-center justify-between">
         {/* LOGO */}
-        <figure className="text-xl font-semibold">
-          <img src="/src/assets/icons/WATHS LOGO 2.svg" alt="Church Logo" />
+        <figure
+          onClick={() => navigate("/")}
+          className="text-xl font-semibold cursor-pointer">
+          <img src="/logo.svg" alt="Church Logo" />
         </figure>
 
         {/* MOBILE TOGGLE */}
@@ -84,9 +86,8 @@ const Header = () => {
               return (
                 <div key={link.name} className="relative group">
                   <span
-                    className={`flex items-center gap-1 cursor-pointer ${
-                      getActiveClass(link) ? "text-[#D4A95E] font-semibold" : ""
-                    }`}
+                    className={`flex items-center gap-1 cursor-pointer ${getActiveClass(link) ? "text-[#D4A95E] font-semibold" : ""
+                      }`}
                   >
                     {link.name} <ChevronDown size={18} />
                   </span>
@@ -110,9 +111,8 @@ const Header = () => {
             return (
               <span
                 key={link.name}
-                className={`cursor-pointer ${
-                  getActiveClass(link) ? "text-[#D4A95E] font-semibold" : ""
-                }`}
+                className={`cursor-pointer ${getActiveClass(link) ? "text-[#D4A95E] font-semibold" : ""
+                  }`}
                 onClick={() => handleScrollNavigation(link.path)}
               >
                 {link.name}
@@ -129,14 +129,14 @@ const Header = () => {
           >
             Donate
           </button>
-          <button
+          {/* <button
             onClick={() =>
               handleScrollNavigation("/admission#online-application")
             }
             className="px-4 py-2 bg-[#D4A95E] rounded-lg text-white cursor-pointer"
           >
             Apply
-          </button>
+          </button> */}
         </div>
       </div>
 
@@ -144,9 +144,8 @@ const Header = () => {
                 MOBILE MENU
       ======================================= */}
       <div
-        className={`lg:hidden fixed top-0 left-0 h-full w-[75%] md:w-[50%] bg-white shadow-lg z-40 transform transition-transform duration-300 ${
-          mobileOpen ? "translate-x-0" : "-translate-x-full"
-        }`}
+        className={`lg:hidden fixed top-0 left-0 h-full w-[75%] md:w-[50%] bg-white shadow-lg z-40 transform transition-transform duration-300 ${mobileOpen ? "translate-x-0" : "-translate-x-full"
+          }`}
       >
         <div className="p-6 text-[#0A2240] space-y-4">
           {navLinks.map((link) => {
@@ -166,16 +165,14 @@ const Header = () => {
                         openDropdown === link.name ? null : link.name
                       )
                     }
-                    className={`w-full flex justify-between items-center py-2 ${
-                      isParentActive ? "text-[#D4A95E] font-semibold" : ""
-                    }`}
+                    className={`w-full flex justify-between items-center py-2 ${isParentActive ? "text-[#D4A95E] font-semibold" : ""
+                      }`}
                   >
                     {link.name}
                     <ChevronDown
                       size={18}
-                      className={`transition-transform ${
-                        openDropdown === link.name ? "rotate-180" : ""
-                      }`}
+                      className={`transition-transform ${openDropdown === link.name ? "rotate-180" : ""
+                        }`}
                     />
                   </button>
 
@@ -224,7 +221,7 @@ const Header = () => {
           >
             Donate
           </button>
-          <button
+          {/* <button
             onClick={() => {
               handleScrollNavigation("/admission#online-application");
               setMobileOpen(false);
@@ -232,7 +229,7 @@ const Header = () => {
             className="w-full px-4 py-2 bg-[#D4A95E] rounded-lg text-white cursor-pointer"
           >
             Apply
-          </button>
+          </button> */}
         </div>
       </div>
 

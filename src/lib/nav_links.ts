@@ -15,40 +15,33 @@ export const navLinks = [
 
     ],
   },
-  {
-    name: "Academics",
-    path: "/academic",
-    // dropdown: [
-    //   { name: "Academics", path: "/academic" },
-    //   { name: "Department & Courses", path: "/department-courses" },
-    //   { name: "Policies", path: "/policies" },
-    //   { name: "Downloadable Brochure", path: "/downloadable-brochure" },
-    //   { name: "Academic Calendar", path: "/academic-calendar" },
-    // ],
-  },
-  {
-    name: "Admissions",
-    dropdown: [
-      { name: "Admission Process", path: "/admission#admission-process" },
-      { name: "Requirements", path: "/admission#adnmission-requirements" },
-      { name: "Programs", path: "/admission#program-to-choose-from" },
-      {
-        name: "Online Application Form",
-        path: "/admission#online-application",
-      },
-    ],
-  },
+  // {
+  //   name: "Academics",
+  //   path: "/academic",
+  // },
+  // {
+  //   name: "Admissions",
+  //   dropdown: [
+  //     { name: "Admission Process", path: "/admission#admission-process" },
+  //     { name: "Requirements", path: "/admission#adnmission-requirements" },
+  //     { name: "Programs", path: "/admission#program-to-choose-from" },
+  //     {
+  //       name: "Online Application Form",
+  //       path: "/admission#online-application",
+  //     },
+  //   ],
+  // },
   {
     name: "News",
     dropdown: [{ name: "News & Updates", path: "/news-updates" }],
   },
-  {
-    name: "Portal",
-    dropdown: [
-      { name: "Student Portal Login", path: "/student/portal/login" },
-      { name: "Admin Portal Login", path: "/admin/portal" },
-    ],
-  },
+  // {
+  //   name: "Portal",
+  //   dropdown: [
+  //     { name: "Student Portal Login", path: "/student/portal/login" },
+  //     { name: "Admin Portal Login", path: "/admin/portal" },
+  //   ],
+  // },
 
   // This is the only part thats different from the other dropdowns
   {
