@@ -59,7 +59,7 @@ const navigate = useNavigate();
     <div className="min-h-screen bg-gray-50 font-inter">
       <div className="">
         {/* Header */}
-        <div className="flex items-start justify-between mb-6">
+        <div className="flex flex-col md:flex-row items-start justify-between mb-6 gap-2">
           <div>
             <h1 className="text-2xl font-semibold text-gray-900 mb-1">
               News Management

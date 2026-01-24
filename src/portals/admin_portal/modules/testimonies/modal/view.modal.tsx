@@ -18,71 +18,69 @@ const ViewModal = ({
   return (
     <div>
       <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
-        <div className="bg-white rounded-2xl p-8 max-w-2xl w-full shadow-2xl max-h-[90vh] overflow-y-auto">
-          <div className="flex items-start gap-4 mb-6">
-            <div className="w-16 h-16 bg-slate-700 rounded-full flex items-center justify-center">
-              <User className="w-8 h-8 text-white" />
+        <div className="bg-white rounded-2xl p-5 sm:p-8 max-w-2xl w-full shadow-2xl max-h-[90vh] overflow-y-auto">
+          {/* Header */}
+          <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 mb-6 text-center sm:text-left">
+            <div className="w-14 h-14 sm:w-16 sm:h-16 bg-slate-700 rounded-full flex items-center justify-center">
+              <User className="w-7 h-7 sm:w-8 sm:h-8 text-white" />
             </div>
 
             <div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-1">
+              <h3 className="text-lg sm:text-2xl font-bold text-gray-900 mb-1">
                 {selectedTestimony.name}
               </h3>
-              <p className="text-gray-600">{selectedTestimony.degree}</p>
+              <p className="text-sm sm:text-base text-gray-600">
+                {selectedTestimony.degree}
+              </p>
             </div>
           </div>
 
+          {/* Testimony Content */}
           <div className="mb-6">
-            <h4 className="text-sm font-semibold text-gray-700 mb-2">
+            <h4 className="text-xs sm:text-sm font-semibold text-gray-700 mb-2">
               Testimony
             </h4>
-            <p className="text-gray-700 leading-relaxed bg-gray-50 p-4 rounded-lg">
+            <p className="text-sm sm:text-base text-gray-700 leading-relaxed bg-gray-50 p-4 rounded-lg">
               {selectedTestimony.content}
             </p>
           </div>
 
-          <p className="text-sm text-gray-500 mb-6">
+          {/* Date */}
+          <p className="text-xs sm:text-sm text-gray-500 mb-6">
             Submitted {selectedTestimony.submittedDate}
           </p>
-          <div className="">
-            {selectedTestimony.status === "pending" ? (
-              <>
-                {/*============ APPROVE BUTTON ===========*/}
-                <div className="flex gap-3 w-1/2 ml-auto">
-                  <button
-                    onClick={() => {
-                      handleApprove(selectedTestimony.id);
-                      setShowViewModal(false);
-                    }}
-                    className="flex items-center justify-center cursor-pointer bg-green-600 text-white py-3 px-3 rounded-lg font-semibold hover:bg-green-700 w-full"
-                  >
-                    <IoCheckmarkSharp size={25} />
-                    <h1> Approve</h1>
-                  </button>
 
-                  {/* DELETE BUTTON */}
-                  <button
-                    onClick={() => setShowViewModal(false)}
-                    className="flex items-center justify-center border-2 border-gray-600 text-gray-700 py-3 px-3 rounded-lg font-semibold cursor-pointer w-full"
-                  >
-                    <h1> Cancle</h1>
-                  </button>
-                </div>
-              </>
-            ) : (
-              <>
-                {/*============  ===========*/}
-                <div className="flex justify-end">
-                  <button
-                    onClick={() => setShowViewModal(false)}
-                    className="border-2 border-gray-600 text-gray-700 py-3 px-3 rounded-lg font-semibold cursor-pointer"
-                  >
-                    <h1> Cancel</h1>
-                  </button>
-                </div>
-              </>
-            )}
-          </div>
+          {/* Actions */}
+          {selectedTestimony.status === "pending" ? (
+            <div className="flex flex-col sm:flex-row gap-3 sm:justify-end">
+              <button
+                onClick={() => {
+                  handleApprove(selectedTestimony.id);
+                  setShowViewModal(false);
+                }}
+                className="flex items-center justify-center gap-2 bg-green-600 text-white py-3 px-4 rounded-lg font-semibold hover:bg-green-700 w-full sm:w-auto"
+              >
+                <IoCheckmarkSharp size={22} />
+                Approve
+              </button>
+
+              <button
+                onClick={() => setShowViewModal(false)}
+                className="flex items-center justify-center border-2 border-gray-400 text-gray-700 py-3 px-4 rounded-lg font-semibold w-full sm:w-auto"
+              >
+                Cancel
+              </button>
+            </div>
+          ) : (
+            <div className="flex justify-center sm:justify-end">
+              <button
+                onClick={() => setShowViewModal(false)}
+                className="border-2 border-gray-400 text-gray-700 py-3 px-4 rounded-lg font-semibold w-full sm:w-auto"
+              >
+                Cancel
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </div>

@@ -137,37 +137,39 @@ export default function TestimoniesReviews() {
           filteredTestimonies.map((testimony) => (
             <div
               key={testimony.id}
-              className="bg-white rounded-xl border border-gray-200 p-5 shadow-sm"
+              className="bg-white rounded-xl border border-gray-200 p-4 sm:p-5 shadow-sm"
             >
-              <div className="flex gap-4">
+              <div className="flex flex-col sm:flex-row gap-4">
                 {/* Avatar */}
-                <div className="shrink-0">
-                  <div className="w-14 h-14 bg-slate-700 rounded-full flex items-center justify-center">
-                    <User className="w-7 h-7 text-white" />
+                <div className="shrink-0 flex sm:block">
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 bg-slate-700 rounded-full flex items-center justify-center">
+                    <User className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
                   </div>
                 </div>
 
                 {/* Content */}
-                <div className="flex-1 min-w-0">
-                  <h3 className="text-base font-semibold text-gray-900 mb-0.5">
+                <div className="flex-1 min-w-0 sm:text-left">
+                  <h3 className="text-sm sm:text-base font-semibold text-gray-900">
                     {testimony.name}
                   </h3>
-                  <p className="text-sm text-gray-600 mb-2">
+                  <p className="text-xs sm:text-sm text-gray-600 mb-2">
                     {testimony.degree}
                   </p>
-                  <p className="text-sm text-gray-700 mb-3">
+
+                  <p className="text-sm text-gray-700 mb-3 line-clamp-2 sm:line-clamp-3">
                     {testimony.content}
                   </p>
+
                   <p className="text-xs text-gray-500">
                     Submitted {testimony.submittedDate}
                   </p>
                 </div>
 
                 {/* Actions */}
-                <div className="flex items-start gap-2">
+                <div className="flex flex-wrap sm:flex-nowrap items-center gap-2 sm:items-start sm:justify-end">
                   <button
                     onClick={() => handleView(testimony)}
-                    className="flex items-center gap-1.5 px-3 py-1.5 text-sm text-blue-600 bg-blue-50 rounded-md hover:bg-blue-100 cursor-pointer"
+                    className="flex items-center gap-1.5 px-3 py-1.5 text-xs sm:text-sm text-blue-600 bg-blue-50 rounded-md hover:bg-blue-100"
                   >
                     <Eye className="w-4 h-4" />
                     View
@@ -176,7 +178,7 @@ export default function TestimoniesReviews() {
                   {activeTab === "pending" && (
                     <button
                       onClick={() => handleApprove(testimony.id)}
-                      className="flex items-center gap-1.5 px-3 py-1.5 text-sm text-green-600 bg-green-50 rounded-md hover:bg-green-100 cursor-pointer"
+                      className="flex items-center gap-1.5 px-3 py-1.5 text-xs sm:text-sm text-green-600 bg-green-50 rounded-md hover:bg-green-100"
                     >
                       <Check className="w-4 h-4" />
                       Approve
@@ -185,7 +187,7 @@ export default function TestimoniesReviews() {
 
                   <button
                     onClick={() => handleDelete(testimony)}
-                    className="p-1.5 text-red-600 hover:bg-red-50 rounded-md cursor-pointer"
+                    className="p-2 text-red-600 hover:bg-red-50 rounded-md"
                   >
                     <Trash2 className="w-5 h-5" />
                   </button>

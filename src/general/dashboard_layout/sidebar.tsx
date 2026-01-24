@@ -37,7 +37,9 @@ export default function Sidebar({
       {/* Logo */}
       <div className="mb-8 relative">
         <div className="w-30 h-30 bg-white rounded-full absolute -top-10 right-39 flex items-center justify-center shadow-md">
-          <span className="text-slate-900 text-lg font-medium"><img src={Logo} alt="WAGGOM Logo" /></span>
+          <span className="text-slate-900 text-lg font-medium">
+            <img src={Logo} alt="WAGGOM Logo" />
+          </span>
         </div>
       </div>
 
@@ -73,10 +75,10 @@ export default function Sidebar({
       </nav>
 
       {/* Logout Button */}
-      <div className="mt-auto pt-4">
+      <div className="mt-auto pt-4 md:static sticky bottom-0 bg-[#0B2545]">
         <button
           onClick={() => setLogoutModal(true)}
-          className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-[#0B2545] bg-white hover:bg-gray-100 transition"
+          className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-[#0B2545] bg-white hover:bg-gray-100 transition shadow-lg"
         >
           <LogOut className="w-5 h-5" />
           <span className="text-sm font-medium">Logout</span>
