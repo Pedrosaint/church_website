@@ -35,12 +35,10 @@ import StudentResetPassword from "../auth/student_auth/components/reset_password
 import AdminApplicationView from "../portals/admin_portal/modules/application/view/admin_application.view";
 import AdminApplication from "../portals/admin_portal/modules/application/components/admin_application";
 import ViewApplication from "../portals/admin_portal/modules/application/components/view_application";
-
-
+import EventsCalendarView from "../landing_page/modules/events_calendar/events_calendar.view";
 
 export default function appRouter(): RouteObject[] {
   return [
-
     // Student Auth Routes
     {
       path: "/student/portal/login",
@@ -126,11 +124,14 @@ export default function appRouter(): RouteObject[] {
       path: "/academic-policies",
       element: <AcademicPolicies />,
     },
+    {
+      path: "/events-calendar",
+      element: <EventsCalendarView />,
+    },
     // {
     //     path: "/student-handbook",
     //     element: <StudentHandbook />,
     // },
-
 
     //  Dashboard Routes
     {
@@ -205,7 +206,7 @@ export default function appRouter(): RouteObject[] {
                   element: <ViewApplication />,
                 },
               ],
-            }
+            },
           ],
         },
       ],

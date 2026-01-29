@@ -3,7 +3,6 @@ import { ChevronLeft, ChevronRight, Pause, Play } from "lucide-react";
 import HeroImage1 from "../../../../assets/images/featured-img-1.jpg";
 import HeroImage2 from "../../../../assets/images/featured-img-3.jpg";
 import HeroImage3 from "../../../../assets/images/featured-img-2.jpg";
-import { useNavigate } from "react-router-dom";
 
 const slides = [
   {
@@ -36,7 +35,6 @@ const slides = [
 ];
 
 export default function HeroCarousel() {
-  const navigate = useNavigate();
   const [isPlaying, setIsPlaying] = useState(true);
   const [currentSlide, setCurrentSlide] = useState(0);
 
@@ -58,24 +56,24 @@ export default function HeroCarousel() {
     setCurrentSlide((prev) => (prev + 1) % slides.length);
   };
 
-  const handleScrollNavigation = (path: string) => {
-    const [route, hash] = path.split("#");
+  // const handleScrollNavigation = (path: string) => {
+  //   const [route, hash] = path.split("#");
 
-    navigate(route);
+  //   navigate(route);
 
-    setTimeout(() => {
-      if (hash) {
-        const section = document.getElementById(hash);
-        if (!section) return;
+  //   setTimeout(() => {
+  //     if (hash) {
+  //       const section = document.getElementById(hash);
+  //       if (!section) return;
 
-        const yOffset = -160;
-        const y =
-          section.getBoundingClientRect().top + window.pageYOffset + yOffset;
+  //       const yOffset = -160;
+  //       const y =
+  //         section.getBoundingClientRect().top + window.pageYOffset + yOffset;
 
-        window.scrollTo({ top: y, behavior: "smooth" });
-      }
-    }, 300);
-  };
+  //       window.scrollTo({ top: y, behavior: "smooth" });
+  //     }
+  //   }, 300);
+  // };
 
   return (
     <div className="relative w-full h-screen md:h-[85vh] lg:h-[95vh] xl:h-screen overflow-hidden">
@@ -147,24 +145,6 @@ export default function HeroCarousel() {
         <p className="text-sm sm:text-lg md:text-xl opacity-90">
           {slides[currentSlide].description}
         </p>
-
-        <div className="flex flex-col sm:flex-row gap-3 pt-2">
-          <button
-            onClick={() =>
-              handleScrollNavigation("/admission#online-application")
-            }
-            className="bg-[#D4A34A] text-black px-5 py-3 rounded-md font-semibold hover:bg-[#D4A34A]/80 transition text-sm sm:text-base cursor-pointer"
-          >
-            Apply Now
-          </button>
-
-          <button
-            onClick={() => navigate("/student/portal/login")}
-            className="border border-white px-5 py-3 rounded-md font-semibold hover:bg-white hover:text-black transition text-sm sm:text-base cursor-pointer"
-          >
-            Visit Student Portal
-          </button>
-        </div>
       </div>
     </div>
   );

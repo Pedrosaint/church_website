@@ -7,16 +7,186 @@ import ProgrammeInfoModal from "../../modal/programme_info.modal";
 import ContactDetailsModal from "../../modal/contact_details.modal";
 import GuardianInfoModal from "../../modal/guardian_info.modal";
 import EducationQualificationModal from "../../modal/education_qualification.modal";
+import { useSubmitAdmissionMutation } from "../../api/admission.api";
+import { useAdmissionContext } from "../../context/AdmissionContext";
 
 const ReviewSubmitApplication = () => {
-   const [showProgrammeInformationModal, setShowProgrammeInformationModal] =
-     useState(false);
+  const [showProgrammeInformationModal, setShowProgrammeInformationModal] =
+    useState(false);
   const [showContactDetailsModal, setShowContactDetailsModal] = useState(false);
   const [showPersonalInfoModal, setShowPersonalInfoModal] = useState(false);
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [showFinanceModal, setShowFinanceModal] = useState(false);
   const [showGaurdianInfoModal, setShowGaurdianInfoModal] = useState(false);
-  const [showEducationQualificationModal, setShowEducationQualificationModal] = useState(false);
+  const [showEducationQualificationModal, setShowEducationQualificationModal] =
+    useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const [submitAdmission] = useSubmitAdmissionMutation();
+  const { getFormData } = useAdmissionContext();
+
+  const buildFormData = (): FormData => {
+    const data = getFormData();
+    const formData = new FormData();
+
+    // Programme Info
+    if (data.programmeInfo) {
+      formData.append(
+        "programmeLevel",
+        data.programmeInfo.programmeLevel || "",
+      );
+      formData.append(
+        "programmeChoice",
+        data.programmeInfo.programmeChoice || "",
+      );
+    }
+
+    // Personal Info
+    if (data.personalInfo) {
+      formData.append("surname", data.personalInfo.surname || "");
+      formData.append("firstname", data.personalInfo.firstName || "");
+      formData.append("otherNames", data.personalInfo.otherNames || "");
+      formData.append("title", data.personalInfo.title || "");
+      formData.append("dateOfBirth", data.personalInfo.dateOfBirth || "");
+      formData.append("placeOfBirth", data.personalInfo.placeOfBirth || "");
+      formData.append("gender", data.personalInfo.gender || "");
+    }
+
+    // Contact Details
+    if (data.contactDetails) {
+      formData.append("email", data.contactDetails.email || "");
+      formData.append("phone", data.contactDetails.phone || "");
+      formData.append(
+        "presentAddress",
+        data.contactDetails.presentAddress || "",
+      );
+      formData.append(
+        "permanentAddress",
+        data.contactDetails.permanentAddress || "",
+      );
+      formData.append("postalAddress", data.contactDetails.postalAddress || "");
+      formData.append("nationality", data.contactDetails.nationality || "");
+      formData.append(
+        "nativeLanguage",
+        data.contactDetails.nativeLanguage || "",
+      );
+      formData.append(
+        "placeDiffNationality",
+        data.contactDetails.placeDiffNationality || false,
+      );
+      formData.append("maritalStatus", data.contactDetails.maritalStatus || "");
+      formData.append("religion", data.contactDetails.religion || "");
+      formData.append("denomination", data.contactDetails.denomination || "");
+    }
+
+    // Guardian Info
+    if (data.guardianInfo) {
+      formData.append("parentGuardian", data.guardianInfo.parentGuardian || "");
+      formData.append(
+        "emergencyContact",
+        data.guardianInfo.emergencyContact || "",
+      );
+      formData.append("emergencyPhone", data.guardianInfo.emergencyPhone || "");
+      formData.append("nextOfKin", data.guardianInfo.nextOfKin || "");
+      formData.append("nextOfKinPhone", data.guardianInfo.nextOfKinPhone || "");
+    }
+
+    // Education
+    if (data.education && data.education.length > 0) {
+      formData.append("education", JSON.stringify(data.education));
+    }
+
+    // Financial & Reference
+    if (data.financialReference) {
+      formData.append("financeInfo", data.financialReference.financeInfo || "");
+      formData.append("healthInfo", data.financialReference.healthInfo || "");
+      formData.append("description", data.financialReference.description || "");
+      formData.append(
+        "academicReferee",
+        data.financialReference.academicReferee || "",
+      );
+      formData.append(
+        "academicProfession",
+        data.financialReference.academicProfession || "",
+      );
+      formData.append(
+        "academicInstitution",
+        data.financialReference.academicInstitution || "",
+      );
+      formData.append(
+        "academicAddress",
+        data.financialReference.academicAddress || "",
+      );
+      formData.append(
+        "academicPhone",
+        data.financialReference.academicPhone || "",
+      );
+      formData.append(
+        "academicEmail",
+        data.financialReference.academicEmail || "",
+      );
+      formData.append(
+        "clergyReferee",
+        data.financialReference.clergyReferee || "",
+      );
+      formData.append(
+        "clergyPosition",
+        data.financialReference.clergyPosition || "",
+      );
+      formData.append(
+        "clergyChurch",
+        data.financialReference.clergyChurch || "",
+      );
+      formData.append(
+        "clergyAddress",
+        data.financialReference.clergyAddress || "",
+      );
+      formData.append("clergyPhone", data.financialReference.clergyPhone || "");
+      formData.append("clergyEmail", data.financialReference.clergyEmail || "");
+      formData.append(
+        "applicantSignature",
+        data.financialReference.applicantSignature || "",
+      );
+      formData.append(
+        "applicantDate",
+        data.financialReference.applicantDate || "",
+      );
+    }
+
+    // Files
+    if (data.programmeInfo?.certificateFiles) {
+      data.programmeInfo.certificateFiles.forEach((file: File) => {
+        formData.append("certificates", file);
+      });
+    }
+
+    if (data.programmeInfo?.passportPhotos) {
+      data.programmeInfo.passportPhotos.forEach((file: File) => {
+        formData.append("passportPhotos", file);
+      });
+    }
+
+    return formData;
+  };
+
+  const handleSubmit = async () => {
+    setIsSubmitting(true);
+    setSubmitError(null);
+
+    try {
+      const formData = buildFormData();
+      await submitAdmission(formData).unwrap();
+      setShowSuccessModal(true);
+    } catch (error) {
+      setSubmitError(
+        error instanceof Error ? error.message : "Failed to submit application",
+      );
+      console.error("Submission error:", error);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <div className="py-8 md:px-4">
@@ -461,11 +631,17 @@ const ReviewSubmitApplication = () => {
 
         {/* Submit Button */}
         <div className="flex flex-col items-center gap-4 font-inter">
+          {submitError && (
+            <div className="w-full bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg text-sm">
+              {submitError}
+            </div>
+          )}
           <button
-            onClick={() => setShowSuccessModal(true)}
-            className="w-full px-8 py-2 bg-[#D4A34A] hover:bg-[#C09340] text-[#0B2545] rounded-lg font-medium transition-colors cursor-pointer"
+            onClick={handleSubmit}
+            disabled={isSubmitting}
+            className="w-full px-8 py-2 bg-[#D4A34A] hover:bg-[#C09340] disabled:bg-gray-400 disabled:cursor-not-allowed text-[#0B2545] rounded-lg font-medium transition-colors cursor-pointer"
           >
-            Submit Application
+            {isSubmitting ? "Submitting..." : "Submit Application"}
           </button>
 
           <button className="px-6 py-2 border-2 border-[#D4A34A] text-[#D4A34A] rounded-lg font-medium transition-colors cursor-pointer">
@@ -500,9 +676,7 @@ const ReviewSubmitApplication = () => {
 
       {/* Finance Modal */}
       {showFinanceModal && (
-        <AdmissionReferenceModal
-          onClose={() => setShowFinanceModal(false)}
-        />
+        <AdmissionReferenceModal onClose={() => setShowFinanceModal(false)} />
       )}
 
       {/* Guardian Info Modal */}

@@ -49,9 +49,9 @@ export const FeaturedPrograms = () => {
         </div>
 
         <div className="text-center">
-          <button className="px-8 py-3 border-2 border-gray-300 text-gray-700 rounded-lg font-medium transition-colors">
+          {/* <button className="px-8 py-3 border-2 border-gray-300 text-gray-700 rounded-lg font-medium transition-colors">
             View All Programs
-          </button>
+          </button> */}
         </div>
       </div>
     </section>

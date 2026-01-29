@@ -1,28 +1,27 @@
 import { ChevronRight } from "lucide-react";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { fetchEvents } from "../../../../../redux/slices/events.slice";
+import type { RootState, AppDispatch } from "../../../../../redux/store";
 import { EventCard } from "./event_cards";
-
+import { EventsEmptyState } from "./events_empty_state";
+import type { Event } from "../../../../../redux/slices/events.slice";
 
 export const UpcomingEvents = () => {
-  const events = [
-    {
-      date: "05",
-      month: "DEC",
-      title: "Open House & campus Tour",
-      category: "Admission",
-      categoryColor: "bg-[#B3313726] text-[#D4A34A]",
-      time: "10:00AM - 2:00PM",
-      location: "Main Campus",
-    },
-    {
-      date: "08",
-      month: "DEC",
-      title: "Christmas Chapel Service",
-      category: "Chapel",
-      categoryColor: "bg-[#B3313726] text-[#D4A34A]",
-      time: "10:00PM",
-      location: "Chapel Auditorium",
-    },
-  ];
+  const dispatch = useDispatch<AppDispatch>();
+  const navigate = useNavigate();
+  const { events, loading, error } = useSelector(
+    (state: RootState) => state.events,
+  );
+
+  useEffect(() => {
+    dispatch(fetchEvents());
+  }, [dispatch]);
+
+  const handleViewFullCalendar = () => {
+    navigate("/events-calendar");
+  };
 
   return (
     <section className="py-20 px-4 bg-gray-50">
@@ -36,17 +35,32 @@ export const UpcomingEvents = () => {
               Join us for upcoming events and experience our vibrant community
             </p>
           </div>
-          <button className="flex items-center gap-2 text-gray-700 font-medium">
+          <button
+            onClick={handleViewFullCalendar}
+            className="flex items-center gap-2 text-gray-700 font-medium hover:text-[#D4A34A] transition-colors"
+          >
             View Full Calendar
             <ChevronRight size={20} />
           </button>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          {events.map((event, index) => (
-            <EventCard key={index} {...event} />
-          ))}
-        </div>
+        {loading ? (
+          <div className="flex items-center justify-center py-12">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#D4A34A]"></div>
+          </div>
+        ) : error ? (
+          <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg">
+            <p>Failed to load events. Please try again later.</p>
+          </div>
+        ) : events && events.length > 0 ? (
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {events.slice(0, 2).map((event: Event, index: number) => (
+              <EventCard key={index} {...event} />
+            ))}
+          </div>
+        ) : (
+          <EventsEmptyState />
+        )}
       </div>
     </section>
   );

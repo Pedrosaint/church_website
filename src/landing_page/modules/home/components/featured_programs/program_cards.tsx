@@ -1,5 +1,3 @@
-import { ArrowRight } from "lucide-react";
-
 interface ProgramCardProps {
   title: string;
   desc: string;
@@ -46,10 +44,10 @@ export const ProgramCard = ({
         <h3 className="text-xl font-bold text-gray-900 mb-3">{title}</h3>
         <p className="text-[#0B2545] text-lg leading-relaxed mb-4">{desc}</p>
 
-        <button className="flex items-center gap-2 text-[#0B2545] font-medium text-sm">
+        {/* <button className="flex items-center gap-2 text-[#0B2545] font-medium text-sm">
           Learn More
           <ArrowRight size={16} />
-        </button>
+        </button> */}
       </div>
     </div>
   );

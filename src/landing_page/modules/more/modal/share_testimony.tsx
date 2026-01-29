@@ -2,6 +2,8 @@
 import { X } from "lucide-react";
 import { useState } from "react";
 import { MdCloudUpload } from "react-icons/md";
+import { useSubmitTestimonyMutation } from "../api/more.api";
+import { toast } from "sonner";
 
 interface ShareTestimonyModalProps {
   isOpen: boolean;
@@ -14,6 +16,7 @@ const ShareTestimonyModal = ({ isOpen, onClose }: ShareTestimonyModalProps) => {
   const [testimony, setTestimony] = useState("");
   const [agreeToPublish, setAgreeToPublish] = useState(false);
   const [file, setFile] = useState<any>(null);
+  const [submitTestimony, { isLoading }] = useSubmitTestimonyMutation();
 
   const handleFileUpload = (e: any) => {
     const uploadedFile = e.target.files[0];
@@ -21,16 +24,23 @@ const ShareTestimonyModal = ({ isOpen, onClose }: ShareTestimonyModalProps) => {
   };
 
   const handleSubmit = () => {
-    console.log("Testimony submitted:", {
-      name,
-      email,
-      testimony,
-      file,
-      agreeToPublish,
-    });
+    const form = new FormData();
+    form.append("name", name);
+    form.append("email", email);
+    form.append("message", testimony);
+    if (file) form.append("photo", file);
+    form.append("agreeToPublish", agreeToPublish ? "true" : "false");
 
-    alert("Testimony submitted successfully!");
-    onClose();
+    submitTestimony(form)
+      .unwrap()
+      .then(() => {
+        toast.success("Testimony submitted successfully!");
+        onClose();
+      })
+      .catch((err) => {
+        console.error("Submit testimony error", err);
+        toast.error("Failed to submit testimony. Please try again.");
+      });
   };
 
   if (!isOpen) return null;
@@ -118,7 +128,7 @@ const ShareTestimonyModal = ({ isOpen, onClose }: ShareTestimonyModalProps) => {
                 htmlFor="file-upload"
                 className="cursor-pointer flex flex-col items-center"
               >
-               <MdCloudUpload className="w-12 h-12 text-gray-400 mb-3" />
+                <MdCloudUpload className="w-12 h-12 text-gray-400 mb-3" />
 
                 <p className="text-gray-700">
                   <span className="font-medium text-blue-600">
@@ -166,9 +176,10 @@ const ShareTestimonyModal = ({ isOpen, onClose }: ShareTestimonyModalProps) => {
 
             <button
               onClick={handleSubmit}
-              className="px-6 py-3 rounded-lg bg-amber-500 text-white font-semibold shadow-md hover:bg-amber-600"
+              disabled={isLoading}
+              className="px-6 py-3 rounded-lg bg-amber-500 text-white font-semibold shadow-md hover:bg-amber-600 disabled:opacity-60"
             >
-              Submit Testimony
+              {isLoading ? "Submitting..." : "Submit Testimony"}
             </button>
           </div>
 

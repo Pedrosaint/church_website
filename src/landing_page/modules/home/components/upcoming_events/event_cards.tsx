@@ -1,4 +1,4 @@
-import { ChevronRight, Clock, MapPin } from "lucide-react";
+import { Clock, MapPin } from "lucide-react";
 
 interface EventCardProps {
   date: string;
@@ -42,7 +42,7 @@ export const EventCard = ({
 
         <h3 className="text-xl font-bold text-gray-900 md:hidden">{title}</h3>
 
-        <div className="space-y-2 mb-4">
+        <div className="space-y-2">
           {time && (
             <div className="flex items-center gap-2 text-gray-600">
               <Clock size={16} />
@@ -54,11 +54,6 @@ export const EventCard = ({
             <span className="text-sm">{location}</span>
           </div>
         </div>
-
-        <button className="text-[#0B2545] font-medium text-sm flex items-center gap-1">
-          Learn More
-          <ChevronRight size={16} />
-        </button>
       </div>
     </div>
   );

@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Clock, ChevronDown, Save, X } from "lucide-react";
+import { useAdmissionContext } from "../../context/AdmissionContext";
 
 interface ProgrammeInformationProps {
   goToNext: () => void;
@@ -8,6 +9,7 @@ interface ProgrammeInformationProps {
 export default function ProgrammeInformation({
   goToNext,
 }: ProgrammeInformationProps) {
+  const { updateFormData, getFormData } = useAdmissionContext();
   const [form, setForm] = useState({
     programmeLevel: "",
     programmeChoice: "",
@@ -17,9 +19,22 @@ export default function ProgrammeInformation({
 
   const [lastSaved, setLastSaved] = useState<Date | null>(null);
 
+  useEffect(() => {
+    const data = getFormData();
+    if (data.programmeInfo) {
+      setForm(data.programmeInfo);
+    }
+  }, []);
+
   const handleNext = () => {
+    updateFormData("programmeInfo", form);
     setLastSaved(new Date());
     goToNext();
+  };
+
+  const handleSave = () => {
+    updateFormData("programmeInfo", form);
+    setLastSaved(new Date());
   };
 
   return (
@@ -235,6 +250,7 @@ export default function ProgrammeInformation({
 
         {/* Save button */}
         <button
+          onClick={handleSave}
           className="flex items-center justify-center gap-2
                w-full sm:w-auto
                px-5 py-2 border border-[#0B2545]
