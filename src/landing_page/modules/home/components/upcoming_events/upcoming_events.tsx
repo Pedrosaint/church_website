@@ -1,23 +1,13 @@
 import { ChevronRight } from "lucide-react";
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { fetchEvents } from "../../../../../redux/slices/events.slice";
-import type { RootState, AppDispatch } from "../../../../../redux/store";
+import { useGetEventsQuery } from "../../api/events.api";
 import { EventCard } from "./event_cards";
 import { EventsEmptyState } from "./events_empty_state";
-import type { Event } from "../../../../../redux/slices/events.slice";
+import type { Event } from "../../api/events.api";
 
 export const UpcomingEvents = () => {
-  const dispatch = useDispatch<AppDispatch>();
   const navigate = useNavigate();
-  const { events, loading, error } = useSelector(
-    (state: RootState) => state.events,
-  );
-
-  useEffect(() => {
-    dispatch(fetchEvents());
-  }, [dispatch]);
+  const { data: events, isLoading: loading, error } = useGetEventsQuery();
 
   const handleViewFullCalendar = () => {
     navigate("/events-calendar");

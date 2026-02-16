@@ -1,25 +1,16 @@
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { fetchEvents } from "../../../redux/slices/events.slice";
-import type { RootState, AppDispatch } from "../../../redux/store";
+import { useGetEventsQuery } from "../home/api/events.api";
 import { EventCard } from "../home/components/upcoming_events/event_cards";
 import { EventsEmptyState } from "../home/components/upcoming_events/events_empty_state";
-import type { Event } from "../../../redux/slices/events.slice";
+import type { Event } from "../home/api/events.api";
 
 export const EventsCalendarView = () => {
-  const dispatch = useDispatch<AppDispatch>();
   const navigate = useNavigate();
-  const { events, loading, error } = useSelector(
-    (state: RootState) => state.events,
-  );
+  const { data: events, isLoading: loading, error } = useGetEventsQuery();
   const [currentMonth, setCurrentMonth] = useState(new Date().getMonth());
   const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
-
-  useEffect(() => {
-    dispatch(fetchEvents());
-  }, [dispatch]);
 
   const monthNames = [
     "January",
@@ -138,11 +129,10 @@ export const EventsCalendarView = () => {
                 {days.map((day, index) => (
                   <div
                     key={index}
-                    className={`aspect-square flex items-center justify-center text-sm rounded-lg ${
-                      day === null
+                    className={`aspect-square flex items-center justify-center text-sm rounded-lg ${day === null
                         ? ""
                         : "bg-gray-50 text-gray-700 hover:bg-[#D4A34A] hover:text-white transition-colors cursor-pointer font-medium"
-                    }`}
+                      }`}
                   >
                     {day}
                   </div>

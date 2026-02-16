@@ -1,6 +1,6 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import { navLinks } from "../../lib/nav_links";
-import { ChevronDown, Menu, SearchIcon, X } from "lucide-react";
+import { ChevronDown, Menu, X } from "lucide-react";
 import { useState } from "react";
 
 const Header = () => {
@@ -230,20 +230,6 @@ const Header = () => {
           >
             Apply
           </button> */}
-        </div>
-      </div>
-
-      {/* SEARCH BAR UNDER HEADER */}
-      <div className="w-full bg-white shadow-sm border-t border-gray-200 font-inter">
-        <div className="container mx-auto px-6 py-3">
-          <div className="flex items-center w-full max-w-2xl self-end rounded-lg border border-gray-300 py-2 px-4 ">
-            <SearchIcon className="w-7 h-7 text-[#D4A95E]" />
-            <input
-              type="text"
-              placeholder="Search courses, programs, departments..."
-              className="w-full outline-none indent-2"
-            />
-          </div>
         </div>
       </div>
     </header>

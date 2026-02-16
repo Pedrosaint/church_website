@@ -1,5 +1,6 @@
 import { LeadershipTeamCard } from "./leadership_cards";
 import ProfUdoImage from "../../../../../assets/images/Prof-udo.png";
+import DrGloryImage from "../../../../../assets/images/Provost's pic.png";
 
 
 
@@ -23,8 +24,7 @@ export const LeadershipTeam = () => {
       title: "Dr. (Mrs.) Glory C. Obioma",
       desc: "Oversees academic programs, faculty coordination, and quality assurance.",
       subTitle: "Provost",
-      image:
-        "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800",
+      image: DrGloryImage,
     },
   ];
 

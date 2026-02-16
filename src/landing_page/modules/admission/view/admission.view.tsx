@@ -1,4 +1,4 @@
-import AdmissionApplication from "../components/admission_application/admission_application"
+
 import AdmissionHero from "../components/admission_hero"
 import AdmissionProcess from "../components/admission_process"
 import AdmissionRequirement from "../components/admission_requirement"
@@ -20,9 +20,9 @@ const AdmissionView = () => {
         <ProgramsSection />
       </div>
 
-      <div id="online-application">
-        <AdmissionApplication />
-      </div>
+
+
+
     </section>
   );
 }
