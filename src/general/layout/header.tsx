@@ -125,7 +125,7 @@ const Header = () => {
         <div className="hidden lg:flex items-center space-x-3">
           <button
             onClick={() => handleScrollNavigation("/more#support-the-ministry")}
-            className="px-4 py-2 border border-[#D4A95E] rounded-lg text-[#D4A95E] cursor-pointer"
+            className="px-4 py-2 border border-[#D4A95E] rounded-lg text-[#D4A95E] cursor-pointer hover:scale-105"
           >
             Donate
           </button>
@@ -217,7 +217,7 @@ const Header = () => {
               handleScrollNavigation("/more#support-the-ministry");
               setMobileOpen(false);
             }}
-            className="w-full px-4 py-2 border border-[#D4A95E] rounded-lg text-[#D4A95E] cursor-pointer"
+            className="w-full px-4 py-2 border border-[#D4A95E] rounded-lg text-[#D4A95E] cursor-pointer hover:scale-105"
           >
             Donate
           </button>

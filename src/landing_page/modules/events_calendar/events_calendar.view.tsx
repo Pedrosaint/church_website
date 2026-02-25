@@ -129,10 +129,11 @@ export const EventsCalendarView = () => {
                 {days.map((day, index) => (
                   <div
                     key={index}
-                    className={`aspect-square flex items-center justify-center text-sm rounded-lg ${day === null
+                    className={`aspect-square flex items-center justify-center text-sm rounded-lg ${
+                      day === null
                         ? ""
                         : "bg-gray-50 text-gray-700 hover:bg-[#D4A34A] hover:text-white transition-colors cursor-pointer font-medium"
-                      }`}
+                    }`}
                   >
                     {day}
                   </div>
@@ -157,7 +158,17 @@ export const EventsCalendarView = () => {
                   All Events
                 </h3>
                 {events.map((event: Event, index: number) => (
-                  <EventCard key={index} {...event} />
+                  <EventCard
+                    key={index}
+                    date={new Date(event.date).getDate().toString()}
+                    month={new Date(event.date).toLocaleString("default", {
+                      month: "short",
+                    })}
+                    title={event.title}
+                    category="Community"
+                    categoryColor="bg-blue-100 text-blue-800"
+                    location={event.location}
+                  />
                 ))}
               </div>
             ) : (

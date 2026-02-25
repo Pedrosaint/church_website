@@ -13,7 +13,7 @@ const SupportMinistry = () => {
   const amounts = ["₦1000", "₦2000", "₦3000", "₦4000"];
 
   return (
-    <div className="bg-gray-50 py-12 px-4 mt-25 md:mt-30">
+    <div className="bg-gray-50 py-12 px-4 mt-10 md:mt-18">
       <div className="container mx-auto">
         {/* Header */}
         <div className="md:text-center mb-8">
@@ -38,11 +38,10 @@ const SupportMinistry = () => {
                 <button
                   key={category}
                   onClick={() => setSelectedCategory(category)}
-                  className={`py-3 px-4 rounded-lg font-medium transition-all cursor-pointer ${
-                    selectedCategory === category
-                      ? "bg-gray-50  text-[#D4A34A] shadow-md"
-                      : "text-gray-500"
-                  }`}
+                  className={`py-3 px-4 rounded-lg font-medium transition-all cursor-pointer ${selectedCategory === category
+                    ? "bg-gray-50  text-[#D4A34A] shadow-md"
+                    : "text-gray-500"
+                    }`}
                 >
                   {category}
                 </button>
@@ -63,11 +62,10 @@ const SupportMinistry = () => {
                     setSelectedAmount(amount);
                     setCustomAmount("");
                   }}
-                  className={`py-3 px-4 rounded-lg font-medium transition-all cursor-pointer ${
-                    selectedAmount === amount
-                      ? "bg-white border-2 border-[#D4a34a] text-gray-600 shadow-md"
-                      : "text-gray-700 border-2 border-gray-200"
-                  }`}
+                  className={`py-3 px-4 rounded-lg font-medium transition-all cursor-pointer ${selectedAmount === amount
+                    ? "bg-white border-2 border-[#D4a34a] text-gray-600 shadow-md"
+                    : "text-gray-700 border-2 border-gray-200"
+                    }`}
                 >
                   {amount}
                 </button>

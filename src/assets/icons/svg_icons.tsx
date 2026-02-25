@@ -51,7 +51,7 @@ export const QuoteIcon = ({
   width = 50,
   height = 53,
   fill = "#D4A34A",
-  stoke= "#D4A34A",
+  stoke = "#D4A34A",
   ...props
 }) => (
   <svg
@@ -119,7 +119,7 @@ export const EclippseIcon = ({
 export const WorldIcon = ({
   width = 20,
   height = 20,
-  fill= "#0B2545",
+  fill = "#0B2545",
   ...props
 }) => (
   <svg
@@ -400,5 +400,29 @@ export const Cross = ({
         xlinkHref="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAYAAAA4qEECAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB+UlEQVR4nO3dP07jQBiG8akW7rDchRYPNbcgcJY9wa7sjoPwpwowb0XDGRDps3KQoAKhxLzzjfP8pK9E2I+sATwakhIAAMBee/57fFiG7rL03Z2GvNKQ15/Mqgzd7WOfL57+nBzUvu6mPAwnRxrywxdxP5nufvza2tffzJOsrSJ/xObJ/oZxudg+8vssvvO99lp5W5N3Cl36fFP7PsIrfX6dIPRr7fsIT7svG5upfR/hidAeIrSHCO0hQnuI0B4itIcI7SFCe4jQHiK0hwg9+c7IOti0s1Oz/c5IDjaBd2p23xnJwSboTs1EOyPrYLOY5c6Igk3InZopdkYUbELu1NSOoh+aFE3tICJ025OiqR1EhG57UjS1g2hfQs/017uXFA1/sJiMb71qh9HU03fnKZrxBcz4ImY+T3O31NXZrxT3NWn7sUvfLZf/Tn+nyN6e7LwY17eWfkCWzbV21+NyEfZJnpImClf7PsIToT1EaA8R2kOE9hChPURoDxHaQ4T2EKE9RGgPEdpDhPYQoT1EaA8R2kOE9hChPURoDxHaQ4T2EKE9RGgPEdpDhPYQoT1EaA8R2kOE9hChPURoDxHaQ4T2EKE9RGgPEbqpfz3/Uvs+wit8mEJDJ3D7gCde53YCt0Q+8TqXE7ilhROvrZ7ALft24hUAACB95T8d/6KWgU8b8gAAAABJRU5ErkJggg=="
       />
     </defs>
+  </svg>
+);
+
+export const TestimonyIcon = ({
+  width = 32,
+  height = 32,
+  stroke = "#D4A34A",
+  ...props
+}) => (
+  <svg
+    width={width}
+    height={height}
+    fill="none"
+    stroke={stroke}
+    strokeWidth="1.5"
+    viewBox="0 0 24 24"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M7 8h10M7 12h6m-9 8h16a2 2 0 002-2V6a2 2 0 00-2-2H4a2 2 0 00-2 2v12a2 2 0 002 2z"
+    />
   </svg>
 );

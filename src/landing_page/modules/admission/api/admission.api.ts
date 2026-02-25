@@ -119,6 +119,11 @@ export interface AdmissionResponse {
   data: AdmissionData;
 }
 
+export interface AdmissionsResponse {
+  success: boolean;
+  data: AdmissionData[];
+}
+
 const baseURL =
   import.meta.env.VITE_API_BASE_URL;
 
@@ -127,6 +132,7 @@ export const admissionApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: baseURL,
   }),
+  tagTypes: ["Admissions"],
   endpoints: (builder) => ({
     submitAdmission: builder.mutation<AdmissionResponse, FormData>({
       query: (formData) => ({
@@ -134,18 +140,29 @@ export const admissionApi = createApi({
         method: "POST",
         body: formData,
       }),
+      invalidatesTags: ["Admissions"],
     }),
     getAdmissions: builder.query<AdmissionData[], void>({
       query: () => ({
         url: "/admissions",
         method: "GET",
       }),
+      transformResponse: (response: AdmissionsResponse) => response.data,
+      providesTags: (result) =>
+        result
+          ? [
+            ...result.map(({ id }) => ({ type: "Admissions" as const, id })),
+            { type: "Admissions", id: "LIST" },
+          ]
+          : [{ type: "Admissions", id: "LIST" }],
     }),
     getAdmissionById: builder.query<AdmissionData, string>({
       query: (id) => ({
         url: `/admissions/${id}`,
         method: "GET",
       }),
+      transformResponse: (response: AdmissionResponse) => response.data,
+      providesTags: (_result, _error, id) => [{ type: "Admissions", id }],
     }),
   }),
 });

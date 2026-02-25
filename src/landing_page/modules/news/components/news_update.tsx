@@ -98,7 +98,7 @@ const NewsUpdates = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12 px-4 mt-23 md:mt-29">
+    <div className="min-h-screen bg-gray-50 py-12 px-4 mt-10 md:mt-19">
       <div className="container mx-auto">
         {/* Header */}
         <div className="mb-8">
@@ -120,11 +120,10 @@ const NewsUpdates = () => {
                 setActiveFilter(filter);
                 setCurrentPage(1);
               }}
-              className={`px-6 py-2 rounded-md font-medium transition-all font-inter ${
-                activeFilter === filter
-                  ? "bg-[#D4A34A] text-white shadow-md"
-                  : "bg-white text-gray-700 hover:bg-gray-100 border border-gray-200"
-              }`}
+              className={`px-6 py-2 rounded-md font-medium transition-all font-inter ${activeFilter === filter
+                ? "bg-[#D4A34A] text-white shadow-md"
+                : "bg-white text-gray-700 hover:bg-gray-100 border border-gray-200"
+                }`}
             >
               {filter}
             </button>
@@ -193,11 +192,10 @@ const NewsUpdates = () => {
             <button
               key={index + 1}
               onClick={() => setCurrentPage(index + 1)}
-              className={`w-10 h-10 rounded-full font-medium transition-all font-inter ${
-                currentPage === index + 1
-                  ? "bg-[#D4A34A] text-white"
-                  : "text-gray-700"
-              }`}
+              className={`w-10 h-10 rounded-full font-medium transition-all font-inter ${currentPage === index + 1
+                ? "bg-[#D4A34A] text-white"
+                : "text-gray-700"
+                }`}
             >
               {index + 1}
             </button>

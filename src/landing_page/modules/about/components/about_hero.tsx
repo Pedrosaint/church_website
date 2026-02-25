@@ -9,7 +9,7 @@ import { IoStarSharp } from "react-icons/io5";
 
 const AboutHero = () => {
   return (
-    <section className="py-24 px-6 bg-white overflow-hidden mt-35">
+    <section className="py-24 px-6 overflow-hidden bg-white">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-20">
         {/* LEFT */}
         <div className="flex-1 space-y-6">
@@ -31,7 +31,7 @@ const AboutHero = () => {
         </div>
 
         {/* RIGHT — EXACT COPY POSITIONING */}
-        <div className="flex-1 relative h-[520px]">
+        <div className="flex-1 relative h-[520px] hidden md:block">
           {/* TOP LEFT - LARGE */}
           <div className="absolute top-10 left-0 w-70 h-[290px] rounded-3xl overflow-hidden">
             <img src={AboutHeroImg3} className="w-full h-full object-cover" />
