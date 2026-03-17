@@ -20,6 +20,17 @@ export interface TestimoniesResponse {
   data: Testimony[];
 }
 
+export interface ContactInfoRequest {
+  fullName: string;
+  email: string;
+  message: string;
+}
+
+export interface ContactInfoResponse {
+  success: boolean;
+  message: string;
+}
+
 export const moreApi = createApi({
   reducerPath: "moreApi",
   baseQuery: fetchBaseQuery({
@@ -55,7 +66,17 @@ export const moreApi = createApi({
       query: ({ id }) => ({ url: `/testimonies/${id}`, method: "GET" }),
       providesTags: (_result, _error, { id }) => [{ type: "Testimonies", id }],
     }),
+
+    contactUs: builder.mutation<ContactInfoResponse, ContactInfoRequest>({
+      query: (body) => ({
+        url: "/contact-us",
+        method: "POST",
+        body,
+      }),
+    }),
+
+
   }),
 });
 
-export const { useSubmitTestimonyMutation, useGetTestimoniesQuery } = moreApi;
+export const { useSubmitTestimonyMutation, useGetTestimoniesQuery, useContactUsMutation } = moreApi;

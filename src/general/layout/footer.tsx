@@ -2,11 +2,9 @@ import {
   Mail,
   Phone,
   MapPin,
-  Instagram,
-  Twitter,
   Dot,
-  Youtube,
 } from "lucide-react";
+import logo from "../../assets/images/logo.png";
 
 const Footer = () => {
   return (
@@ -15,11 +13,11 @@ const Footer = () => {
         {/* LOGO + CONTACT */}
         <div>
           <figure className="font-bold text-xl">
-            <img src="/logo.svg" alt="Church logo" />
+            <img src={logo} alt="Church logo" className="h-12 w-auto" />
           </figure>
           <p className="text-sm mt-3 leading-relaxed text-gray-400 font-inter">
-            Equipping God’s people for faithful service in His kingdom since
-            1991.
+            The Way to God Gospel Ministry — reaching the unreached with the
+            Gospel of Jesus Christ since 1981.
           </p>
 
           <div className="mt-4 space-y-4 text-sm font-inter">
@@ -27,20 +25,21 @@ const Footer = () => {
             <p className="flex items-start gap-3 text-gray-400">
               <MapPin size={22} className="text-[#D4A34A] shrink-0" />
               <span>
-                3–5 WAGGOM Avenue, Off Agalaba Road, Osiomma, Aba, Abia State
+                3–5 Waggom Avenue, Off Agalaba Road, Osisioma Industrial Layout,
+                Aba, Abia State, Nigeria
               </span>
             </p>
 
             {/* PHONE */}
             <p className="flex items-center gap-3 text-gray-400">
               <Phone size={18} className="text-[#D4A34A] shrink-0" />
-              <span>(555) 123-4567</span>
+              <span>+234 902 092 7872</span>
             </p>
 
             {/* EMAIL */}
             <p className="flex items-center gap-3 text-gray-400 break-all">
               <Mail size={18} className="text-[#D4A34A] shrink-0" />
-              <span>info@waths.edu</span>
+              <span>info@waggom.org</span>
             </p>
           </div>
         </div>
@@ -49,76 +48,54 @@ const Footer = () => {
         <div>
           <h3 className="font-semibold text-xl mb-3">About</h3>
           <ul className="space-y-2 text-sm text-gray-400 font-inter">
-            <li>Our Story</li>
-            <li>Mission & Vision</li>
+            <li>Who We Are</li>
+            <li>Our Beliefs</li>
+            <li>Our Activities</li>
             <li>Leadership</li>
-            <li>Accreditation</li>
           </ul>
         </div>
 
-        {/* ACADEMICS */}
+        {/* MINISTRY */}
         <div>
-          <h3 className="font-semibold text-xl mb-3">Academics</h3>
+          <h3 className="font-semibold text-xl mb-3">Ministry</h3>
           <ul className="space-y-2 text-sm text-gray-400 font-inter">
-            <li>Programs</li>
-            <li>Faculty</li>
-            <li>Library</li>
-            <li>Academic Calendar</li>
+            <li>Missions</li>
+            <li>Prayer Department</li>
+            <li>Partner With Us</li>
+            <li>Support the Ministry</li>
           </ul>
         </div>
 
-        {/* ADMISSIONS */}
+        {/* EDUCATION */}
         <div>
-          <h3 className="font-semibold text-xl mb-3">Admission</h3>
+          <h3 className="font-semibold text-xl mb-3">Education</h3>
           <ul className="space-y-2 text-sm text-gray-400 font-inter">
-            <li>Apply Now</li>
-            <li>Tuition & Aid</li>
-            <li>Visit Campus</li>
-            <li>International Students</li>
+            <li>Waggom Academy (WAAC)</li>
+            <li>Waggom Model Seminary (WAMS)</li>
+            <li>School of Missions</li>
           </ul>
         </div>
 
-        {/* RESOURCES */}
+        {/* CONNECT */}
         <div>
-          <h3 className="font-semibold text-xl mb-3">Resources</h3>
+          <h3 className="font-semibold text-xl mb-3">Connect</h3>
           <ul className="space-y-2 text-sm text-gray-400 font-inter">
-            <li>Student Portal</li>
-            <li>Alumni</li>
-            <li>Events</li>
-            <li>News & Media</li>
+            <li>News & Updates</li>
+            <li>Testimonies</li>
+            <li>Gallery</li>
+            <li>Contact Us</li>
           </ul>
         </div>
       </div>
 
-      {/* Newsletter */}
-      <div className="container mx-auto px-6 mt-10 border-t border-gray-600 pt-6">
-        <h3 className="font-semibold text-xl">Stay Connected</h3>
-        <p className="text-sm mb-3 text-gray-400 font-inter">
-          Subscribe to our newsletter for updates and ministry resources
-        </p>
-
-        <div className="flex items-center gap-3 font-inter">
-          <input
-            type="email"
-            className="w-full md:w-96 px-4 py-2 rounded-lg bg-transparent border border-gray-500 text-white"
-            placeholder="Your email address"
-          />
-          <button className="px-6 py-2 bg-[#D4A95E] text-white rounded-lg font-inter">
-            Subscribe
-          </button>
-        </div>
-
-        {/* Social Icons */}
-        <div className="flex gap-4 mt-6">
-          <Twitter className="bg-white/20 p-2 rounded-full" size={40} />
-          <Instagram className="bg-white/20 p-2 rounded-full" size={40} />
-          <Youtube className="bg-white/20 p-2 rounded-full" size={40} />
-        </div>
-      </div>
+      {/* Divider */}
+      <div className="container mx-auto px-6 mt-10 border-t border-gray-600 pt-6" />
 
       {/* Bottom */}
       <div className="container mx-auto px-6 mt-10 text-sm text-gray-400 flex flex-wrap justify-between font-inter">
-        <p>{new Date().getFullYear()} Bible School. All Rights Reserved</p>
+        <p>
+          {new Date().getFullYear()} WAGGOM. All Rights Reserved
+        </p>
 
         <div className="flex space-x-2">
           <p>Privacy Policy</p> <Dot />

@@ -1,123 +1,83 @@
-import { Eye, Heart } from "lucide-react";
-import { EclippseIcon } from "../../../../assets/icons/svg_icons";
+import { Calendar, Clock, Moon, Music } from "lucide-react";
 
+const activities = [
+  {
+    icon: <Calendar className="w-6 h-6 text-[#D4A34A]" />,
+    title: "General Fellowship",
+    schedule: "Every Thursday",
+    time: "5:00 PM",
+    description:
+      "Join us for our weekly fellowship gathering at the WAGGOM Temple of Praise.",
+  },
+  {
+    icon: <Clock className="w-6 h-6 text-[#D4A34A]" />,
+    title: "General Prayer and Fasting",
+    schedule: "First Saturday of every month",
+    time: "9:00 AM",
+    description:
+      "A dedicated time of corporate prayer and fasting before the Lord.",
+  },
+  {
+    icon: <Moon className="w-6 h-6 text-[#D4A34A]" />,
+    title: "Power Night",
+    schedule: "Second Friday of every month",
+    time: "10:00 PM",
+    description:
+      "An intense night of prayer, worship, and spiritual encounter.",
+  },
+  {
+    icon: <Music className="w-6 h-6 text-[#D4A34A]" />,
+    title: "Hour of Praises",
+    schedule: "Third and Fourth Saturdays of every month",
+    time: "",
+    description:
+      "A time of joyful praise and worship, lifting the name of the Lord in song.",
+  },
+];
 
-const WhatDrivesUs = () => {
+const OurActivities = () => {
   return (
     <section className="py-20 px-4">
-      <div className="container mx-auto flex flex-col gap-12">
+      <div className="container mx-auto max-w-6xl">
         {/* Header */}
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold mb-2">What Drives Us</h2>
+          <h2 className="text-4xl font-bold mb-2">Our Activities</h2>
           <p className="text-gray-600 text-lg max-w-3xl mx-auto font-inter">
-            Our mission, vision, and values inspire everything we do as we
-            prepare spiritually grounded, academically sound leaders for kingdom
-            service and societal impact.
+            Join us at the WAGGOM Temple of Praise for any of our fellowship
+            gatherings
           </p>
         </div>
 
-        {/* Mission */}
-        <div className="bg-white shadow-sm rounded-xl p-8 border border-gray-100 w-full md:max-w-5xl max-w-7xl h-full">
-          <div className="flex flex-col items-start gap-4 mb-2">
-            <div className="w-10 h-10 rounded bg-[#D4A34A] flex items-center justify-center">
-              <p>
-                <EclippseIcon />
-              </p>
+        {/* Activities Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {activities.map((activity, index) => (
+            <div
+              key={index}
+              className="bg-white shadow-sm rounded-xl p-8 border border-gray-100 hover:shadow-md transition-shadow"
+            >
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 rounded-lg bg-[#D4A34A]/10 flex items-center justify-center shrink-0">
+                  {activity.icon}
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold text-[#0B2545] mb-1">
+                    {activity.title}
+                  </h3>
+                  <p className="text-[#D4A34A] font-medium text-sm mb-1">
+                    {activity.schedule}
+                    {activity.time && ` \u2014 ${activity.time}`}
+                  </p>
+                  <p className="text-gray-600 text-sm leading-relaxed">
+                    {activity.description}
+                  </p>
+                </div>
+              </div>
             </div>
-            <h3 className="text-xl font-semibold">Mission</h3>
-          </div>
-
-          <ul className="text-sm text-gray-700 space-y-1 mt-2 list-disc pl-5">
-            <li>
-              Promote and advance knowledge through research and scholarship.
-            </li>
-            <li>
-              Train competent manpower for national development through
-              effective teaching.
-            </li>
-            <li>
-              Provide meaningful service to the community through practical
-              and systematic approaches.
-            </li>
-            <li>
-              Foster creativity, discipline, self-actualization, patriotism,
-              and national consciousness.
-            </li>
-            <li>
-              Develop students’ gifts and potentials while instilling values,
-              principles, and cultural awareness.
-            </li>
-          </ul>
-        </div>
-
-        {/* Vision */}
-        <div className="bg-white shadow-sm rounded-xl p-8 border border-gray-100 max-w-3xl ml-auto h-full">
-          <div className="flex flex-col items-start gap-4 mb-2">
-            <div className="w-10 h-10 rounded bg-[#D4A34A] flex items-center justify-center">
-              <p>
-                <Eye color="white" />
-              </p>
-            </div>
-            <h3 className="text-xl font-semibold">Vision</h3>
-          </div>
-
-          <p className="text-sm text-gray-700 mt-2 leading-relaxed">
-            To raise spiritually responsible, academically sound, and morally
-            upright end-time diplomats/graduates who remain relevant in both
-            sacred and secular contexts, confronting life's challenges with
-            God’s wisdom.
-          </p>
-        </div>
-
-        {/* Core Philosophy & Objective */}
-        <div className="bg-white shadow-sm rounded-xl p-8 border border-gray-100 w-full md:max-w-5xl max-w-7xl h-full">
-          <div className="flex flex-col items-start gap-4 mb-2">
-            <div className="w-10 h-10 rounded bg-[#D4A34A] flex items-center justify-center">
-              <p>
-                <Heart color="white" />
-              </p>
-            </div>
-            <h3 className="text-xl font-semibold">
-              Core Philosophy & Objective
-            </h3>
-          </div>
-
-          <ul className="text-sm text-gray-700 space-y-1 mt-2 list-disc pl-5">
-            <li>
-              Pursuing truth through rigorous academic inquiry and research.
-            </li>
-            <li>
-              Developing critical and objective thinking on religious,
-              cultural, and philosophical issues.
-            </li>
-            <li>
-              Enhancing the ability to distinguish facts from opinions and
-              objective statements from value judgments.
-            </li>
-            <li>
-              Broadening intellectual horizons and promoting openness, mental
-              flexibility, and self-actualization.
-            </li>
-            <li>
-              Preparing students to become responsible citizens who serve God
-              and their nation.
-            </li>
-            <li>
-              Equipping learners to navigate the complexities of religion in a
-              scientific and technological age.
-            </li>
-            <li>
-              Encouraging informed, research-based approaches to religion,
-              culture, and society.
-            </li>
-            <li>
-              Embracing modern, flexible, learner-centered curriculum trends.
-            </li>
-          </ul>
+          ))}
         </div>
       </div>
     </section>
   );
 };
 
-export default WhatDrivesUs;
+export default OurActivities;

@@ -2,6 +2,8 @@ import { useState } from "react";
 import { MapPin, Phone, Mail } from "lucide-react";
 import { MapContainer, TileLayer, Marker } from "react-leaflet";
 import L from "leaflet";
+import { toast } from "sonner";
+import { useContactUsMutation } from "../api/more.api";
 
 // Custom Marker Icon
 const redMarker = new L.Icon({
@@ -15,13 +17,32 @@ const GetInTouch = () => {
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [contactUs, { isLoading }] = useContactUsMutation();
 
-  const handleSubmit = () => {
-    console.log("Form submitted:", { fullName, email, message });
-    alert("Message sent successfully!");
-    setFullName("");
-    setEmail("");
-    setMessage("");
+const handleSubmit = async () => {
+    if (!fullName || !email || !message) {
+      toast.error("Please fill all fields");
+      return;
+    }
+
+    try {
+      const contactInfo = {
+        fullName,
+        email,
+        message
+      };
+
+      await contactUs(contactInfo).unwrap();
+
+      toast.success("Message sent successfully!");
+
+      // clear form
+      setFullName("");
+      setEmail("");
+      setMessage("");
+    } catch (error: unknown) {
+      toast.error((error as { data: { message: string } }).data.message);
+    }
   };
 
   return (
@@ -50,6 +71,7 @@ const GetInTouch = () => {
                 <input
                   type="text"
                   value={fullName}
+                  placeholder="Enter your full name"
                   onChange={(e) => setFullName(e.target.value)}
                   className="w-full py-3 px-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all"
                 />
@@ -61,6 +83,7 @@ const GetInTouch = () => {
                 <input
                   type="email"
                   value={email}
+                  placeholder="Enter your email"
                   onChange={(e) => setEmail(e.target.value)}
                   className="w-full py-3 px-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all"
                 />
@@ -84,9 +107,10 @@ const GetInTouch = () => {
             {/* Submit Button */}
             <button
               onClick={handleSubmit}
-              className="bg-[#D4A34A] hover:bg-[#D4A34A]/80 text-white font-semibold px-4 py-3 rounded-xl transition-colors shadow-md"
+              disabled={isLoading}
+              className="bg-[#D4A34A] hover:bg-[#D4A34A]/80 disabled:opacity-50 disabled:cursor-not-allowed text-white font-semibold px-4 py-3 hover:scale-105 cursor-pointer rounded-xl transition-colors shadow-md"
             >
-              Send Message
+              {isLoading ? "Sending..." : "Send Message"}
             </button>
           </div>
 
@@ -101,9 +125,9 @@ const GetInTouch = () => {
                 </div>
                 <div>
                   <p className="text-gray-800">
-                    13-5 WAGGOM Avenue, Off Agalaba Road,
+                    3–5 Waggom Avenue, Off Agalaba Road,
                     <br />
-                    Oisigioma, Aba, Abia State
+                    Osisioma Industrial Layout, Aba, Abia State, Nigeria
                   </p>
                 </div>
               </div>
@@ -114,7 +138,7 @@ const GetInTouch = () => {
                   <Phone className="w-6 h-6 text-[#D4A34A]" />
                 </div>
                 <div>
-                  <p className="text-gray-800">+234-09045675676</p>
+                  <p className="text-gray-800">+234 902 092 7872</p>
                 </div>
               </div>
 
@@ -124,7 +148,7 @@ const GetInTouch = () => {
                   <Mail className="w-6 h-6 text-[#D4A34A]" />
                 </div>
                 <div>
-                  <p className="text-gray-800">info@waths.edu</p>
+                  <p className="text-gray-800">info@waggom.org</p>
                 </div>
               </div>
             </div>
@@ -156,24 +180,24 @@ const GetInTouch = () => {
           </h3>
           <div className="flex flex-wrap justify-center items-center gap-2 text-gray-700">
             <a
-              href="#"
+              href="/about#our-activities"
               className="hover:text-amber-600 transition-colors underline"
             >
-              How do I apply?
+              Fellowship Schedule
             </a>
             <span className="text-gray-400">|</span>
             <a
-              href="#"
+              href="/more#missions"
               className="hover:text-amber-600 transition-colors underline"
             >
-              What are the tuition fees?
+              Our Missions
             </a>
             <span className="text-gray-400">|</span>
             <a
-              href="#"
+              href="/more#partner-with-us"
               className="hover:text-amber-600 transition-colors underline"
             >
-              View Academic Calendar
+              Partner With Us
             </a>
           </div>
         </div>

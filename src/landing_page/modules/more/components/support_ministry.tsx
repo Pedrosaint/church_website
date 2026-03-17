@@ -13,7 +13,7 @@ const SupportMinistry = () => {
   const amounts = ["₦1000", "₦2000", "₦3000", "₦4000"];
 
   return (
-    <div className="bg-gray-50 py-12 px-4 mt-10 md:mt-18">
+    <div className="bg-gray-50 py-12 px-4">
       <div className="container mx-auto">
         {/* Header */}
         <div className="md:text-center mb-8">

@@ -1,73 +1,110 @@
+import { BookOpen } from "lucide-react";
 
-const AboutUs = () => {
-  const timelineEvents = [
-    {
-      year: "1991",
-      title: "",
-      description:
-        "WAGGOM Theological Seminary was founded on July 4 as a non-denominational, gender-friendly institution committed to producing capable men and women equipped to meet the spiritual, moral, social, and economic needs of society.",
-    },
-    {
-      year: "2012",
-      title: "",
-      description:
-        "The seminary relocated to its serene permanent campus at 3-5 WAGGOM Avenue, Osisioma, marking a new phase of structural expansion, academic stability, and institutional growth.",
-    },
-    {
-      year: "",
-      title: "Affiliate With University of Calabar",
-      description:
-        "WAGGOM Theological Seminary secured official affiliation with the University of Calabar an affiliation recognized and approved by the National Universities Commission (NUC), Nigeria. This milestone granted the institution full accreditation to run degree programs in Religious and Cultural Studies and other related disciplines.",
-    },
-    {
-      year: "Today",
-      title: "",
-      description:
-        "The Seminary continues to train, equip, and deploy ministers across diverse spheres of service. The accomplishments of its graduates remain a testament to WAGGOM's excellence, effectiveness, and professionalism.",
-    },
-  ];
+const beliefs = [
+  {
+    title: "The Holy Scriptures",
+    description:
+      "We believe that the Bible is the infallible Word of God, eternally reliable in all matters concerning the Christian faith and life.",
+    verse: "2 Timothy 3:16",
+  },
+  {
+    title: "The Trinity",
+    description:
+      "We believe in the Divine Trinity, God the Father, God the Son, and God the Holy Spirit\u2014three distinct persons perfectly united as one God.",
+    verse: "Matthew 3:16\u201317; Matthew 28:19",
+  },
+  {
+    title: "Repentance",
+    description:
+      "We believe in true repentance, which involves godly sorrow for sin and a sincere turning away from it.",
+    verse: "Romans 5:1; 1 Corinthians 6:11",
+  },
+  {
+    title: "Justification by Grace",
+    description:
+      "We believe in justification and the remission of sins through God\u2019s grace, enabling believers to stand guiltless before Him.",
+    verse: "Ephesians 2:5\u20138",
+  },
+  {
+    title: "The Baptism of the Holy Spirit",
+    description:
+      "We believe in the baptism of the Holy Spirit, with speaking in tongues as one of its evidences.",
+    verse: "Acts 1:8; Mark 16:17",
+  },
+  {
+    title: "The Church",
+    description:
+      "We believe that the Church is the body of Christ, and all believers are united in Him.",
+    verse: "Romans 12:5",
+  },
+  {
+    title: "Water Baptism",
+    description:
+      "We believe in water baptism by immersion after repentance and full surrender to Jesus Christ.",
+    verse: "Matthew 28:19; Acts 8:28\u201338",
+  },
+  {
+    title: "Divine Healing",
+    description:
+      "We believe that divine healing is available to God\u2019s children through the finished work of Christ on the cross.",
+    verse: "Isaiah 53:4\u20135; James 5:14\u201316",
+  },
+  {
+    title: "Life After Death",
+    description:
+      "We believe in the immortality and consciousness of the spirit after physical death.",
+    verse: "Ecclesiastes 12:7",
+  },
+  {
+    title: "The Second Coming of Christ",
+    description:
+      "We believe in the second coming of our Lord Jesus Christ, the rapture of the Church, and the bodily resurrection of both the just and the unjust.",
+    verse: "Acts 1:9\u201311; 1 Thessalonians 4:15\u201317",
+  },
+  {
+    title: "Heaven and Hell",
+    description:
+      "We believe that Heaven is the eternal dwelling place for God\u2019s children, while Hell is the eternal destiny for those who reject Him.",
+    verse: "Matthew 25:41\u201346; Luke 16:24",
+  },
+];
 
+const OurBeliefs = () => {
   return (
     <section className="bg-[#F6F7F9] py-20 px-6">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Our Journey
+            Our Beliefs
           </h2>
-          <p className="text-gray-600 text-lg font-inter">
-            A legacy of spiritual formation, academic growth, and dedicated
-            ministry since 1991
+          <p className="text-gray-600 text-lg font-inter max-w-3xl mx-auto">
+            Our faith is firmly rooted in the teachings of the Holy Scriptures
           </p>
         </div>
 
-        {/* Timeline */}
-        <div className="space-y-12">
-          {timelineEvents.map((event, index) => (
-            <div key={index} className="relative pl-8 md:pl-12">
-              {/* Vertical Line */}
-              {index !== timelineEvents.length - 0 && (
-                <div className="absolute left-[11px] md:left-[19px] top-8 bottom-0 w-0.5 bg-[#D4A34A]"></div>
-              )}
-
-              {/* Timeline Dot */}
-              <div className="absolute left-0 md:left-2 top-0 w-6 h-6 bg-[#D4A34A] rounded-full border-4 border-white shadow-md"></div>
-
-              {/* Content */}
-              <div className="bg-white rounded-lg p-6 shadow-sm border border-gray-200 hover:shadow-md transition-shadow">
-                {/* Year/Title */}
-                <h3 className="text-xl font-bold mb-3">
-                  {event.title ? (
-                    <span className="text-[#D4A34A]">{event.title}</span>
-                  ) : (
-                    <span className="text-[#D4A34A]">{event.year}</span>
-                  )}
-                </h3>
-
-                {/* Description */}
-                <p className="text-gray-600 leading-relaxed">
-                  {event.description}
-                </p>
+        {/* Beliefs Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {beliefs.map((belief, index) => (
+            <div
+              key={index}
+              className="bg-white rounded-xl p-6 shadow-sm border border-gray-200 hover:shadow-md transition-shadow"
+            >
+              <div className="flex items-start gap-4">
+                <div className="w-10 h-10 rounded-lg bg-[#D4A34A]/10 flex items-center justify-center shrink-0">
+                  <BookOpen className="w-5 h-5 text-[#D4A34A]" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold text-[#0B2545] mb-2">
+                    {belief.title}
+                  </h3>
+                  <p className="text-gray-600 text-sm leading-relaxed mb-2">
+                    {belief.description}
+                  </p>
+                  <p className="text-[#D4A34A] text-xs font-medium italic">
+                    ({belief.verse})
+                  </p>
+                </div>
               </div>
             </div>
           ))}
@@ -77,4 +114,4 @@ const AboutUs = () => {
   );
 };
 
-export default AboutUs;
+export default OurBeliefs;

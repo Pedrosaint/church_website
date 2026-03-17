@@ -2,6 +2,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { navLinks } from "../../lib/nav_links";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { useState } from "react";
+import logo from "../../assets/images/logo.png";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -39,7 +40,7 @@ const Header = () => {
         <figure
           onClick={() => navigate("/")}
           className="text-xl font-semibold cursor-pointer">
-          <img src="/logo.svg" alt="Church Logo" />
+          <img src={logo} alt="Church Logo" className="h-12 w-auto" />
         </figure>
 
         {/* MOBILE TOGGLE */}

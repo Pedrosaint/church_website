@@ -2,8 +2,8 @@ import type { RouteObject } from "react-router-dom";
 import MainLayout from "../general/layout/main_layout";
 import HomeView from "../landing_page/modules/home/view/home.view";
 import AboutView from "../landing_page/modules/about/view/about.view";
-import AcademicView from "../landing_page/modules/academic/view/academic.view";
-import AdmissionView from "../landing_page/modules/admission/view/admission.view";
+// import AcademicView from "../landing_page/modules/academic/view/academic.view";
+// import AdmissionView from "../landing_page/modules/admission/view/admission.view";
 import NewsView from "../landing_page/modules/news/view/news.view";
 import StudentAuthView from "../auth/student_auth/view/student_auth.view";
 import MoreView from "../landing_page/modules/more/view/more.view";
@@ -98,14 +98,14 @@ export default function appRouter(): RouteObject[] {
           path: "/about",
           element: <AboutView />,
         },
-        {
-          path: "/academic",
-          element: <AcademicView />,
-        },
-        {
-          path: "/admission",
-          element: <AdmissionView />,
-        },
+        // {
+        //   path: "/academic",
+        //   element: <AcademicView />,
+        // },
+        // {
+        //   path: "/admission",
+        //   element: <AdmissionView />,
+        // },
         {
           path: "/news-updates",
           element: <NewsView />,
