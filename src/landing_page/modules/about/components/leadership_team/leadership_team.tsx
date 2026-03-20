@@ -1,6 +1,7 @@
 import { LeadershipTeamCard } from "./leadership_cards";
 import ProfUdoImage from "../../../../../assets/images/Prof-udo.png";
 import DrGloryImage from "../../../../../assets/images/Provost's pic.png";
+import Pope from "../../../../../assets/images/KY7B1729.jpg.jpeg";
 
 
 
@@ -11,8 +12,7 @@ export const LeadershipTeam = () => {
       title: "The Most Rev. Isaac Chijioke Nwaobia, Ph.D., JP, FCBA",
       desc: "Provides overall governance, policy direction, and spiritual oversight for the Seminary",
       subTitle: "Chairman, Governing Board ",
-      image:
-        "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=800",
+      image: Pope,
     },
     {
       title: "Ven. Prof. Udo E. Obioma",
